@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+gradle
+.gradle
+.idea
+build
+.gradle/
+.idea/
+build/
+gradle/
+gradlew
+gradlew.bat
+import-summary.txt
+latin.iml
+

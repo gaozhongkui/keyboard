@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.android.inputmethod.latin"
+        minSdkVersion 14
+        targetSdkVersion 23
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    aaptOptions {
+        noCompress 'dict'
+    }
+
+}
+
+dependencies {
+    repositories {
+        flatDir {
+            dirs 'src/main/libs'
+        }
+    }
+    compile files('src/main/libs/annotations-2.0.0.jar')
+    compile 'com.android.support:support-v4:24.1.1'
+}
