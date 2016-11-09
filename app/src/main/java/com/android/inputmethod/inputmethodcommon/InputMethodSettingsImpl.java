@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.inputmethodcommon;
+package com.android.inputmethod.inputmethodcommon;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;

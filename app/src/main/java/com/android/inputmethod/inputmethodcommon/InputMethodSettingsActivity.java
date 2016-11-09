@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.inputmethodcommon;
+package com.android.inputmethod.inputmethodcommon;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
