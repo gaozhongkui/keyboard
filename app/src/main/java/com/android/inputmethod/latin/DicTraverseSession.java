@@ -16,9 +16,9 @@
 
 package com.android.inputmethod.latin;
 
-import com.android.inputmethod.latin.common.NativeSuggestOptions;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.utils.JniUtils;
+import com.gmx.emoji.goo.common.NativeSuggestOptions;
+import com.gmx.emoji.goo.define.DecoderSpecificConstants;
+import com.gmx.emoji.goo.utils.JniUtils;
 
 import java.util.Locale;
 

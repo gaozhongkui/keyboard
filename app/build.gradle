@@ -4,7 +4,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.android.inputmethod.latin"
+        applicationId "com.gmx.emoji.goo"
         minSdkVersion 14
         targetSdkVersion 23
     }
@@ -18,6 +18,10 @@ android {
 
     aaptOptions {
         noCompress 'dict'
+    }
+
+    lintOptions {
+        disable "ResourceType"
     }
 
 }

@@ -16,11 +16,12 @@
 
 package com.android.inputmethod.latin.utils;
 
-import com.android.inputmethod.annotations.UsedForTesting;
+import com.gmx.emoji.annotations.UsedForTesting;
 import com.android.inputmethod.latin.BinaryDictionary;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
+import com.gmx.emoji.goo.common.StringUtils;
+import com.gmx.emoji.goo.makedict.DictionaryHeader;
+import com.gmx.emoji.goo.makedict.UnsupportedFormatException;
+import com.gmx.emoji.goo.utils.JniUtils;
 
 import java.io.File;
 import java.io.IOException;

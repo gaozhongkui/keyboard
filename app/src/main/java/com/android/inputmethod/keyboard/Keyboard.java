@@ -18,11 +18,13 @@ package com.android.inputmethod.keyboard;
 
 import android.util.SparseArray;
 
-import com.android.inputmethod.keyboard.internal.KeyVisualAttributes;
-import com.android.inputmethod.keyboard.internal.KeyboardIconsSet;
-import com.android.inputmethod.keyboard.internal.KeyboardParams;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.common.CoordinateUtils;
+import com.gmx.emoji.keyboard.Key;
+import com.gmx.emoji.keyboard.KeyboardId;
+import com.gmx.emoji.keyboard.internal.KeyVisualAttributes;
+import com.gmx.emoji.keyboard.internal.KeyboardIconsSet;
+import com.gmx.emoji.keyboard.internal.KeyboardParams;
+import com.gmx.emoji.goo.common.Constants;
+import com.gmx.emoji.goo.common.CoordinateUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

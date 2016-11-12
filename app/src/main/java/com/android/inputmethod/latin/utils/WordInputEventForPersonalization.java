@@ -18,11 +18,12 @@ package com.android.inputmethod.latin.utils;
 
 import android.util.Log;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.NgramContext;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.define.DecoderSpecificConstants;
-import com.android.inputmethod.latin.settings.SpacingAndPunctuations;
+import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.NgramContext;
+import com.gmx.emoji.goo.common.StringUtils;
+import com.gmx.emoji.goo.define.DecoderSpecificConstants;
+import com.gmx.emoji.goo.settings.SpacingAndPunctuations;
+import com.gmx.emoji.goo.utils.DictionaryInfoUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public final class WordInputEventForPersonalization {
 
     @UsedForTesting
     public WordInputEventForPersonalization(final CharSequence targetWord,
-            final NgramContext ngramContext, final int timestamp) {
+                                            final NgramContext ngramContext, final int timestamp) {
         mTargetWord = StringUtils.toCodePointArray(targetWord);
         mPrevWordsCount = ngramContext.getPrevWordCount();
         ngramContext.outputToArray(mPrevWordArray, mIsPrevWordBeginningOfSentenceArray);

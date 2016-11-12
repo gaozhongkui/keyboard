@@ -19,9 +19,10 @@ package com.android.inputmethod.keyboard;
 import android.graphics.Rect;
 import android.util.Log;
 
-import com.android.inputmethod.keyboard.internal.TouchPositionCorrection;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.utils.JniUtils;
+import com.gmx.emoji.keyboard.Key;
+import com.gmx.emoji.keyboard.internal.TouchPositionCorrection;
+import com.gmx.emoji.goo.common.Constants;
+import com.gmx.emoji.goo.utils.JniUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

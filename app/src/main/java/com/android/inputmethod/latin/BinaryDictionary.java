@@ -20,22 +20,24 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.android.inputmethod.annotations.UsedForTesting;
-import com.android.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import com.android.inputmethod.latin.common.ComposedData;
-import com.android.inputmethod.latin.common.Constants;
-import com.android.inputmethod.latin.common.FileUtils;
-import com.android.inputmethod.latin.common.InputPointers;
-import com.android.inputmethod.latin.common.StringUtils;
-import com.android.inputmethod.latin.makedict.DictionaryHeader;
-import com.android.inputmethod.latin.makedict.FormatSpec;
-import com.android.inputmethod.latin.makedict.FormatSpec.DictionaryOptions;
-import com.android.inputmethod.latin.makedict.UnsupportedFormatException;
-import com.android.inputmethod.latin.makedict.WordProperty;
-import com.android.inputmethod.latin.settings.SettingsValuesForSuggestion;
-import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
-import com.android.inputmethod.latin.utils.JniUtils;
 import com.android.inputmethod.latin.utils.WordInputEventForPersonalization;
+import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.Dictionary;
+import com.gmx.emoji.goo.NgramContext;
+import com.gmx.emoji.goo.SuggestedWords.SuggestedWordInfo;
+import com.gmx.emoji.goo.common.ComposedData;
+import com.gmx.emoji.goo.common.Constants;
+import com.gmx.emoji.goo.common.FileUtils;
+import com.gmx.emoji.goo.common.InputPointers;
+import com.gmx.emoji.goo.common.StringUtils;
+import com.gmx.emoji.goo.makedict.DictionaryHeader;
+import com.gmx.emoji.goo.makedict.FormatSpec;
+import com.gmx.emoji.goo.makedict.FormatSpec.DictionaryOptions;
+import com.gmx.emoji.goo.makedict.UnsupportedFormatException;
+import com.gmx.emoji.goo.makedict.WordProperty;
+import com.gmx.emoji.goo.settings.SettingsValuesForSuggestion;
+import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
+import com.gmx.emoji.goo.utils.JniUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -211,7 +213,7 @@ public final class BinaryDictionary extends Dictionary {
             int[][] prevWordCodePointArrays, boolean[] isBeginningOfSentenceArray,
             int[] word, boolean isValidWord, int count, int timestamp);
     private static native int updateEntriesForInputEventsNative(long dict,
-            WordInputEventForPersonalization[] inputEvents, int startIndex);
+                                                                WordInputEventForPersonalization[] inputEvents, int startIndex);
     private static native String getPropertyNative(long dict, String query);
     private static native boolean isCorruptedNative(long dict);
     private static native boolean migrateNative(long dict, String dictFilePath,
@@ -266,10 +268,10 @@ public final class BinaryDictionary extends Dictionary {
 
     @Override
     public ArrayList<SuggestedWordInfo> getSuggestions(final ComposedData composedData,
-            final NgramContext ngramContext, final long proximityInfoHandle,
-            final SettingsValuesForSuggestion settingsValuesForSuggestion,
-            final int sessionId, final float weightForLocale,
-            final float[] inOutWeightOfLangModelVsSpatialModel) {
+                                                       final NgramContext ngramContext, final long proximityInfoHandle,
+                                                       final SettingsValuesForSuggestion settingsValuesForSuggestion,
+                                                       final int sessionId, final float weightForLocale,
+                                                       final float[] inOutWeightOfLangModelVsSpatialModel) {
         if (!isValidDictionary()) {
             return null;
         }
@@ -300,7 +302,7 @@ public final class BinaryDictionary extends Dictionary {
                     inOutWeightOfLangModelVsSpatialModel[0];
         } else {
             session.mInputOutputWeightOfLangModelVsSpatialModel[0] =
-                    Dictionary.NOT_A_WEIGHT_OF_LANG_MODEL_VS_SPATIAL_MODEL;
+                    NOT_A_WEIGHT_OF_LANG_MODEL_VS_SPATIAL_MODEL;
         }
         // TOOD: Pass multiple previous words information for n-gram.
         getSuggestionsNative(mNativeDict, proximityInfoHandle,

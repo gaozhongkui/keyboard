@@ -16,7 +16,8 @@
 
 package com.android.inputmethod.keyboard;
 
-import com.android.inputmethod.annotations.UsedForTesting;
+import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.keyboard.Key;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class KeyboardLayout {
     public final int mKeyboardHeight;
 
     public KeyboardLayout(ArrayList<Key> layoutKeys, int mostCommonKeyWidth,
-            int mostCommonKeyHeight, int keyboardWidth, int keyboardHeight) {
+                          int mostCommonKeyHeight, int keyboardWidth, int keyboardHeight) {
         mMostCommonKeyWidth = mostCommonKeyWidth;
         mMostCommonKeyHeight = mostCommonKeyHeight;
         mKeyboardWidth = keyboardWidth;
