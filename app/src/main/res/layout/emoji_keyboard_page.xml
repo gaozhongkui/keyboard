@@ -18,7 +18,7 @@
 */
 -->
 
-<com.gmx.emoji.keyboard.emoji.EmojiPalettesView
+<com.gmx.emoji.keyboard.emoji.EmojiPageKeyboardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/emoji_keyboard_page"
     android:layoutDirection="ltr"
