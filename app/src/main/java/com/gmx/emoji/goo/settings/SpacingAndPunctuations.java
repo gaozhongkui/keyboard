@@ -19,6 +19,7 @@ package com.gmx.emoji.goo.settings;
 import android.content.res.Resources;
 
 import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.MoreKeySpec;
 import com.gmx.emoji.goo.PunctuationSuggestions;
 import com.gmx.emoji.goo.common.Constants;
@@ -45,31 +46,31 @@ public final class SpacingAndPunctuations {
     public SpacingAndPunctuations(final Resources res) {
         // To be able to binary search the code point. See {@link #isUsuallyPrecededBySpace(int)}.
         mSortedSymbolsPrecededBySpace = StringUtils.toSortedCodePointArray(
-                res.getString(com.gmx.emoji.goo.R.string.symbols_preceded_by_space));
+                res.getString(R.string.symbols_preceded_by_space));
         // To be able to binary search the code point. See {@link #isUsuallyFollowedBySpace(int)}.
         mSortedSymbolsFollowedBySpace = StringUtils.toSortedCodePointArray(
-                res.getString(com.gmx.emoji.goo.R.string.symbols_followed_by_space));
+                res.getString(R.string.symbols_followed_by_space));
         mSortedSymbolsClusteringTogether = StringUtils.toSortedCodePointArray(
-                res.getString(com.gmx.emoji.goo.R.string.symbols_clustering_together));
+                res.getString(R.string.symbols_clustering_together));
         // To be able to binary search the code point. See {@link #isWordConnector(int)}.
         mSortedWordConnectors = StringUtils.toSortedCodePointArray(
-                res.getString(com.gmx.emoji.goo.R.string.symbols_word_connectors));
+                res.getString(R.string.symbols_word_connectors));
         mSortedWordSeparators = StringUtils.toSortedCodePointArray(
-                res.getString(com.gmx.emoji.goo.R.string.symbols_word_separators));
+                res.getString(R.string.symbols_word_separators));
         mSortedSentenceTerminators = StringUtils.toSortedCodePointArray(
-                res.getString(com.gmx.emoji.goo.R.string.symbols_sentence_terminators));
-        mSentenceSeparator = res.getInteger(com.gmx.emoji.goo.R.integer.sentence_separator);
-        mAbbreviationMarker = res.getInteger(com.gmx.emoji.goo.R.integer.abbreviation_marker);
+                res.getString(R.string.symbols_sentence_terminators));
+        mSentenceSeparator = res.getInteger(R.integer.sentence_separator);
+        mAbbreviationMarker = res.getInteger(R.integer.abbreviation_marker);
         mSentenceSeparatorAndSpace = new String(new int[] {
                 mSentenceSeparator, Constants.CODE_SPACE }, 0, 2);
-        mCurrentLanguageHasSpaces = res.getBoolean(com.gmx.emoji.goo.R.bool.current_language_has_spaces);
+        mCurrentLanguageHasSpaces = res.getBoolean(R.bool.current_language_has_spaces);
         final Locale locale = res.getConfiguration().locale;
         // Heuristic: we use American Typography rules because it's the most common rules for all
         // English variants. German rules (not "German typography") also have small gotchas.
         mUsesAmericanTypography = Locale.ENGLISH.getLanguage().equals(locale.getLanguage());
         mUsesGermanRules = Locale.GERMAN.getLanguage().equals(locale.getLanguage());
         final String[] suggestPuncsSpec = MoreKeySpec.splitKeySpecs(
-                res.getString(com.gmx.emoji.goo.R.string.suggested_punctuations));
+                res.getString(R.string.suggested_punctuations));
         mSuggestPuncList = PunctuationSuggestions.newPunctuationSuggestions(suggestPuncsSpec);
     }
 

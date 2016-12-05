@@ -29,6 +29,7 @@ import android.preference.TwoStatePreference;
 
 import com.gmx.emoji.goo.DictionaryDumpBroadcastReceiver;
 import com.gmx.emoji.goo.DictionaryFacilitatorImpl;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.utils.ApplicationUtils;
 import com.gmx.emoji.goo.utils.ResourceUtils;
 
@@ -50,7 +51,7 @@ public final class DebugSettingsFragment extends SubScreenFragment
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_debug);
+        addPreferencesFromResource(R.xml.prefs_screen_debug);
 
         if (!Settings.SHOULD_SHOW_LXX_SUGGESTION_UI) {
             removePreference(DebugSettings.PREF_SHOULD_SHOW_LXX_SUGGESTION_UI);
@@ -65,13 +66,13 @@ public final class DebugSettingsFragment extends SubScreenFragment
         }
         final Resources res = getResources();
         setupKeyPreviewAnimationDuration(DebugSettings.PREF_KEY_PREVIEW_SHOW_UP_DURATION,
-                res.getInteger(com.gmx.emoji.goo.R.integer.config_key_preview_show_up_duration));
+                res.getInteger(R.integer.config_key_preview_show_up_duration));
         setupKeyPreviewAnimationDuration(DebugSettings.PREF_KEY_PREVIEW_DISMISS_DURATION,
-                res.getInteger(com.gmx.emoji.goo.R.integer.config_key_preview_dismiss_duration));
+                res.getInteger(R.integer.config_key_preview_dismiss_duration));
         final float defaultKeyPreviewShowUpStartScale = ResourceUtils.getFloatFromFraction(
-                res, com.gmx.emoji.goo.R.fraction.config_key_preview_show_up_start_scale);
+                res, R.fraction.config_key_preview_show_up_start_scale);
         final float defaultKeyPreviewDismissEndScale = ResourceUtils.getFloatFromFraction(
-                res, com.gmx.emoji.goo.R.fraction.config_key_preview_dismiss_end_scale);
+                res, R.fraction.config_key_preview_dismiss_end_scale);
         setupKeyPreviewAnimationScale(DebugSettings.PREF_KEY_PREVIEW_SHOW_UP_START_X_SCALE,
                 defaultKeyPreviewShowUpStartScale);
         setupKeyPreviewAnimationScale(DebugSettings.PREF_KEY_PREVIEW_SHOW_UP_START_Y_SCALE,
@@ -139,12 +140,12 @@ public final class DebugSettingsFragment extends SubScreenFragment
     private void updateDebugMode() {
         boolean isDebugMode = mDebugMode.isChecked();
         final String version = getString(
-                com.gmx.emoji.goo.R.string.version_text, ApplicationUtils.getVersionName(getActivity()));
+                R.string.version_text, ApplicationUtils.getVersionName(getActivity()));
         if (!isDebugMode) {
             mDebugMode.setTitle(version);
             mDebugMode.setSummary(null);
         } else {
-            mDebugMode.setTitle(getString(com.gmx.emoji.goo.R.string.prefs_debug_mode));
+            mDebugMode.setTitle(getString(R.string.prefs_debug_mode));
             mDebugMode.setSummary(version);
         }
     }
@@ -191,7 +192,7 @@ public final class DebugSettingsFragment extends SubScreenFragment
             @Override
             public String getValueText(final int value) {
                 if (value < 0) {
-                    return res.getString(com.gmx.emoji.goo.R.string.settings_system_default);
+                    return res.getString(R.string.settings_system_default);
                 }
                 return String.format(Locale.ROOT, "%d%%", value);
             }
@@ -231,7 +232,7 @@ public final class DebugSettingsFragment extends SubScreenFragment
 
             @Override
             public String getValueText(final int value) {
-                return res.getString(com.gmx.emoji.goo.R.string.abbreviation_unit_milliseconds, value);
+                return res.getString(R.string.abbreviation_unit_milliseconds, value);
             }
 
             @Override

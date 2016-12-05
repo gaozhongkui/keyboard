@@ -21,6 +21,7 @@ import android.graphics.Paint;
 
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.KeyboardBuilder;
 import com.gmx.emoji.keyboard.internal.KeyboardParams;
 import com.gmx.emoji.keyboard.internal.MoreKeySpec;
@@ -297,7 +298,7 @@ public final class MoreKeysKeyboard extends Keyboard {
                 rowHeight = keyPreviewVisibleHeight + mParams.mVerticalGap;
             } else {
                 final float padding = context.getResources().getDimension(
-                        com.gmx.emoji.goo.R.dimen.config_more_keys_keyboard_key_horizontal_padding)
+                        R.dimen.config_more_keys_keyboard_key_horizontal_padding)
                         + (key.hasLabelsInMoreKeys()
                                 ? mParams.mDefaultKeyWidth * LABEL_PADDING_RATIO : 0.0f);
                 keyWidth = getMaxKeyWidth(key, mParams.mDefaultKeyWidth, padding, paintToMeasure);

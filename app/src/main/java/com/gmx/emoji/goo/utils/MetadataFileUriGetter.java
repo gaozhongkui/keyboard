@@ -18,6 +18,8 @@ package com.gmx.emoji.goo.utils;
 
 import android.content.Context;
 
+import com.gmx.emoji.goo.R;
+
 /**
  * Helper class to get the metadata URI and the additional ID.
  */
@@ -28,7 +30,7 @@ public class MetadataFileUriGetter {
     }
 
     public static String getMetadataUri(final Context context) {
-        return context.getString(com.gmx.emoji.goo.R.string.dictionary_pack_metadata_uri);
+        return context.getString(R.string.dictionary_pack_metadata_uri);
     }
 
     public static String getMetadataAdditionalId(final Context context) {

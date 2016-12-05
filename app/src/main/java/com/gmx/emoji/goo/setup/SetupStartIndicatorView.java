@@ -28,14 +28,16 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gmx.emoji.goo.R;
+
 public final class SetupStartIndicatorView extends LinearLayout {
     public SetupStartIndicatorView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         setOrientation(HORIZONTAL);
-        LayoutInflater.from(context).inflate(com.gmx.emoji.goo.R.layout.setup_start_indicator_label, this);
+        LayoutInflater.from(context).inflate(R.layout.setup_start_indicator_label, this);
 
-        final LabelView labelView = (LabelView)findViewById(com.gmx.emoji.goo.R.id.setup_start_label);
-        labelView.setIndicatorView(findViewById(com.gmx.emoji.goo.R.id.setup_start_indicator));
+        final LabelView labelView = (LabelView)findViewById(R.id.setup_start_label);
+        labelView.setIndicatorView(findViewById(R.id.setup_start_indicator));
     }
 
     public static final class LabelView extends TextView {
@@ -87,7 +89,7 @@ public final class SetupStartIndicatorView extends LinearLayout {
         public IndicatorView(final Context context, final AttributeSet attrs) {
             super(context, attrs);
             mIndicatorColor = getResources().getColorStateList(
-                    com.gmx.emoji.goo.R.color.setup_step_action_background);
+                    R.color.setup_step_action_background);
             mIndicatorPaint.setStyle(Paint.Style.FILL);
         }
 

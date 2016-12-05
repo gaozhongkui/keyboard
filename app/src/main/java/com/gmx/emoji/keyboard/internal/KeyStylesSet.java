@@ -20,6 +20,7 @@ import android.content.res.TypedArray;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.utils.XmlParseUtils;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -145,16 +146,16 @@ public final class KeyStylesSet {
 
         public void readKeyAttributes(final TypedArray keyAttr) {
             // TODO: Currently not all Key attributes can be declared as style.
-            readString(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_altCode);
-            readString(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keySpec);
-            readString(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabel);
-            readStringArray(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_moreKeys);
-            readStringArray(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_additionalMoreKeys);
-            readFlags(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelFlags);
-            readString(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyIconDisabled);
-            readInt(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_maxMoreKeysColumn);
-            readInt(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_backgroundType);
-            readFlags(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyActionFlags);
+            readString(keyAttr, R.styleable.Keyboard_Key_altCode);
+            readString(keyAttr, R.styleable.Keyboard_Key_keySpec);
+            readString(keyAttr, R.styleable.Keyboard_Key_keyHintLabel);
+            readStringArray(keyAttr, R.styleable.Keyboard_Key_moreKeys);
+            readStringArray(keyAttr, R.styleable.Keyboard_Key_additionalMoreKeys);
+            readFlags(keyAttr, R.styleable.Keyboard_Key_keyLabelFlags);
+            readString(keyAttr, R.styleable.Keyboard_Key_keyIconDisabled);
+            readInt(keyAttr, R.styleable.Keyboard_Key_maxMoreKeysColumn);
+            readInt(keyAttr, R.styleable.Keyboard_Key_backgroundType);
+            readFlags(keyAttr, R.styleable.Keyboard_Key_keyActionFlags);
         }
 
         private void readString(final TypedArray a, final int index) {
@@ -186,7 +187,7 @@ public final class KeyStylesSet {
 
     public void parseKeyStyleAttributes(final TypedArray keyStyleAttr, final TypedArray keyAttrs,
             final XmlPullParser parser) throws XmlPullParserException {
-        final String styleName = keyStyleAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_KeyStyle_styleName);
+        final String styleName = keyStyleAttr.getString(R.styleable.Keyboard_KeyStyle_styleName);
         if (styleName == null) {
             throw new XmlParseUtils.ParseException(
                     KeyboardBuilder.TAG_KEY_STYLE + " has no styleName attribute", parser);
@@ -201,7 +202,7 @@ public final class KeyStylesSet {
         }
 
         final String parentStyleInAttr = keyStyleAttr.getString(
-                com.gmx.emoji.goo.R.styleable.Keyboard_KeyStyle_parentStyle);
+                R.styleable.Keyboard_KeyStyle_parentStyle);
         if (parentStyleInAttr != null && !mStyles.containsKey(parentStyleInAttr)) {
             throw new XmlParseUtils.ParseException(
                     "Unknown parentStyle " + parentStyleInAttr, parser);
@@ -216,7 +217,7 @@ public final class KeyStylesSet {
     @Nonnull
     public KeyStyle getKeyStyle(final TypedArray keyAttr, final XmlPullParser parser)
             throws XmlParseUtils.ParseException {
-        final String styleName = keyAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyStyle);
+        final String styleName = keyAttr.getString(R.styleable.Keyboard_Key_keyStyle);
         if (styleName == null) {
             return mEmptyKeyStyle;
         }

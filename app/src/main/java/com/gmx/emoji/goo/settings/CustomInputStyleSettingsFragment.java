@@ -38,6 +38,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodSubtype;
 import android.widget.Toast;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.RichInputMethodManager;
 import com.gmx.emoji.goo.utils.AdditionalSubtypeUtils;
 import com.gmx.emoji.goo.utils.DialogUtils;
@@ -97,7 +98,7 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
         mPrefs = getPreferenceManager().getSharedPreferences();
         RichInputMethodManager.init(getActivity());
         mRichImm = RichInputMethodManager.getInstance();
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.additional_subtype_settings);
+        addPreferencesFromResource(R.xml.additional_subtype_settings);
         setHasOptionsMenu(true);
     }
 
@@ -215,7 +216,7 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
     private void showSubtypeAlreadyExistsToast(final InputMethodSubtype subtype) {
         final Context context = getActivity();
         final Resources res = context.getResources();
-        final String message = res.getString(com.gmx.emoji.goo.R.string.custom_input_style_already_exists,
+        final String message = res.getString(R.string.custom_input_style_already_exists,
                 SubtypeLocaleUtils.getSubtypeDisplayNameInSystemLocale(subtype));
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
@@ -231,10 +232,10 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
         final String imeId = mRichImm.getInputMethodIdOfThisIme();
         final AlertDialog.Builder builder = new AlertDialog.Builder(
                 DialogUtils.getPlatformDialogThemeContext(getActivity()));
-        builder.setTitle(com.gmx.emoji.goo.R.string.custom_input_styles_title)
-                .setMessage(com.gmx.emoji.goo.R.string.custom_input_style_note_message)
-                .setNegativeButton(com.gmx.emoji.goo.R.string.not_now, null)
-                .setPositiveButton(com.gmx.emoji.goo.R.string.enable, new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.custom_input_styles_title)
+                .setMessage(R.string.custom_input_style_note_message)
+                .setNegativeButton(R.string.not_now, null)
+                .setPositiveButton(R.string.enable, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         final Intent intent = IntentUtils.getInputLanguageSelectionIntent(
@@ -298,13 +299,13 @@ public final class CustomInputStyleSettingsFragment extends PreferenceFragment
 
     @Override
     public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
-        inflater.inflate(com.gmx.emoji.goo.R.menu.add_style, menu);
+        inflater.inflate(R.menu.add_style, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         final int itemId = item.getItemId();
-        if (itemId == com.gmx.emoji.goo.R.id.action_add_style) {
+        if (itemId == R.id.action_add_style) {
             final CustomInputStylePreference newSubtype =
                     CustomInputStylePreference.newIncompleteSubtypePreference(getActivity(), this);
             getPreferenceScreen().addPreference(newSubtype);

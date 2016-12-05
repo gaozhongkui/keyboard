@@ -18,6 +18,8 @@ package com.gmx.emoji.keyboard.internal;
 
 import android.content.res.TypedArray;
 
+import com.gmx.emoji.goo.R;
+
 /**
  * This class holds parameters to control how a gesture trail is drawn and animated on the screen.
  *
@@ -49,29 +51,29 @@ final class GestureTrailDrawingParams {
 
     public GestureTrailDrawingParams(final TypedArray mainKeyboardViewAttr) {
         mTrailColor = mainKeyboardViewAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailColor, 0);
+                R.styleable.MainKeyboardView_gestureTrailColor, 0);
         mTrailStartWidth = mainKeyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailStartWidth, 0.0f);
+                R.styleable.MainKeyboardView_gestureTrailStartWidth, 0.0f);
         mTrailEndWidth = mainKeyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailEndWidth, 0.0f);
+                R.styleable.MainKeyboardView_gestureTrailEndWidth, 0.0f);
         final int PERCENTAGE_INT = 100;
         mTrailBodyRatio = (float)mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailBodyRatio, PERCENTAGE_INT)
+                R.styleable.MainKeyboardView_gestureTrailBodyRatio, PERCENTAGE_INT)
                 / (float)PERCENTAGE_INT;
         final int trailShadowRatioInt = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailShadowRatio, 0);
+                R.styleable.MainKeyboardView_gestureTrailShadowRatio, 0);
         mTrailShadowEnabled = (trailShadowRatioInt > 0);
         mTrailShadowRatio = (float)trailShadowRatioInt / (float)PERCENTAGE_INT;
         mFadeoutStartDelay = GestureTrailDrawingPoints.DEBUG_SHOW_POINTS
                 ? FADEOUT_START_DELAY_FOR_DEBUG
                 : mainKeyboardViewAttr.getInt(
-                        com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailFadeoutStartDelay, 0);
+                        R.styleable.MainKeyboardView_gestureTrailFadeoutStartDelay, 0);
         mFadeoutDuration = GestureTrailDrawingPoints.DEBUG_SHOW_POINTS
                 ? FADEOUT_DURATION_FOR_DEBUG
                 : mainKeyboardViewAttr.getInt(
-                        com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailFadeoutDuration, 0);
+                        R.styleable.MainKeyboardView_gestureTrailFadeoutDuration, 0);
         mTrailLingerDuration = mFadeoutStartDelay + mFadeoutDuration;
         mUpdateInterval = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailUpdateInterval, 0);
+                R.styleable.MainKeyboardView_gestureTrailUpdateInterval, 0);
     }
 }

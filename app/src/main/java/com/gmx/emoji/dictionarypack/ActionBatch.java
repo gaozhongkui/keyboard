@@ -26,6 +26,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.gmx.emoji.goo.BinaryDictionaryFileDumper;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 import com.gmx.emoji.goo.utils.ApplicationUtils;
 import com.gmx.emoji.goo.utils.DebugLogUtils;
@@ -142,7 +143,7 @@ public final class ActionBatch {
             request.setTitle(mWordList.mDescription);
             request.setNotificationVisibility(Request.VISIBILITY_HIDDEN);
             request.setVisibleInDownloadsUi(
-                    res.getBoolean(com.gmx.emoji.goo.R.bool.dict_downloads_visible_in_download_UI));
+                    res.getBoolean(R.bool.dict_downloads_visible_in_download_UI));
 
             final long downloadId = UpdateHandler.registerDownloadRequest(manager, request, db,
                     mWordList.mId, mWordList.mVersion);

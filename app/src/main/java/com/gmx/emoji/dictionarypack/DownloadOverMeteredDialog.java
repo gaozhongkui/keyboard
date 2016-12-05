@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.gmx.emoji.annotations.ExternallyReferenced;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 
 import javax.annotation.Nullable;
@@ -49,18 +50,18 @@ public final class DownloadOverMeteredDialog extends Activity {
         mWordListToDownload = intent.getStringExtra(WORDLIST_TO_DOWNLOAD_KEY);
         final String localeString = intent.getStringExtra(LOCALE_KEY);
         final long size = intent.getIntExtra(SIZE_KEY, 0);
-        setContentView(com.gmx.emoji.goo.R.layout.download_over_metered);
+        setContentView(R.layout.download_over_metered);
         setTexts(localeString, size);
     }
 
     private void setTexts(@Nullable final String localeString, final long size) {
-        final String promptFormat = getString(com.gmx.emoji.goo.R.string.should_download_over_metered_prompt);
-        final String allowButtonFormat = getString(com.gmx.emoji.goo.R.string.download_over_metered);
+        final String promptFormat = getString(R.string.should_download_over_metered_prompt);
+        final String allowButtonFormat = getString(R.string.download_over_metered);
         final String language = (null == localeString) ? ""
                 : LocaleUtils.constructLocaleFromString(localeString).getDisplayLanguage();
-        final TextView prompt = (TextView)findViewById(com.gmx.emoji.goo.R.id.download_over_metered_prompt);
+        final TextView prompt = (TextView)findViewById(R.id.download_over_metered_prompt);
         prompt.setText(Html.fromHtml(String.format(promptFormat, language)));
-        final Button allowButton = (Button)findViewById(com.gmx.emoji.goo.R.id.allow_button);
+        final Button allowButton = (Button)findViewById(R.id.allow_button);
         allowButton.setText(String.format(allowButtonFormat, ((float)size)/(1024*1024)));
     }
 

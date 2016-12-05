@@ -36,6 +36,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.gmx.emoji.compat.NotificationCompatUtils;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 import com.gmx.emoji.goo.makedict.FormatSpec;
 import com.gmx.emoji.goo.utils.ApplicationUtils;
@@ -230,11 +231,11 @@ public final class UpdateHandler {
 
         final Resources res = context.getResources();
         metadataRequest.setAllowedNetworkTypes(Request.NETWORK_WIFI | Request.NETWORK_MOBILE);
-        metadataRequest.setTitle(res.getString(com.gmx.emoji.goo.R.string.download_description));
+        metadataRequest.setTitle(res.getString(R.string.download_description));
         // Do not show the notification when downloading the metadata.
         metadataRequest.setNotificationVisibility(Request.VISIBILITY_HIDDEN);
         metadataRequest.setVisibleInDownloadsUi(
-                res.getBoolean(com.gmx.emoji.goo.R.bool.metadata_downloads_visible_in_download_UI));
+                res.getBoolean(R.bool.metadata_downloads_visible_in_download_UI));
 
         final DownloadManagerWrapper manager = new DownloadManagerWrapper(context);
         if (maybeCancelUpdateAndReturnIfStillRunning(context, metadataUri, manager,
@@ -868,19 +869,19 @@ public final class UpdateHandler {
 
         final String language = (null == localeString) ? ""
                 : LocaleUtils.constructLocaleFromString(localeString).getDisplayLanguage();
-        final String titleFormat = context.getString(com.gmx.emoji.goo.R.string.dict_available_notification_title);
+        final String titleFormat = context.getString(R.string.dict_available_notification_title);
         final String notificationTitle = String.format(titleFormat, language);
         final Notification.Builder builder = new Notification.Builder(context)
                 .setAutoCancel(true)
                 .setContentIntent(notificationIntent)
                 .setContentTitle(notificationTitle)
-                .setContentText(context.getString(com.gmx.emoji.goo.R.string.dict_available_notification_description))
+                .setContentText(context.getString(R.string.dict_available_notification_description))
                 .setTicker(notificationTitle)
                 .setOngoing(false)
                 .setOnlyAlertOnce(true)
-                .setSmallIcon(com.gmx.emoji.goo.R.drawable.ic_notify_dictionary);
+                .setSmallIcon(R.drawable.ic_notify_dictionary);
         NotificationCompatUtils.setColor(builder,
-                context.getResources().getColor(com.gmx.emoji.goo.R.color.notification_accent_color));
+                context.getResources().getColor(R.color.notification_accent_color));
         NotificationCompatUtils.setPriorityToLow(builder);
         NotificationCompatUtils.setVisibilityToSecret(builder);
         NotificationCompatUtils.setCategoryToRecommendation(builder);

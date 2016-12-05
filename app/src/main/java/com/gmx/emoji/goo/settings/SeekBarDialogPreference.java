@@ -26,6 +26,8 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.gmx.emoji.goo.R;
+
 public final class SeekBarDialogPreference extends DialogPreference
         implements SeekBar.OnSeekBarChangeListener {
     public interface ValueProxy {
@@ -49,12 +51,12 @@ public final class SeekBarDialogPreference extends DialogPreference
     public SeekBarDialogPreference(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         final TypedArray a = context.obtainStyledAttributes(
-                attrs, com.gmx.emoji.goo.R.styleable.SeekBarDialogPreference, 0, 0);
-        mMaxValue = a.getInt(com.gmx.emoji.goo.R.styleable.SeekBarDialogPreference_maxValue, 0);
-        mMinValue = a.getInt(com.gmx.emoji.goo.R.styleable.SeekBarDialogPreference_minValue, 0);
-        mStepValue = a.getInt(com.gmx.emoji.goo.R.styleable.SeekBarDialogPreference_stepValue, 0);
+                attrs, R.styleable.SeekBarDialogPreference, 0, 0);
+        mMaxValue = a.getInt(R.styleable.SeekBarDialogPreference_maxValue, 0);
+        mMinValue = a.getInt(R.styleable.SeekBarDialogPreference_minValue, 0);
+        mStepValue = a.getInt(R.styleable.SeekBarDialogPreference_stepValue, 0);
         a.recycle();
-        setDialogLayoutResource(com.gmx.emoji.goo.R.layout.seek_bar_dialog);
+        setDialogLayoutResource(R.layout.seek_bar_dialog);
     }
 
     public void setInterface(final ValueProxy proxy) {
@@ -66,10 +68,10 @@ public final class SeekBarDialogPreference extends DialogPreference
     @Override
     protected View onCreateDialogView() {
         final View view = super.onCreateDialogView();
-        mSeekBar = (SeekBar)view.findViewById(com.gmx.emoji.goo.R.id.seek_bar_dialog_bar);
+        mSeekBar = (SeekBar)view.findViewById(R.id.seek_bar_dialog_bar);
         mSeekBar.setMax(mMaxValue - mMinValue);
         mSeekBar.setOnSeekBarChangeListener(this);
-        mValueView = (TextView)view.findViewById(com.gmx.emoji.goo.R.id.seek_bar_dialog_value);
+        mValueView = (TextView)view.findViewById(R.id.seek_bar_dialog_value);
         return view;
     }
 
@@ -104,7 +106,7 @@ public final class SeekBarDialogPreference extends DialogPreference
     protected void onPrepareDialogBuilder(final AlertDialog.Builder builder) {
         builder.setPositiveButton(android.R.string.ok, this)
             .setNegativeButton(android.R.string.cancel, this)
-            .setNeutralButton(com.gmx.emoji.goo.R.string.button_default, this);
+            .setNeutralButton(R.string.button_default, this);
     }
 
     @Override

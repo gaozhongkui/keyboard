@@ -18,6 +18,8 @@ package com.gmx.emoji.keyboard.internal;
 
 import android.content.res.TypedArray;
 
+import com.gmx.emoji.goo.R;
+
 /**
  * This class holds parameters to control how a gesture stroke is sampled and drawn on the screen.
  *
@@ -39,18 +41,18 @@ public final class GestureStrokeDrawingParams {
 
     public GestureStrokeDrawingParams(final TypedArray mainKeyboardViewAttr) {
         mMinSamplingDistance = mainKeyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailMinSamplingDistance,
+                R.styleable.MainKeyboardView_gestureTrailMinSamplingDistance,
                 DEFAULT_MIN_SAMPLING_DISTANCE);
-        final int interpolationAngularDegree = mainKeyboardViewAttr.getInteger(com.gmx.emoji.goo.R.styleable
+        final int interpolationAngularDegree = mainKeyboardViewAttr.getInteger(R.styleable
                 .MainKeyboardView_gestureTrailMaxInterpolationAngularThreshold, 0);
         mMaxInterpolationAngularThreshold = (interpolationAngularDegree <= 0)
                 ? Math.toRadians(DEFAULT_MAX_INTERPOLATION_ANGULAR_THRESHOLD)
                 : Math.toRadians(interpolationAngularDegree);
-        mMaxInterpolationDistanceThreshold = mainKeyboardViewAttr.getDimension(com.gmx.emoji.goo.R.styleable
+        mMaxInterpolationDistanceThreshold = mainKeyboardViewAttr.getDimension(R.styleable
                 .MainKeyboardView_gestureTrailMaxInterpolationDistanceThreshold,
                 DEFAULT_MAX_INTERPOLATION_DISTANCE_THRESHOLD);
         mMaxInterpolationSegments = mainKeyboardViewAttr.getInteger(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureTrailMaxInterpolationSegments,
+                R.styleable.MainKeyboardView_gestureTrailMaxInterpolationSegments,
                 DEFAULT_MAX_INTERPOLATION_SEGMENTS);
     }
 }

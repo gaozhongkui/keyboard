@@ -25,6 +25,8 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
+import com.gmx.emoji.goo.R;
+
 public final class KeyPreviewDrawParams {
     // XML attributes of {@link MainKeyboardView}.
     public final int mPreviewOffset;
@@ -69,17 +71,17 @@ public final class KeyPreviewDrawParams {
 
     public KeyPreviewDrawParams(final TypedArray mainKeyboardViewAttr) {
         mPreviewOffset = mainKeyboardViewAttr.getDimensionPixelOffset(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyPreviewOffset, 0);
+                R.styleable.MainKeyboardView_keyPreviewOffset, 0);
         mPreviewHeight = mainKeyboardViewAttr.getDimensionPixelSize(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyPreviewHeight, 0);
+                R.styleable.MainKeyboardView_keyPreviewHeight, 0);
         mPreviewBackgroundResId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyPreviewBackground, 0);
+                R.styleable.MainKeyboardView_keyPreviewBackground, 0);
         mLingerTimeout = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyPreviewLingerTimeout, 0);
+                R.styleable.MainKeyboardView_keyPreviewLingerTimeout, 0);
         mShowUpAnimatorResId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyPreviewShowUpAnimator, 0);
+                R.styleable.MainKeyboardView_keyPreviewShowUpAnimator, 0);
         mDismissAnimatorResId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyPreviewDismissAnimator, 0);
+                R.styleable.MainKeyboardView_keyPreviewDismissAnimator, 0);
     }
 
     public void setVisibleOffset(final int previewVisibleOffset) {

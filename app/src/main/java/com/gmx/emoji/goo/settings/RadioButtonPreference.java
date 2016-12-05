@@ -22,6 +22,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RadioButton;
 
+import com.gmx.emoji.goo.R;
+
 /**
  * Radio Button preference
  */
@@ -56,7 +58,7 @@ public class RadioButtonPreference extends Preference {
     public RadioButtonPreference(final Context context, final AttributeSet attrs,
             final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setWidgetLayoutResource(com.gmx.emoji.goo.R.layout.radio_button_preference_widget);
+        setWidgetLayoutResource(R.layout.radio_button_preference_widget);
     }
 
     public void setOnRadioButtonClickedListener(final OnRadioButtonClickedListener listener) {
@@ -72,7 +74,7 @@ public class RadioButtonPreference extends Preference {
     @Override
     protected void onBindView(final View view) {
         super.onBindView(view);
-        mRadioButton = (RadioButton)view.findViewById(com.gmx.emoji.goo.R.id.radio_button);
+        mRadioButton = (RadioButton)view.findViewById(R.id.radio_button);
         mRadioButton.setChecked(mIsSelected);
         mRadioButton.setOnClickListener(mClickListener);
         view.setOnClickListener(mClickListener);

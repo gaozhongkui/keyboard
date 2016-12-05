@@ -25,6 +25,7 @@ import android.view.accessibility.AccessibilityEvent;
 
 import com.gmx.emoji.accessibility.AccessibilityUtils;
 import com.gmx.emoji.accessibility.KeyboardAccessibilityDelegate;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.gmx.emoji.keyboard.KeyDetector;
 import com.android.inputmethod.keyboard.Keyboard;
@@ -58,7 +59,7 @@ final class EmojiPageKeyboardView extends KeyboardView implements
     private KeyboardAccessibilityDelegate<EmojiPageKeyboardView> mAccessibilityDelegate;
 
     public EmojiPageKeyboardView(final Context context, final AttributeSet attrs) {
-        this(context, attrs, com.gmx.emoji.goo.R.attr.keyboardViewStyle);
+        this(context, attrs, R.attr.keyboardViewStyle);
     }
 
     public EmojiPageKeyboardView(final Context context, final AttributeSet attrs,

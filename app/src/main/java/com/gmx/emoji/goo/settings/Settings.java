@@ -28,6 +28,7 @@ import android.util.Log;
 import com.gmx.emoji.compat.BuildCompatUtils;
 import com.gmx.emoji.goo.AudioAndHapticFeedbackManager;
 import com.gmx.emoji.goo.InputAttributes;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.StringUtils;
 import com.gmx.emoji.goo.utils.AdditionalSubtypeUtils;
 import com.gmx.emoji.goo.utils.ResourceUtils;
@@ -196,21 +197,21 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static int readScreenMetrics(final Resources res) {
-        return res.getInteger(com.gmx.emoji.goo.R.integer.config_screen_metrics);
+        return res.getInteger(R.integer.config_screen_metrics);
     }
 
     // Accessed from the settings interface, hence public
     public static boolean readKeypressSoundEnabled(final SharedPreferences prefs,
             final Resources res) {
         return prefs.getBoolean(PREF_SOUND_ON,
-                res.getBoolean(com.gmx.emoji.goo.R.bool.config_default_sound_enabled));
+                res.getBoolean(R.bool.config_default_sound_enabled));
     }
 
     public static boolean readVibrationEnabled(final SharedPreferences prefs,
             final Resources res) {
         final boolean hasVibrator = AudioAndHapticFeedbackManager.getInstance().hasVibrator();
         return hasVibrator && prefs.getBoolean(PREF_VIBRATE_ON,
-                res.getBoolean(com.gmx.emoji.goo.R.bool.config_default_vibration_enabled));
+                res.getBoolean(R.bool.config_default_vibration_enabled));
     }
 
     public static boolean readAutoCorrectEnabled(final SharedPreferences prefs,
@@ -219,17 +220,17 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static float readPlausibilityThreshold(final Resources res) {
-        return Float.parseFloat(res.getString(com.gmx.emoji.goo.R.string.plausibility_threshold));
+        return Float.parseFloat(res.getString(R.string.plausibility_threshold));
     }
 
     public static boolean readBlockPotentiallyOffensive(final SharedPreferences prefs,
             final Resources res) {
         return prefs.getBoolean(PREF_BLOCK_POTENTIALLY_OFFENSIVE,
-                res.getBoolean(com.gmx.emoji.goo.R.bool.config_block_potentially_offensive));
+                res.getBoolean(R.bool.config_block_potentially_offensive));
     }
 
     public static boolean readFromBuildConfigIfGestureInputEnabled(final Resources res) {
-        return res.getBoolean(com.gmx.emoji.goo.R.bool.config_gesture_input_enabled_by_build_config);
+        return res.getBoolean(R.bool.config_gesture_input_enabled_by_build_config);
     }
 
     public static boolean readGestureInputEnabled(final SharedPreferences prefs,
@@ -239,13 +240,13 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static boolean readFromBuildConfigIfToShowKeyPreviewPopupOption(final Resources res) {
-        return res.getBoolean(com.gmx.emoji.goo.R.bool.config_enable_show_key_preview_popup_option);
+        return res.getBoolean(R.bool.config_enable_show_key_preview_popup_option);
     }
 
     public static boolean readKeyPreviewPopupEnabled(final SharedPreferences prefs,
             final Resources res) {
         final boolean defaultKeyPreviewPopup = res.getBoolean(
-                com.gmx.emoji.goo.R.bool.config_default_key_preview_popup);
+                R.bool.config_default_key_preview_popup);
         if (!readFromBuildConfigIfToShowKeyPreviewPopupOption(res)) {
             return defaultKeyPreviewPopup;
         }
@@ -256,7 +257,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
             final Resources res) {
         return Integer.parseInt(prefs.getString(PREF_KEY_PREVIEW_POPUP_DISMISS_DELAY,
                 Integer.toString(res.getInteger(
-                        com.gmx.emoji.goo.R.integer.config_key_preview_linger_timeout))));
+                        R.integer.config_key_preview_linger_timeout))));
     }
 
     public static boolean readShowsLanguageSwitchKey(final SharedPreferences prefs) {
@@ -274,7 +275,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     public static String readPrefAdditionalSubtypes(final SharedPreferences prefs,
             final Resources res) {
         final String predefinedPrefSubtypes = AdditionalSubtypeUtils.createPrefSubtypes(
-                res.getStringArray(com.gmx.emoji.goo.R.array.predefined_subtypes));
+                res.getStringArray(R.array.predefined_subtypes));
         return prefs.getString(PREF_CUSTOM_INPUT_STYLES, predefinedPrefSubtypes);
     }
 
@@ -297,7 +298,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
 
     public static float readDefaultKeypressSoundVolume(final Resources res) {
         return Float.parseFloat(ResourceUtils.getDeviceOverrideValue(res,
-                com.gmx.emoji.goo.R.array.keypress_volumes, DEFAULT_KEYPRESS_SOUND_VOLUME));
+                R.array.keypress_volumes, DEFAULT_KEYPRESS_SOUND_VOLUME));
     }
 
     public static int readKeyLongpressTimeout(final SharedPreferences prefs,
@@ -309,7 +310,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static int readDefaultKeyLongpressTimeout(final Resources res) {
-        return res.getInteger(com.gmx.emoji.goo.R.integer.config_default_longpress_key_timeout);
+        return res.getInteger(R.integer.config_default_longpress_key_timeout);
     }
 
     public static int readKeypressVibrationDuration(final SharedPreferences prefs,
@@ -326,7 +327,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
 
     public static int readDefaultKeypressVibrationDuration(final Resources res) {
         return Integer.parseInt(ResourceUtils.getDeviceOverrideValue(res,
-                com.gmx.emoji.goo.R.array.keypress_vibration_durations, DEFAULT_KEYPRESS_VIBRATION_DURATION));
+                R.array.keypress_vibration_durations, DEFAULT_KEYPRESS_VIBRATION_DURATION));
     }
 
     public static float readKeyPreviewAnimationScale(final SharedPreferences prefs,
@@ -349,7 +350,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static boolean readUseFullscreenMode(final Resources res) {
-        return res.getBoolean(com.gmx.emoji.goo.R.bool.config_use_fullscreen_mode);
+        return res.getBoolean(R.bool.config_use_fullscreen_mode);
     }
 
     public static boolean readShowSetupWizardIcon(final SharedPreferences prefs,
@@ -445,7 +446,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
             SharedPreferences.Editor editor = prefs.edit();
             editor.remove(PREF_AUTO_CORRECTION_THRESHOLD_OBSOLETE);
             final String autoCorrectionOff =
-                    res.getString(com.gmx.emoji.goo.R.string.auto_correction_threshold_mode_index_off);
+                    res.getString(R.string.auto_correction_threshold_mode_index_off);
             if (thresholdSetting.equals(autoCorrectionOff)) {
                 editor.putBoolean(PREF_AUTO_CORRECTION, false);
             } else {

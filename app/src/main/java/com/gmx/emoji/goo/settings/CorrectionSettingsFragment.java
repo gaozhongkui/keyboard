@@ -30,6 +30,7 @@ import android.preference.SwitchPreference;
 import android.text.TextUtils;
 
 import com.gmx.emoji.dictionarypack.DictionarySettingsActivity;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.permissions.PermissionsManager;
 import com.gmx.emoji.goo.permissions.PermissionsUtil;
 import com.gmx.emoji.goo.userdictionary.UserDictionaryList;
@@ -64,7 +65,7 @@ public final class CorrectionSettingsFragment extends SubScreenFragment
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_correction);
+        addPreferencesFromResource(R.xml.prefs_screen_correction);
 
         final Context context = getActivity();
         final PackageManager pm = context.getPackageManager();

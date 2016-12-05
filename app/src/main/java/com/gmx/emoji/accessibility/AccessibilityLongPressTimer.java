@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 
 // Handling long press timer to show a more keys keyboard.
@@ -38,7 +39,7 @@ final class AccessibilityLongPressTimer extends Handler {
         super();
         mCallback = callback;
         mConfigAccessibilityLongPressTimeout = context.getResources().getInteger(
-                com.gmx.emoji.goo.R.integer.config_accessibility_long_press_key_timeout);
+                R.integer.config_accessibility_long_press_key_timeout);
     }
 
     @Override

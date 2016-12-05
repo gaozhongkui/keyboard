@@ -22,6 +22,8 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.SparseIntArray;
 
+import com.gmx.emoji.goo.R;
+
 import java.util.HashMap;
 
 import javax.annotation.Nonnull;
@@ -64,27 +66,27 @@ public final class KeyboardIconsSet {
 
     private static final Object[] NAMES_AND_ATTR_IDS = {
         NAME_UNDEFINED,                   ATTR_UNDEFINED,
-        NAME_SHIFT_KEY,                   com.gmx.emoji.goo.R.styleable.Keyboard_iconShiftKey,
-        NAME_DELETE_KEY,                  com.gmx.emoji.goo.R.styleable.Keyboard_iconDeleteKey,
-        NAME_SETTINGS_KEY,                com.gmx.emoji.goo.R.styleable.Keyboard_iconSettingsKey,
-        NAME_SPACE_KEY,                   com.gmx.emoji.goo.R.styleable.Keyboard_iconSpaceKey,
-        NAME_ENTER_KEY,                   com.gmx.emoji.goo.R.styleable.Keyboard_iconEnterKey,
-        NAME_GO_KEY,                      com.gmx.emoji.goo.R.styleable.Keyboard_iconGoKey,
-        NAME_SEARCH_KEY,                  com.gmx.emoji.goo.R.styleable.Keyboard_iconSearchKey,
-        NAME_SEND_KEY,                    com.gmx.emoji.goo.R.styleable.Keyboard_iconSendKey,
-        NAME_NEXT_KEY,                    com.gmx.emoji.goo.R.styleable.Keyboard_iconNextKey,
-        NAME_DONE_KEY,                    com.gmx.emoji.goo.R.styleable.Keyboard_iconDoneKey,
-        NAME_PREVIOUS_KEY,                com.gmx.emoji.goo.R.styleable.Keyboard_iconPreviousKey,
-        NAME_TAB_KEY,                     com.gmx.emoji.goo.R.styleable.Keyboard_iconTabKey,
-        NAME_SHORTCUT_KEY,                com.gmx.emoji.goo.R.styleable.Keyboard_iconShortcutKey,
-        NAME_SPACE_KEY_FOR_NUMBER_LAYOUT, com.gmx.emoji.goo.R.styleable.Keyboard_iconSpaceKeyForNumberLayout,
-        NAME_SHIFT_KEY_SHIFTED,           com.gmx.emoji.goo.R.styleable.Keyboard_iconShiftKeyShifted,
-        NAME_SHORTCUT_KEY_DISABLED,       com.gmx.emoji.goo.R.styleable.Keyboard_iconShortcutKeyDisabled,
-        NAME_LANGUAGE_SWITCH_KEY,         com.gmx.emoji.goo.R.styleable.Keyboard_iconLanguageSwitchKey,
-        NAME_ZWNJ_KEY,                    com.gmx.emoji.goo.R.styleable.Keyboard_iconZwnjKey,
-        NAME_ZWJ_KEY,                     com.gmx.emoji.goo.R.styleable.Keyboard_iconZwjKey,
-        NAME_EMOJI_ACTION_KEY,            com.gmx.emoji.goo.R.styleable.Keyboard_iconEmojiActionKey,
-        NAME_EMOJI_NORMAL_KEY,            com.gmx.emoji.goo.R.styleable.Keyboard_iconEmojiNormalKey,
+        NAME_SHIFT_KEY,                   R.styleable.Keyboard_iconShiftKey,
+        NAME_DELETE_KEY,                  R.styleable.Keyboard_iconDeleteKey,
+        NAME_SETTINGS_KEY,                R.styleable.Keyboard_iconSettingsKey,
+        NAME_SPACE_KEY,                   R.styleable.Keyboard_iconSpaceKey,
+        NAME_ENTER_KEY,                   R.styleable.Keyboard_iconEnterKey,
+        NAME_GO_KEY,                      R.styleable.Keyboard_iconGoKey,
+        NAME_SEARCH_KEY,                  R.styleable.Keyboard_iconSearchKey,
+        NAME_SEND_KEY,                    R.styleable.Keyboard_iconSendKey,
+        NAME_NEXT_KEY,                    R.styleable.Keyboard_iconNextKey,
+        NAME_DONE_KEY,                    R.styleable.Keyboard_iconDoneKey,
+        NAME_PREVIOUS_KEY,                R.styleable.Keyboard_iconPreviousKey,
+        NAME_TAB_KEY,                     R.styleable.Keyboard_iconTabKey,
+        NAME_SHORTCUT_KEY,                R.styleable.Keyboard_iconShortcutKey,
+        NAME_SPACE_KEY_FOR_NUMBER_LAYOUT, R.styleable.Keyboard_iconSpaceKeyForNumberLayout,
+        NAME_SHIFT_KEY_SHIFTED,           R.styleable.Keyboard_iconShiftKeyShifted,
+        NAME_SHORTCUT_KEY_DISABLED,       R.styleable.Keyboard_iconShortcutKeyDisabled,
+        NAME_LANGUAGE_SWITCH_KEY,         R.styleable.Keyboard_iconLanguageSwitchKey,
+        NAME_ZWNJ_KEY,                    R.styleable.Keyboard_iconZwnjKey,
+        NAME_ZWJ_KEY,                     R.styleable.Keyboard_iconZwjKey,
+        NAME_EMOJI_ACTION_KEY,            R.styleable.Keyboard_iconEmojiActionKey,
+        NAME_EMOJI_NORMAL_KEY,            R.styleable.Keyboard_iconEmojiNormalKey,
     };
 
     private static int NUM_ICONS = NAMES_AND_ATTR_IDS.length / 2;

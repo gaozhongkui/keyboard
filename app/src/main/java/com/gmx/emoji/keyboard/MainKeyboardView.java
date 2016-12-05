@@ -39,6 +39,7 @@ import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.accessibility.AccessibilityUtils;
 import com.gmx.emoji.accessibility.MainKeyboardAccessibilityDelegate;
 import com.gmx.emoji.annotations.ExternallyReferenced;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.DrawingPreviewPlacerView;
 import com.gmx.emoji.keyboard.internal.DrawingProxy;
 import com.gmx.emoji.keyboard.internal.GestureFloatingTextDrawingPreview;
@@ -170,7 +171,7 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
     private MainKeyboardAccessibilityDelegate mAccessibilityDelegate;
 
     public MainKeyboardView(final Context context, final AttributeSet attrs) {
-        this(context, attrs, com.gmx.emoji.goo.R.attr.mainKeyboardViewStyle);
+        this(context, attrs, R.attr.mainKeyboardViewStyle);
     }
 
     public MainKeyboardView(final Context context, final AttributeSet attrs, final int defStyle) {
@@ -180,18 +181,18 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
                 new DrawingPreviewPlacerView(context, attrs);
 
         final TypedArray mainKeyboardViewAttr = context.obtainStyledAttributes(
-                attrs, com.gmx.emoji.goo.R.styleable.MainKeyboardView, defStyle, com.gmx.emoji.goo.R.style.MainKeyboardView);
+                attrs, R.styleable.MainKeyboardView, defStyle, R.style.MainKeyboardView);
         final int ignoreAltCodeKeyTimeout = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_ignoreAltCodeKeyTimeout, 0);
+                R.styleable.MainKeyboardView_ignoreAltCodeKeyTimeout, 0);
         final int gestureRecognitionUpdateTime = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureRecognitionUpdateTime, 0);
+                R.styleable.MainKeyboardView_gestureRecognitionUpdateTime, 0);
         mTimerHandler = new TimerHandler(
                 this, ignoreAltCodeKeyTimeout, gestureRecognitionUpdateTime);
 
         final float keyHysteresisDistance = mainKeyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyHysteresisDistance, 0.0f);
+                R.styleable.MainKeyboardView_keyHysteresisDistance, 0.0f);
         final float keyHysteresisDistanceForSlidingModifier = mainKeyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyHysteresisDistanceForSlidingModifier, 0.0f);
+                R.styleable.MainKeyboardView_keyHysteresisDistanceForSlidingModifier, 0.0f);
         mKeyDetector = new KeyDetector(
                 keyHysteresisDistance, keyHysteresisDistanceForSlidingModifier);
 
@@ -207,41 +208,41 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
                 : new NonDistinctMultitouchHelper();
 
         final int backgroundDimAlpha = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_backgroundDimAlpha, 0);
+                R.styleable.MainKeyboardView_backgroundDimAlpha, 0);
         mBackgroundDimAlphaPaint.setColor(Color.BLACK);
         mBackgroundDimAlphaPaint.setAlpha(backgroundDimAlpha);
         mLanguageOnSpacebarTextRatio = mainKeyboardViewAttr.getFraction(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_languageOnSpacebarTextRatio, 1, 1, 1.0f);
+                R.styleable.MainKeyboardView_languageOnSpacebarTextRatio, 1, 1, 1.0f);
         mLanguageOnSpacebarTextColor = mainKeyboardViewAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_languageOnSpacebarTextColor, 0);
+                R.styleable.MainKeyboardView_languageOnSpacebarTextColor, 0);
         mLanguageOnSpacebarTextShadowRadius = mainKeyboardViewAttr.getFloat(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_languageOnSpacebarTextShadowRadius,
+                R.styleable.MainKeyboardView_languageOnSpacebarTextShadowRadius,
                 LANGUAGE_ON_SPACEBAR_TEXT_SHADOW_RADIUS_DISABLED);
         mLanguageOnSpacebarTextShadowColor = mainKeyboardViewAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_languageOnSpacebarTextShadowColor, 0);
+                R.styleable.MainKeyboardView_languageOnSpacebarTextShadowColor, 0);
         mLanguageOnSpacebarFinalAlpha = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_languageOnSpacebarFinalAlpha,
+                R.styleable.MainKeyboardView_languageOnSpacebarFinalAlpha,
                 Constants.Color.ALPHA_OPAQUE);
         final int languageOnSpacebarFadeoutAnimatorResId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_languageOnSpacebarFadeoutAnimator, 0);
+                R.styleable.MainKeyboardView_languageOnSpacebarFadeoutAnimator, 0);
         final int altCodeKeyWhileTypingFadeoutAnimatorResId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_altCodeKeyWhileTypingFadeoutAnimator, 0);
+                R.styleable.MainKeyboardView_altCodeKeyWhileTypingFadeoutAnimator, 0);
         final int altCodeKeyWhileTypingFadeinAnimatorResId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_altCodeKeyWhileTypingFadeinAnimator, 0);
+                R.styleable.MainKeyboardView_altCodeKeyWhileTypingFadeinAnimator, 0);
 
         mKeyPreviewDrawParams = new KeyPreviewDrawParams(mainKeyboardViewAttr);
         mKeyPreviewChoreographer = new KeyPreviewChoreographer(mKeyPreviewDrawParams);
 
         final int moreKeysKeyboardLayoutId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_moreKeysKeyboardLayout, 0);
+                R.styleable.MainKeyboardView_moreKeysKeyboardLayout, 0);
         final int moreKeysKeyboardForActionLayoutId = mainKeyboardViewAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_moreKeysKeyboardForActionLayout,
+                R.styleable.MainKeyboardView_moreKeysKeyboardForActionLayout,
                 moreKeysKeyboardLayoutId);
         mConfigShowMoreKeysKeyboardAtTouchedPoint = mainKeyboardViewAttr.getBoolean(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_showMoreKeysKeyboardAtTouchedPoint, false);
+                R.styleable.MainKeyboardView_showMoreKeysKeyboardAtTouchedPoint, false);
 
         mGestureFloatingPreviewTextLingerTimeout = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewTextLingerTimeout, 0);
+                R.styleable.MainKeyboardView_gestureFloatingPreviewTextLingerTimeout, 0);
 
         mGestureFloatingTextDrawingPreview = new GestureFloatingTextDrawingPreview(
                 mainKeyboardViewAttr);
@@ -270,7 +271,7 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
         mKeyboardActionListener = KeyboardActionListener.EMPTY_LISTENER;
 
         mLanguageOnSpacebarHorizontalMargin = (int)getResources().getDimension(
-                com.gmx.emoji.goo.R.dimen.config_language_on_spacebar_horizontal_margin);
+                R.dimen.config_language_on_spacebar_horizontal_margin);
     }
 
     @Override
@@ -618,7 +619,7 @@ public final class MainKeyboardView extends KeyboardView implements DrawingProxy
         final View container = key.isActionKey() ? mMoreKeysKeyboardForActionContainer
                 : mMoreKeysKeyboardContainer;
         final MoreKeysKeyboardView moreKeysKeyboardView =
-                (MoreKeysKeyboardView)container.findViewById(com.gmx.emoji.goo.R.id.more_keys_keyboard_view);
+                (MoreKeysKeyboardView)container.findViewById(R.id.more_keys_keyboard_view);
         moreKeysKeyboardView.setKeyboard(moreKeysKeyboard);
         container.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 

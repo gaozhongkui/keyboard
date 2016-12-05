@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 
 import com.gmx.emoji.goo.AudioAndHapticFeedbackManager;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.RichInputMethodManager;
 
 /**
@@ -45,7 +46,7 @@ public final class PreferencesSettingsFragment extends SubScreenFragment {
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_preferences);
+        addPreferencesFromResource(R.xml.prefs_screen_preferences);
 
         final Resources res = getResources();
         final Context context = getActivity();
@@ -56,7 +57,7 @@ public final class PreferencesSettingsFragment extends SubScreenFragment {
         RichInputMethodManager.init(context);
 
         final boolean showVoiceKeyOption = res.getBoolean(
-                com.gmx.emoji.goo.R.bool.config_enable_show_voice_key_option);
+                R.bool.config_enable_show_voice_key_option);
         if (!showVoiceKeyOption) {
             removePreference(Settings.PREF_VOICE_INPUT_KEY);
         }
@@ -78,7 +79,7 @@ public final class PreferencesSettingsFragment extends SubScreenFragment {
             RichInputMethodManager.getInstance().refreshSubtypeCaches();
             voiceInputKeyOption.setEnabled(VOICE_IME_ENABLED);
             voiceInputKeyOption.setSummary(VOICE_IME_ENABLED
-                    ? null : getText(com.gmx.emoji.goo.R.string.voice_input_disabled_summary));
+                    ? null : getText(R.string.voice_input_disabled_summary));
         }
     }
 

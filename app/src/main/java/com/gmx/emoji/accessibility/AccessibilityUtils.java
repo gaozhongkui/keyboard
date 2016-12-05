@@ -33,6 +33,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.EditorInfo;
 
 import com.gmx.emoji.compat.SettingsSecureCompatUtils;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.SuggestedWords;
 import com.gmx.emoji.goo.utils.InputTypeUtils;
 
@@ -183,10 +184,10 @@ public final class AccessibilityUtils {
             if (!TextUtils.equals(mAutoCorrectionWord, mTypedWord)) {
                 if (shouldObscure) {
                     // This should never happen, but just in case...
-                    return mContext.getString(com.gmx.emoji.goo.R.string.spoken_auto_correct_obscured,
+                    return mContext.getString(R.string.spoken_auto_correct_obscured,
                             keyCodeDescription);
                 }
-                return mContext.getString(com.gmx.emoji.goo.R.string.spoken_auto_correct, keyCodeDescription,
+                return mContext.getString(R.string.spoken_auto_correct, keyCodeDescription,
                         mTypedWord, mAutoCorrectionWord);
             }
         }
@@ -246,7 +247,7 @@ public final class AccessibilityUtils {
     public void onStartInputViewInternal(final View view, final EditorInfo editorInfo,
             final boolean restarting) {
         if (shouldObscureInput(editorInfo)) {
-            final CharSequence text = mContext.getText(com.gmx.emoji.goo.R.string.spoken_use_headphones);
+            final CharSequence text = mContext.getText(R.string.spoken_use_headphones);
             announceForAccessibility(view, text);
         }
     }

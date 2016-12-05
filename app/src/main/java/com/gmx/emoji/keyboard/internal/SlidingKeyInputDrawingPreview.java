@@ -21,6 +21,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.PointerTracker;
 import com.gmx.emoji.goo.common.CoordinateUtils;
 
@@ -45,16 +46,16 @@ public final class SlidingKeyInputDrawingPreview extends AbstractDrawingPreview 
 
     public SlidingKeyInputDrawingPreview(final TypedArray mainKeyboardViewAttr) {
         final int previewColor = mainKeyboardViewAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_slidingKeyInputPreviewColor, 0);
+                R.styleable.MainKeyboardView_slidingKeyInputPreviewColor, 0);
         final float previewRadius = mainKeyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_slidingKeyInputPreviewWidth, 0) / 2.0f;
+                R.styleable.MainKeyboardView_slidingKeyInputPreviewWidth, 0) / 2.0f;
         final int PERCENTAGE_INT = 100;
         final float previewBodyRatio = (float)mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_slidingKeyInputPreviewBodyRatio, PERCENTAGE_INT)
+                R.styleable.MainKeyboardView_slidingKeyInputPreviewBodyRatio, PERCENTAGE_INT)
                 / (float)PERCENTAGE_INT;
         mPreviewBodyRadius = previewRadius * previewBodyRatio;
         final int previewShadowRatioInt = mainKeyboardViewAttr.getInt(
-                com.gmx.emoji.goo.R.styleable.MainKeyboardView_slidingKeyInputPreviewShadowRatio, 0);
+                R.styleable.MainKeyboardView_slidingKeyInputPreviewShadowRatio, 0);
         if (previewShadowRatioInt > 0) {
             final float previewShadowRatio = (float)previewShadowRatioInt / (float)PERCENTAGE_INT;
             final float shadowRadius = previewRadius * previewShadowRatio;

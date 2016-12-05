@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 
 import com.gmx.emoji.goo.AudioAndHapticFeedbackManager;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.SystemBroadcastReceiver;
 
 /**
@@ -41,7 +42,7 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_advanced);
+        addPreferencesFromResource(R.xml.prefs_screen_advanced);
 
         final Resources res = getResources();
         final Context context = getActivity();
@@ -69,10 +70,10 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
             final ListPreference keyPreviewPopupDismissDelay =
                     (ListPreference) findPreference(Settings.PREF_KEY_PREVIEW_POPUP_DISMISS_DELAY);
             final String popupDismissDelayDefaultValue = Integer.toString(res.getInteger(
-                    com.gmx.emoji.goo.R.integer.config_key_preview_linger_timeout));
+                    R.integer.config_key_preview_linger_timeout));
             keyPreviewPopupDismissDelay.setEntries(new String[] {
-                    res.getString(com.gmx.emoji.goo.R.string.key_preview_popup_dismiss_no_delay),
-                    res.getString(com.gmx.emoji.goo.R.string.key_preview_popup_dismiss_default_delay),
+                    res.getString(R.string.key_preview_popup_dismiss_no_delay),
+                    res.getString(R.string.key_preview_popup_dismiss_default_delay),
             });
             keyPreviewPopupDismissDelay.setEntryValues(new String[] {
                     "0",
@@ -157,9 +158,9 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
             @Override
             public String getValueText(final int value) {
                 if (value < 0) {
-                    return res.getString(com.gmx.emoji.goo.R.string.settings_system_default);
+                    return res.getString(R.string.settings_system_default);
                 }
-                return res.getString(com.gmx.emoji.goo.R.string.abbreviation_unit_milliseconds, value);
+                return res.getString(R.string.abbreviation_unit_milliseconds, value);
             }
         });
     }
@@ -207,7 +208,7 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
             @Override
             public String getValueText(final int value) {
                 if (value < 0) {
-                    return res.getString(com.gmx.emoji.goo.R.string.settings_system_default);
+                    return res.getString(R.string.settings_system_default);
                 }
                 return Integer.toString(value);
             }
@@ -251,7 +252,7 @@ public final class AdvancedSettingsFragment extends SubScreenFragment {
 
             @Override
             public String getValueText(final int value) {
-                return res.getString(com.gmx.emoji.goo.R.string.abbreviation_unit_milliseconds, value);
+                return res.getString(R.string.abbreviation_unit_milliseconds, value);
             }
 
             @Override

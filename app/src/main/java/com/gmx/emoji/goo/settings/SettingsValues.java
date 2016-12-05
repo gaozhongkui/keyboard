@@ -27,6 +27,7 @@ import android.view.inputmethod.EditorInfo;
 
 import com.gmx.emoji.compat.AppWorkaroundsUtils;
 import com.gmx.emoji.goo.InputAttributes;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.RichInputMethodManager;
 import com.gmx.emoji.goo.utils.AsyncResultHolder;
 import com.gmx.emoji.goo.utils.ResourceUtils;
@@ -124,7 +125,7 @@ public class SettingsValues {
         mLocale = res.getConfiguration().locale;
         // Get the resources
         mDelayInMillisecondsToUpdateOldSuggestions =
-                res.getInteger(com.gmx.emoji.goo.R.integer.config_delay_in_milliseconds_to_update_old_suggestions);
+                res.getInteger(R.integer.config_delay_in_milliseconds_to_update_old_suggestions);
         mSpacingAndPunctuations = new SpacingAndPunctuations(res);
 
         // Store the input attributes
@@ -152,10 +153,10 @@ public class SettingsValues {
         mBlockPotentiallyOffensive = Settings.readBlockPotentiallyOffensive(prefs, res);
         mAutoCorrectEnabled = Settings.readAutoCorrectEnabled(prefs, res);
         final String autoCorrectionThresholdRawValue = mAutoCorrectEnabled
-                ? res.getString(com.gmx.emoji.goo.R.string.auto_correction_threshold_mode_index_modest)
-                : res.getString(com.gmx.emoji.goo.R.string.auto_correction_threshold_mode_index_off);
+                ? res.getString(R.string.auto_correction_threshold_mode_index_modest)
+                : res.getString(R.string.auto_correction_threshold_mode_index_off);
         mBigramPredictionEnabled = readBigramPredictionEnabled(prefs, res);
-        mDoubleSpacePeriodTimeout = res.getInteger(com.gmx.emoji.goo.R.integer.config_double_space_period_timeout);
+        mDoubleSpacePeriodTimeout = res.getInteger(R.integer.config_double_space_period_timeout);
         mHasHardwareKeyboard = Settings.readHasHardwareKeyboard(res.getConfiguration());
         mEnableMetricsLogging = prefs.getBoolean(Settings.PREF_ENABLE_METRICS_LOGGING, true);
         mIsSplitKeyboardEnabled = prefs.getBoolean(Settings.PREF_ENABLE_SPLIT_KEYBOARD, false);
@@ -192,14 +193,14 @@ public class SettingsValues {
         mKeyboardHeightScale = Settings.readKeyboardHeight(prefs, DEFAULT_SIZE_SCALE);
         mKeyPreviewShowUpDuration = Settings.readKeyPreviewAnimationDuration(
                 prefs, DebugSettings.PREF_KEY_PREVIEW_SHOW_UP_DURATION,
-                res.getInteger(com.gmx.emoji.goo.R.integer.config_key_preview_show_up_duration));
+                res.getInteger(R.integer.config_key_preview_show_up_duration));
         mKeyPreviewDismissDuration = Settings.readKeyPreviewAnimationDuration(
                 prefs, DebugSettings.PREF_KEY_PREVIEW_DISMISS_DURATION,
-                res.getInteger(com.gmx.emoji.goo.R.integer.config_key_preview_dismiss_duration));
+                res.getInteger(R.integer.config_key_preview_dismiss_duration));
         final float defaultKeyPreviewShowUpStartScale = ResourceUtils.getFloatFromFraction(
-                res, com.gmx.emoji.goo.R.fraction.config_key_preview_show_up_start_scale);
+                res, R.fraction.config_key_preview_show_up_start_scale);
         final float defaultKeyPreviewDismissEndScale = ResourceUtils.getFloatFromFraction(
-                res, com.gmx.emoji.goo.R.fraction.config_key_preview_dismiss_end_scale);
+                res, R.fraction.config_key_preview_dismiss_end_scale);
         mKeyPreviewShowUpStartXScale = Settings.readKeyPreviewAnimationScale(
                 prefs, DebugSettings.PREF_KEY_PREVIEW_SHOW_UP_START_X_SCALE,
                 defaultKeyPreviewShowUpStartScale);
@@ -318,13 +319,13 @@ public class SettingsValues {
     private static boolean readBigramPredictionEnabled(final SharedPreferences prefs,
             final Resources res) {
         return prefs.getBoolean(Settings.PREF_BIGRAM_PREDICTIONS, res.getBoolean(
-                com.gmx.emoji.goo.R.bool.config_default_next_word_prediction));
+                R.bool.config_default_next_word_prediction));
     }
 
     private static float readAutoCorrectionThreshold(final Resources res,
             final String currentAutoCorrectionSetting) {
         final String[] autoCorrectionThresholdValues = res.getStringArray(
-                com.gmx.emoji.goo.R.array.auto_correction_threshold_values);
+                R.array.auto_correction_threshold_values);
         // When autoCorrectionThreshold is greater than 1.0, it's like auto correction is off.
         final float autoCorrectionThreshold;
         try {
@@ -357,7 +358,7 @@ public class SettingsValues {
         // Migrate preference from {@link Settings#PREF_VOICE_MODE_OBSOLETE} to
         // {@link Settings#PREF_VOICE_INPUT_KEY}.
         if (prefs.contains(Settings.PREF_VOICE_MODE_OBSOLETE)) {
-            final String voiceModeMain = res.getString(com.gmx.emoji.goo.R.string.voice_mode_main);
+            final String voiceModeMain = res.getString(R.string.voice_mode_main);
             final String voiceMode = prefs.getString(
                     Settings.PREF_VOICE_MODE_OBSOLETE, voiceModeMain);
             final boolean shouldShowVoiceInputKey = voiceModeMain.equals(voiceMode);

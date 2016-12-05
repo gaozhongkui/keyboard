@@ -27,6 +27,7 @@ import android.view.inputmethod.EditorInfo;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.compat.InputMethodServiceCompatUtils;
 import com.gmx.emoji.event.Event;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.emoji.EmojiPalettesView;
 import com.gmx.emoji.keyboard.internal.KeyboardState;
 import com.gmx.emoji.keyboard.internal.KeyboardTextsSet;
@@ -461,12 +462,12 @@ public final class KeyboardSwitcher implements KeyboardState.SwitchActions {
         updateKeyboardThemeAndContextThemeWrapper(
                 mLatinIME, KeyboardTheme.getKeyboardTheme(mLatinIME /* context */));
         mCurrentInputView = (InputView)LayoutInflater.from(mThemeContext).inflate(
-                com.gmx.emoji.goo.R.layout.input_view, null);
-        mMainKeyboardFrame = mCurrentInputView.findViewById(com.gmx.emoji.goo.R.id.main_keyboard_frame);
+                R.layout.input_view, null);
+        mMainKeyboardFrame = mCurrentInputView.findViewById(R.id.main_keyboard_frame);
         mEmojiPalettesView = (EmojiPalettesView)mCurrentInputView.findViewById(
-                com.gmx.emoji.goo.R.id.emoji_palettes_view);
+                R.id.emoji_palettes_view);
 
-        mKeyboardView = (MainKeyboardView) mCurrentInputView.findViewById(com.gmx.emoji.goo.R.id.keyboard_view);
+        mKeyboardView = (MainKeyboardView) mCurrentInputView.findViewById(R.id.keyboard_view);
         mKeyboardView.setHardwareAcceleratedDrawingEnabled(isHardwareAcceleratedDrawingEnabled);
         mKeyboardView.setKeyboardActionListener(mLatinIME);
         mEmojiPalettesView.setHardwareAcceleratedDrawingEnabled(

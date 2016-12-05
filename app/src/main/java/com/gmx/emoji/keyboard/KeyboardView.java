@@ -33,6 +33,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.android.inputmethod.keyboard.Keyboard;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.KeyDrawParams;
 import com.gmx.emoji.keyboard.internal.KeyVisualAttributes;
 import com.gmx.emoji.goo.common.Constants;
@@ -123,42 +124,42 @@ public class KeyboardView extends View {
     private final Paint.FontMetrics mFontMetrics = new Paint.FontMetrics();
 
     public KeyboardView(final Context context, final AttributeSet attrs) {
-        this(context, attrs, com.gmx.emoji.goo.R.attr.keyboardViewStyle);
+        this(context, attrs, R.attr.keyboardViewStyle);
     }
 
     public KeyboardView(final Context context, final AttributeSet attrs, final int defStyle) {
         super(context, attrs, defStyle);
 
         final TypedArray keyboardViewAttr = context.obtainStyledAttributes(attrs,
-                com.gmx.emoji.goo.R.styleable.KeyboardView, defStyle, com.gmx.emoji.goo.R.style.KeyboardView);
-        mKeyBackground = keyboardViewAttr.getDrawable(com.gmx.emoji.goo.R.styleable.KeyboardView_keyBackground);
+                R.styleable.KeyboardView, defStyle, R.style.KeyboardView);
+        mKeyBackground = keyboardViewAttr.getDrawable(R.styleable.KeyboardView_keyBackground);
         mKeyBackground.getPadding(mKeyBackgroundPadding);
         final Drawable functionalKeyBackground = keyboardViewAttr.getDrawable(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_functionalKeyBackground);
+                R.styleable.KeyboardView_functionalKeyBackground);
         mFunctionalKeyBackground = (functionalKeyBackground != null) ? functionalKeyBackground
                 : mKeyBackground;
         final Drawable spacebarBackground = keyboardViewAttr.getDrawable(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_spacebarBackground);
+                R.styleable.KeyboardView_spacebarBackground);
         mSpacebarBackground = (spacebarBackground != null) ? spacebarBackground : mKeyBackground;
         mSpacebarIconWidthRatio = keyboardViewAttr.getFloat(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_spacebarIconWidthRatio, 1.0f);
+                R.styleable.KeyboardView_spacebarIconWidthRatio, 1.0f);
         mKeyHintLetterPadding = keyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_keyHintLetterPadding, 0.0f);
+                R.styleable.KeyboardView_keyHintLetterPadding, 0.0f);
         mKeyPopupHintLetter = keyboardViewAttr.getString(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_keyPopupHintLetter);
+                R.styleable.KeyboardView_keyPopupHintLetter);
         mKeyPopupHintLetterPadding = keyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_keyPopupHintLetterPadding, 0.0f);
+                R.styleable.KeyboardView_keyPopupHintLetterPadding, 0.0f);
         mKeyShiftedLetterHintPadding = keyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_keyShiftedLetterHintPadding, 0.0f);
+                R.styleable.KeyboardView_keyShiftedLetterHintPadding, 0.0f);
         mKeyTextShadowRadius = keyboardViewAttr.getFloat(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_keyTextShadowRadius, KET_TEXT_SHADOW_RADIUS_DISABLED);
+                R.styleable.KeyboardView_keyTextShadowRadius, KET_TEXT_SHADOW_RADIUS_DISABLED);
         mVerticalCorrection = keyboardViewAttr.getDimension(
-                com.gmx.emoji.goo.R.styleable.KeyboardView_verticalCorrection, 0.0f);
+                R.styleable.KeyboardView_verticalCorrection, 0.0f);
         keyboardViewAttr.recycle();
 
         final TypedArray keyAttr = context.obtainStyledAttributes(attrs,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key, defStyle, com.gmx.emoji.goo.R.style.KeyboardView);
-        mDefaultKeyLabelFlags = keyAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelFlags, 0);
+                R.styleable.Keyboard_Key, defStyle, R.style.KeyboardView);
+        mDefaultKeyLabelFlags = keyAttr.getInt(R.styleable.Keyboard_Key_keyLabelFlags, 0);
         mKeyVisualAttributes = KeyVisualAttributes.newInstance(keyAttr);
         keyAttr.recycle();
 

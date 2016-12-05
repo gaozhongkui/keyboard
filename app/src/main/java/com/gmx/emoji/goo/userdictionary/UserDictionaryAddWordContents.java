@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.gmx.emoji.compat.UserDictionaryCompatUtils;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 
 import java.util.ArrayList;
@@ -70,11 +71,11 @@ public class UserDictionaryAddWordContents {
     private String mSavedShortcut;
 
     /* package */ UserDictionaryAddWordContents(final View view, final Bundle args) {
-        mWordEditText = (EditText)view.findViewById(com.gmx.emoji.goo.R.id.user_dictionary_add_word_text);
-        mShortcutEditText = (EditText)view.findViewById(com.gmx.emoji.goo.R.id.user_dictionary_add_shortcut);
+        mWordEditText = (EditText)view.findViewById(R.id.user_dictionary_add_word_text);
+        mShortcutEditText = (EditText)view.findViewById(R.id.user_dictionary_add_shortcut);
         if (!UserDictionarySettings.IS_SHORTCUT_API_SUPPORTED) {
             mShortcutEditText.setVisibility(View.GONE);
-            view.findViewById(com.gmx.emoji.goo.R.id.user_dictionary_add_shortcut_label).setVisibility(View.GONE);
+            view.findViewById(R.id.user_dictionary_add_shortcut_label).setVisibility(View.GONE);
         }
         final String word = args.getString(EXTRA_WORD);
         if (null != word) {
@@ -101,8 +102,8 @@ public class UserDictionaryAddWordContents {
 
     /* package */ UserDictionaryAddWordContents(final View view,
             final UserDictionaryAddWordContents oldInstanceToBeEdited) {
-        mWordEditText = (EditText)view.findViewById(com.gmx.emoji.goo.R.id.user_dictionary_add_word_text);
-        mShortcutEditText = (EditText)view.findViewById(com.gmx.emoji.goo.R.id.user_dictionary_add_shortcut);
+        mWordEditText = (EditText)view.findViewById(R.id.user_dictionary_add_word_text);
+        mShortcutEditText = (EditText)view.findViewById(R.id.user_dictionary_add_shortcut);
         mMode = MODE_EDIT;
         mOldWord = oldInstanceToBeEdited.mSavedWord;
         mOldShortcut = oldInstanceToBeEdited.mSavedShortcut;
@@ -223,9 +224,9 @@ public class UserDictionaryAddWordContents {
         public LocaleRenderer(final Context context, @Nullable final String localeString) {
             mLocaleString = localeString;
             if (null == localeString) {
-                mDescription = context.getString(com.gmx.emoji.goo.R.string.user_dict_settings_more_languages);
+                mDescription = context.getString(R.string.user_dict_settings_more_languages);
             } else if ("".equals(localeString)) {
-                mDescription = context.getString(com.gmx.emoji.goo.R.string.user_dict_settings_all_languages);
+                mDescription = context.getString(R.string.user_dict_settings_all_languages);
             } else {
                 mDescription = LocaleUtils.constructLocaleFromString(localeString).getDisplayName();
             }

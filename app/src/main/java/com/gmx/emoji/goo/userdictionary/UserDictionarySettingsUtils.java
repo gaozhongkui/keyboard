@@ -16,6 +16,7 @@
 
 package com.gmx.emoji.goo.userdictionary;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 
 import android.content.Context;
@@ -32,7 +33,7 @@ public class UserDictionarySettingsUtils {
         if (TextUtils.isEmpty(localeStr)) {
             // CAVEAT: localeStr should not be null because a null locale stands for the system
             // locale in UserDictionary.Words.addWord.
-            return context.getResources().getString(com.gmx.emoji.goo.R.string.user_dict_settings_all_languages);
+            return context.getResources().getString(R.string.user_dict_settings_all_languages);
         }
         final Locale locale = LocaleUtils.constructLocaleFromString(localeStr);
         final Locale systemLocale = context.getResources().getConfiguration().locale;

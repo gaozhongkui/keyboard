@@ -20,6 +20,7 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.SparseIntArray;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.utils.ResourceUtils;
 
 import javax.annotation.Nonnull;
@@ -54,26 +55,26 @@ public final class KeyVisualAttributes {
     public final float mHintLabelOffCenterRatio;
 
     private static final int[] VISUAL_ATTRIBUTE_IDS = {
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTypeface,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLetterSize,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelSize,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLargeLetterRatio,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLetterRatio,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyShiftedLetterHintRatio,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelRatio,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyPreviewTextRatio,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTextColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTextInactivatedColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTextShadowColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_functionalTextColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLetterColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyShiftedLetterHintInactivatedColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyShiftedLetterHintActivatedColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyPreviewTextColor,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelVerticalAdjustment,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelOffCenterRatio,
-        com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelOffCenterRatio
+        R.styleable.Keyboard_Key_keyTypeface,
+        R.styleable.Keyboard_Key_keyLetterSize,
+        R.styleable.Keyboard_Key_keyLabelSize,
+        R.styleable.Keyboard_Key_keyLargeLetterRatio,
+        R.styleable.Keyboard_Key_keyHintLetterRatio,
+        R.styleable.Keyboard_Key_keyShiftedLetterHintRatio,
+        R.styleable.Keyboard_Key_keyHintLabelRatio,
+        R.styleable.Keyboard_Key_keyPreviewTextRatio,
+        R.styleable.Keyboard_Key_keyTextColor,
+        R.styleable.Keyboard_Key_keyTextInactivatedColor,
+        R.styleable.Keyboard_Key_keyTextShadowColor,
+        R.styleable.Keyboard_Key_functionalTextColor,
+        R.styleable.Keyboard_Key_keyHintLetterColor,
+        R.styleable.Keyboard_Key_keyHintLabelColor,
+        R.styleable.Keyboard_Key_keyShiftedLetterHintInactivatedColor,
+        R.styleable.Keyboard_Key_keyShiftedLetterHintActivatedColor,
+        R.styleable.Keyboard_Key_keyPreviewTextColor,
+        R.styleable.Keyboard_Key_keyHintLabelVerticalAdjustment,
+        R.styleable.Keyboard_Key_keyLabelOffCenterRatio,
+        R.styleable.Keyboard_Key_keyHintLabelOffCenterRatio
     };
     private static final SparseIntArray sVisualAttributeIds = new SparseIntArray();
     private static final int ATTR_DEFINED = 1;
@@ -98,50 +99,50 @@ public final class KeyVisualAttributes {
     }
 
     private KeyVisualAttributes(@Nonnull final TypedArray keyAttr) {
-        if (keyAttr.hasValue(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTypeface)) {
+        if (keyAttr.hasValue(R.styleable.Keyboard_Key_keyTypeface)) {
             mTypeface = Typeface.defaultFromStyle(
-                    keyAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTypeface, Typeface.NORMAL));
+                    keyAttr.getInt(R.styleable.Keyboard_Key_keyTypeface, Typeface.NORMAL));
         } else {
             mTypeface = null;
         }
 
         mLetterRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLetterSize);
+                R.styleable.Keyboard_Key_keyLetterSize);
         mLetterSize = ResourceUtils.getDimensionPixelSize(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLetterSize);
+                R.styleable.Keyboard_Key_keyLetterSize);
         mLabelRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelSize);
+                R.styleable.Keyboard_Key_keyLabelSize);
         mLabelSize = ResourceUtils.getDimensionPixelSize(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelSize);
+                R.styleable.Keyboard_Key_keyLabelSize);
         mLargeLetterRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLargeLetterRatio);
+                R.styleable.Keyboard_Key_keyLargeLetterRatio);
         mHintLetterRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLetterRatio);
+                R.styleable.Keyboard_Key_keyHintLetterRatio);
         mShiftedLetterHintRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyShiftedLetterHintRatio);
+                R.styleable.Keyboard_Key_keyShiftedLetterHintRatio);
         mHintLabelRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelRatio);
+                R.styleable.Keyboard_Key_keyHintLabelRatio);
         mPreviewTextRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyPreviewTextRatio);
+                R.styleable.Keyboard_Key_keyPreviewTextRatio);
 
-        mTextColor = keyAttr.getColor(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTextColor, 0);
+        mTextColor = keyAttr.getColor(R.styleable.Keyboard_Key_keyTextColor, 0);
         mTextInactivatedColor = keyAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTextInactivatedColor, 0);
-        mTextShadowColor = keyAttr.getColor(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyTextShadowColor, 0);
-        mFunctionalTextColor = keyAttr.getColor(com.gmx.emoji.goo.R.styleable.Keyboard_Key_functionalTextColor, 0);
-        mHintLetterColor = keyAttr.getColor(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLetterColor, 0);
-        mHintLabelColor = keyAttr.getColor(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelColor, 0);
+                R.styleable.Keyboard_Key_keyTextInactivatedColor, 0);
+        mTextShadowColor = keyAttr.getColor(R.styleable.Keyboard_Key_keyTextShadowColor, 0);
+        mFunctionalTextColor = keyAttr.getColor(R.styleable.Keyboard_Key_functionalTextColor, 0);
+        mHintLetterColor = keyAttr.getColor(R.styleable.Keyboard_Key_keyHintLetterColor, 0);
+        mHintLabelColor = keyAttr.getColor(R.styleable.Keyboard_Key_keyHintLabelColor, 0);
         mShiftedLetterHintInactivatedColor = keyAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyShiftedLetterHintInactivatedColor, 0);
+                R.styleable.Keyboard_Key_keyShiftedLetterHintInactivatedColor, 0);
         mShiftedLetterHintActivatedColor = keyAttr.getColor(
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyShiftedLetterHintActivatedColor, 0);
-        mPreviewTextColor = keyAttr.getColor(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyPreviewTextColor, 0);
+                R.styleable.Keyboard_Key_keyShiftedLetterHintActivatedColor, 0);
+        mPreviewTextColor = keyAttr.getColor(R.styleable.Keyboard_Key_keyPreviewTextColor, 0);
 
         mHintLabelVerticalAdjustment = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelVerticalAdjustment, 0.0f);
+                R.styleable.Keyboard_Key_keyHintLabelVerticalAdjustment, 0.0f);
         mLabelOffCenterRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelOffCenterRatio, 0.0f);
+                R.styleable.Keyboard_Key_keyLabelOffCenterRatio, 0.0f);
         mHintLabelOffCenterRatio = ResourceUtils.getFraction(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabelOffCenterRatio, 0.0f);
+                R.styleable.Keyboard_Key_keyHintLabelOffCenterRatio, 0.0f);
     }
 }

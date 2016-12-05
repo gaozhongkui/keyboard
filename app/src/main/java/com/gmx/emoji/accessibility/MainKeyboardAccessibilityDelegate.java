@@ -23,6 +23,7 @@ import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.gmx.emoji.keyboard.KeyDetector;
 import com.android.inputmethod.keyboard.Keyboard;
@@ -44,15 +45,15 @@ public final class MainKeyboardAccessibilityDelegate
     private static final SparseIntArray KEYBOARD_MODE_RES_IDS = new SparseIntArray();
 
     static {
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_DATE, com.gmx.emoji.goo.R.string.keyboard_mode_date);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_DATETIME, com.gmx.emoji.goo.R.string.keyboard_mode_date_time);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_EMAIL, com.gmx.emoji.goo.R.string.keyboard_mode_email);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_IM, com.gmx.emoji.goo.R.string.keyboard_mode_im);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_NUMBER, com.gmx.emoji.goo.R.string.keyboard_mode_number);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_PHONE, com.gmx.emoji.goo.R.string.keyboard_mode_phone);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_TEXT, com.gmx.emoji.goo.R.string.keyboard_mode_text);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_TIME, com.gmx.emoji.goo.R.string.keyboard_mode_time);
-        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_URL, com.gmx.emoji.goo.R.string.keyboard_mode_url);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_DATE, R.string.keyboard_mode_date);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_DATETIME, R.string.keyboard_mode_date_time);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_EMAIL, R.string.keyboard_mode_email);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_IM, R.string.keyboard_mode_im);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_NUMBER, R.string.keyboard_mode_number);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_PHONE, R.string.keyboard_mode_phone);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_TEXT, R.string.keyboard_mode_text);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_TIME, R.string.keyboard_mode_time);
+        KEYBOARD_MODE_RES_IDS.put(KeyboardId.MODE_URL, R.string.keyboard_mode_url);
     }
 
     /** The most recently set keyboard mode. */
@@ -137,7 +138,7 @@ public final class MainKeyboardAccessibilityDelegate
             return;
         }
         final String modeText = context.getString(modeTextResId);
-        final String text = context.getString(com.gmx.emoji.goo.R.string.announce_keyboard_mode, modeText);
+        final String text = context.getString(R.string.announce_keyboard_mode, modeText);
         sendWindowStateChanged(text);
     }
 
@@ -159,7 +160,7 @@ public final class MainKeyboardAccessibilityDelegate
                 // ignored because it can be determined by each key's talk back announce.
                 return;
             }
-            resId = com.gmx.emoji.goo.R.string.spoken_description_mode_alpha;
+            resId = R.string.spoken_description_mode_alpha;
             break;
         case KeyboardId.ELEMENT_ALPHABET_MANUAL_SHIFTED:
             if (lastElementId == KeyboardId.ELEMENT_ALPHABET_AUTOMATIC_SHIFTED) {
@@ -167,7 +168,7 @@ public final class MainKeyboardAccessibilityDelegate
                 // from automatic shifted to manual shifted that should be silently ignored.
                 return;
             }
-            resId = com.gmx.emoji.goo.R.string.spoken_description_shiftmode_on;
+            resId = R.string.spoken_description_shiftmode_on;
             break;
         case KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCK_SHIFTED:
             if (lastElementId == KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCKED) {
@@ -175,22 +176,22 @@ public final class MainKeyboardAccessibilityDelegate
                 // from shift locked to shift lock shifted that should be silently ignored.
                 return;
             }
-            resId = com.gmx.emoji.goo.R.string.spoken_description_shiftmode_locked;
+            resId = R.string.spoken_description_shiftmode_locked;
             break;
         case KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCKED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_shiftmode_locked;
+            resId = R.string.spoken_description_shiftmode_locked;
             break;
         case KeyboardId.ELEMENT_SYMBOLS:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_mode_symbol;
+            resId = R.string.spoken_description_mode_symbol;
             break;
         case KeyboardId.ELEMENT_SYMBOLS_SHIFTED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_mode_symbol_shift;
+            resId = R.string.spoken_description_mode_symbol_shift;
             break;
         case KeyboardId.ELEMENT_PHONE:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_mode_phone;
+            resId = R.string.spoken_description_mode_phone;
             break;
         case KeyboardId.ELEMENT_PHONE_SYMBOLS:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_mode_phone_shift;
+            resId = R.string.spoken_description_mode_phone_shift;
             break;
         default:
             return;
@@ -202,7 +203,7 @@ public final class MainKeyboardAccessibilityDelegate
      * Announces that the keyboard has been hidden.
      */
     private void announceKeyboardHidden() {
-        sendWindowStateChanged(com.gmx.emoji.goo.R.string.announce_keyboard_hidden);
+        sendWindowStateChanged(R.string.announce_keyboard_hidden);
     }
 
     @Override

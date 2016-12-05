@@ -25,6 +25,8 @@ import android.view.ViewPropertyAnimator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.gmx.emoji.goo.R;
+
 /**
  * A view that handles buttons inside it according to a status.
  */
@@ -66,9 +68,9 @@ public class ButtonSwitcher extends FrameLayout {
     protected void onLayout(final boolean changed, final int left, final int top, final int right,
             final int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        mInstallButton = (Button)findViewById(com.gmx.emoji.goo.R.id.dict_install_button);
-        mCancelButton = (Button)findViewById(com.gmx.emoji.goo.R.id.dict_cancel_button);
-        mDeleteButton = (Button)findViewById(com.gmx.emoji.goo.R.id.dict_delete_button);
+        mInstallButton = (Button)findViewById(R.id.dict_install_button);
+        mCancelButton = (Button)findViewById(R.id.dict_cancel_button);
+        mDeleteButton = (Button)findViewById(R.id.dict_delete_button);
         setInternalOnClickListener(mOnClickListener);
         setButtonPositionWithoutAnimation(mStatus);
         if (mAnimateToStatus != NOT_INITIALIZED) {

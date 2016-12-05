@@ -24,6 +24,8 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.gmx.emoji.goo.R;
+
 public final class SetupStepIndicatorView extends View {
     private final Path mIndicatorPath = new Path();
     private final Paint mIndicatorPaint = new Paint();
@@ -31,7 +33,7 @@ public final class SetupStepIndicatorView extends View {
 
     public SetupStepIndicatorView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
-        mIndicatorPaint.setColor(getResources().getColor(com.gmx.emoji.goo.R.color.setup_step_background));
+        mIndicatorPaint.setColor(getResources().getColor(R.color.setup_step_background));
         mIndicatorPaint.setStyle(Paint.Style.FILL);
     }
 

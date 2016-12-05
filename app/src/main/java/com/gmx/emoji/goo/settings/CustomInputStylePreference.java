@@ -34,6 +34,7 @@ import android.widget.SpinnerAdapter;
 
 import com.gmx.emoji.compat.InputMethodSubtypeCompatUtils;
 import com.gmx.emoji.compat.ViewCompatUtils;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.RichInputMethodManager;
 import com.gmx.emoji.goo.utils.AdditionalSubtypeUtils;
 import com.gmx.emoji.goo.utils.SubtypeLocaleUtils;
@@ -70,7 +71,7 @@ final class CustomInputStylePreference extends DialogPreference
     public CustomInputStylePreference(final Context context, final InputMethodSubtype subtype,
             final Listener proxy) {
         super(context, null);
-        setDialogLayoutResource(com.gmx.emoji.goo.R.layout.additional_subtype_dialog);
+        setDialogLayoutResource(R.layout.additional_subtype_dialog);
         setPersistent(false);
         mProxy = proxy;
         setSubtype(subtype);
@@ -93,7 +94,7 @@ final class CustomInputStylePreference extends DialogPreference
         mSubtype = subtype;
         if (isIncomplete()) {
             setTitle(null);
-            setDialogTitle(com.gmx.emoji.goo.R.string.add_style);
+            setDialogTitle(R.string.add_style);
             setKey(KEY_NEW_SUBTYPE);
         } else {
             final String displayName =
@@ -116,9 +117,9 @@ final class CustomInputStylePreference extends DialogPreference
     @Override
     protected View onCreateDialogView() {
         final View v = super.onCreateDialogView();
-        mSubtypeLocaleSpinner = (Spinner) v.findViewById(com.gmx.emoji.goo.R.id.subtype_locale_spinner);
+        mSubtypeLocaleSpinner = (Spinner) v.findViewById(R.id.subtype_locale_spinner);
         mSubtypeLocaleSpinner.setAdapter(mProxy.getSubtypeLocaleAdapter());
-        mKeyboardLayoutSetSpinner = (Spinner) v.findViewById(com.gmx.emoji.goo.R.id.keyboard_layout_set_spinner);
+        mKeyboardLayoutSetSpinner = (Spinner) v.findViewById(R.id.keyboard_layout_set_spinner);
         mKeyboardLayoutSetSpinner.setAdapter(mProxy.getKeyboardLayoutSetAdapter());
         // All keyboard layout names are in the Latin script and thus left to right. That means
         // the view would align them to the left even if the system locale is RTL, but that
@@ -133,12 +134,12 @@ final class CustomInputStylePreference extends DialogPreference
     protected void onPrepareDialogBuilder(final AlertDialog.Builder builder) {
         builder.setCancelable(true).setOnCancelListener(this);
         if (isIncomplete()) {
-            builder.setPositiveButton(com.gmx.emoji.goo.R.string.add, this)
+            builder.setPositiveButton(R.string.add, this)
                     .setNegativeButton(android.R.string.cancel, this);
         } else {
-            builder.setPositiveButton(com.gmx.emoji.goo.R.string.save, this)
+            builder.setPositiveButton(R.string.save, this)
                     .setNeutralButton(android.R.string.cancel, this)
-                    .setNegativeButton(com.gmx.emoji.goo.R.string.remove, this);
+                    .setNegativeButton(R.string.remove, this);
             final SubtypeLocaleItem localeItem = new SubtypeLocaleItem(mSubtype);
             final KeyboardLayoutSetItem layoutItem = new KeyboardLayoutSetItem(mSubtype);
             setSpinnerPosition(mSubtypeLocaleSpinner, localeItem);
@@ -326,7 +327,7 @@ final class CustomInputStylePreference extends DialogPreference
             setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             final String[] predefinedKeyboardLayoutSet = context.getResources().getStringArray(
-                    com.gmx.emoji.goo.R.array.predefined_layouts);
+                    R.array.predefined_layouts);
             // TODO: Should filter out already existing combinations of locale and layout.
             for (final String layout : predefinedKeyboardLayoutSet) {
                 // This is a dummy subtype with NO_LANGUAGE, only for display.

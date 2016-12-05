@@ -21,6 +21,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.utils.ResourceUtils;
 
 final class EmojiLayoutParams {
@@ -39,16 +40,16 @@ final class EmojiLayoutParams {
     public EmojiLayoutParams(final Resources res) {
         final int defaultKeyboardHeight = ResourceUtils.getDefaultKeyboardHeight(res);
         final int defaultKeyboardWidth = ResourceUtils.getDefaultKeyboardWidth(res);
-        mKeyVerticalGap = (int) res.getFraction(com.gmx.emoji.goo.R.fraction.config_key_vertical_gap_holo,
+        mKeyVerticalGap = (int) res.getFraction(R.fraction.config_key_vertical_gap_holo,
                 defaultKeyboardHeight, defaultKeyboardHeight);
-        mBottomPadding = (int) res.getFraction(com.gmx.emoji.goo.R.fraction.config_keyboard_bottom_padding_holo,
+        mBottomPadding = (int) res.getFraction(R.fraction.config_keyboard_bottom_padding_holo,
                 defaultKeyboardHeight, defaultKeyboardHeight);
-        mTopPadding = (int) res.getFraction(com.gmx.emoji.goo.R.fraction.config_keyboard_top_padding_holo,
+        mTopPadding = (int) res.getFraction(R.fraction.config_keyboard_top_padding_holo,
                 defaultKeyboardHeight, defaultKeyboardHeight);
-        mKeyHorizontalGap = (int) (res.getFraction(com.gmx.emoji.goo.R.fraction.config_key_horizontal_gap_holo,
+        mKeyHorizontalGap = (int) (res.getFraction(R.fraction.config_key_horizontal_gap_holo,
                 defaultKeyboardWidth, defaultKeyboardWidth));
         mEmojiCategoryPageIdViewHeight =
-                (int) (res.getDimension(com.gmx.emoji.goo.R.dimen.config_emoji_category_page_id_height));
+                (int) (res.getDimension(R.dimen.config_emoji_category_page_id_height));
         final int baseheight = defaultKeyboardHeight - mBottomPadding - mTopPadding
                 + mKeyVerticalGap;
         mEmojiActionBarHeight = baseheight / DEFAULT_KEYBOARD_ROWS

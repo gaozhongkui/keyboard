@@ -23,6 +23,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.TextUtils;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.permissions.PermissionsManager;
 import com.gmx.emoji.goo.permissions.PermissionsUtil;
 import com.gmx.emoji.goo.settings.SubScreenFragment;
@@ -41,7 +42,7 @@ public final class SpellCheckerSettingsFragment extends SubScreenFragment
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.spell_checker_settings);
+        addPreferencesFromResource(R.xml.spell_checker_settings);
         final PreferenceScreen preferenceScreen = getPreferenceScreen();
         preferenceScreen.setTitle(ApplicationUtils.getActivityTitleResId(
                 getActivity(), SpellCheckerSettingsActivity.class));

@@ -33,6 +33,7 @@ import android.view.inputmethod.InputMethodSubtype;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.compat.EditorInfoCompatUtils;
 import com.gmx.emoji.compat.InputMethodSubtypeCompatUtils;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.KeyboardBuilder;
 import com.gmx.emoji.keyboard.internal.KeyboardParams;
 import com.gmx.emoji.keyboard.internal.UniqueKeysCache;
@@ -353,10 +354,10 @@ public final class KeyboardLayoutSet {
         private static int readScriptIdFromTagFeature(final Resources resources,
                 final XmlPullParser parser) throws IOException, XmlPullParserException {
             final TypedArray featureAttr = resources.obtainAttributes(Xml.asAttributeSet(parser),
-                    com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Feature);
+                    R.styleable.KeyboardLayoutSet_Feature);
             try {
                 final int scriptId =
-                        featureAttr.getInt(com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Feature_supportedScript,
+                        featureAttr.getInt(R.styleable.KeyboardLayoutSet_Feature_supportedScript,
                                 ScriptUtils.SCRIPT_UNKNOWN);
                 XmlParseUtils.checkEndTag(TAG_FEATURE, parser);
                 return scriptId;
@@ -380,7 +381,7 @@ public final class KeyboardLayoutSet {
 
         private static int getXmlId(final Resources resources, final String keyboardLayoutSetName) {
             final String packageName = resources.getResourcePackageName(
-                    com.gmx.emoji.goo.R.xml.keyboard_layout_set_qwerty);
+                    R.xml.keyboard_layout_set_qwerty);
             return resources.getIdentifier(keyboardLayoutSetName, "xml", packageName);
         }
 
@@ -430,28 +431,28 @@ public final class KeyboardLayoutSet {
         private void parseKeyboardLayoutSetElement(final XmlPullParser parser)
                 throws XmlPullParserException, IOException {
             final TypedArray a = mResources.obtainAttributes(Xml.asAttributeSet(parser),
-                    com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element);
+                    R.styleable.KeyboardLayoutSet_Element);
             try {
                 XmlParseUtils.checkAttributeExists(a,
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_elementName, "elementName",
+                        R.styleable.KeyboardLayoutSet_Element_elementName, "elementName",
                         TAG_ELEMENT, parser);
                 XmlParseUtils.checkAttributeExists(a,
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_elementKeyboard, "elementKeyboard",
+                        R.styleable.KeyboardLayoutSet_Element_elementKeyboard, "elementKeyboard",
                         TAG_ELEMENT, parser);
                 XmlParseUtils.checkEndTag(TAG_ELEMENT, parser);
 
                 final ElementParams elementParams = new ElementParams();
                 final int elementName = a.getInt(
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_elementName, 0);
+                        R.styleable.KeyboardLayoutSet_Element_elementName, 0);
                 elementParams.mKeyboardXmlId = a.getResourceId(
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_elementKeyboard, 0);
+                        R.styleable.KeyboardLayoutSet_Element_elementKeyboard, 0);
                 elementParams.mProximityCharsCorrectionEnabled = a.getBoolean(
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_enableProximityCharsCorrection,
+                        R.styleable.KeyboardLayoutSet_Element_enableProximityCharsCorrection,
                         false);
                 elementParams.mSupportsSplitLayout = a.getBoolean(
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_supportsSplitLayout, false);
+                        R.styleable.KeyboardLayoutSet_Element_supportsSplitLayout, false);
                 elementParams.mAllowRedundantMoreKeys = a.getBoolean(
-                        com.gmx.emoji.goo.R.styleable.KeyboardLayoutSet_Element_allowRedundantMoreKeys, true);
+                        R.styleable.KeyboardLayoutSet_Element_allowRedundantMoreKeys, true);
                 mParams.mKeyboardLayoutSetElementIdToParamsMap.put(elementName, elementParams);
             } finally {
                 a.recycle();

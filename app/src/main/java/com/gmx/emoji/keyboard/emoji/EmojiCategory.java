@@ -26,6 +26,7 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.gmx.emoji.compat.BuildCompatUtils;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.keyboard.KeyboardId;
@@ -90,42 +91,42 @@ final class EmojiCategory {
             "smiley & people2" };
 
     private static final int[] sCategoryTabIconAttr = {
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiRecentsTab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory1Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory2Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory3Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory4Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory5Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory6Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory7Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory8Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory9Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory10Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory11Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory12Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory13Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory14Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory15Tab,
-            com.gmx.emoji.goo.R.styleable.EmojiPalettesView_iconEmojiCategory16Tab };
+            R.styleable.EmojiPalettesView_iconEmojiRecentsTab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory1Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory2Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory3Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory4Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory5Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory6Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory7Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory8Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory9Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory10Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory11Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory12Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory13Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory14Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory15Tab,
+            R.styleable.EmojiPalettesView_iconEmojiCategory16Tab };
 
     private static final int[] sAccessibilityDescriptionResourceIdsForCategories = {
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_recents,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_people,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_objects,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_nature,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_places,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_symbols,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_emoticons,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_flags,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_eight_smiley_people,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_eight_animals_nature,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_eight_food_drink,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_eight_travel_places,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_eight_activity,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_objects,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_symbols,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_flags,
-            com.gmx.emoji.goo.R.string.spoken_descrption_emoji_category_eight_smiley_people };
+            R.string.spoken_descrption_emoji_category_recents,
+            R.string.spoken_descrption_emoji_category_people,
+            R.string.spoken_descrption_emoji_category_objects,
+            R.string.spoken_descrption_emoji_category_nature,
+            R.string.spoken_descrption_emoji_category_places,
+            R.string.spoken_descrption_emoji_category_symbols,
+            R.string.spoken_descrption_emoji_category_emoticons,
+            R.string.spoken_descrption_emoji_category_flags,
+            R.string.spoken_descrption_emoji_category_eight_smiley_people,
+            R.string.spoken_descrption_emoji_category_eight_animals_nature,
+            R.string.spoken_descrption_emoji_category_eight_food_drink,
+            R.string.spoken_descrption_emoji_category_eight_travel_places,
+            R.string.spoken_descrption_emoji_category_eight_activity,
+            R.string.spoken_descrption_emoji_category_objects,
+            R.string.spoken_descrption_emoji_category_symbols,
+            R.string.spoken_descrption_emoji_category_flags,
+            R.string.spoken_descrption_emoji_category_eight_smiley_people };
 
     private static final int[] sCategoryElementId = {
             KeyboardId.ELEMENT_EMOJI_RECENTS,
@@ -163,7 +164,7 @@ final class EmojiCategory {
             final KeyboardLayoutSet layoutSet, final TypedArray emojiPaletteViewAttr) {
         mPrefs = prefs;
         mRes = res;
-        mMaxPageKeyCount = res.getInteger(com.gmx.emoji.goo.R.integer.config_emoji_keyboard_max_page_key_count);
+        mMaxPageKeyCount = res.getInteger(R.integer.config_emoji_keyboard_max_page_key_count);
         mLayoutSet = layoutSet;
         for (int i = 0; i < sCategoryName.length; ++i) {
             mCategoryNameToIdMap.put(sCategoryName[i], i);

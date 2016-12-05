@@ -26,6 +26,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.gmx.emoji.goo.BinaryDictionaryFileDumper;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 
 import java.util.Locale;
@@ -202,7 +203,7 @@ public final class DictionaryService extends Service {
             UpdateHandler.tryUpdate(context);
         } else if (DictionaryPackConstants.INIT_AND_UPDATE_NOW_INTENT_ACTION.equals(action)) {
             // Initialize the client Db.
-            final String mClientId = context.getString(com.gmx.emoji.goo.R.string.dictionary_pack_client_id);
+            final String mClientId = context.getString(R.string.dictionary_pack_client_id);
             BinaryDictionaryFileDumper.initializeClientRecordHelper(context, mClientId);
 
             // Updates the metadata and the download the dictionaries.
@@ -266,7 +267,7 @@ public final class DictionaryService extends Service {
     private static void showStartDownloadingToast(final Context context,
             @Nonnull final Locale locale) {
         final String toastText = String.format(
-                context.getString(com.gmx.emoji.goo.R.string.toast_downloading_suggestions),
+                context.getString(R.string.toast_downloading_suggestions),
                 locale.getDisplayName());
         Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
     }

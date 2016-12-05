@@ -23,6 +23,7 @@ import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.inputmethod.EditorInfo;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.keyboard.KeyboardId;
@@ -40,7 +41,7 @@ final class KeyCodeDescriptionMapper {
     private static final String SPOKEN_EMOTICON_CODE_POINT_FORMAT = "_%02X";
 
     // The resource ID of the string spoken for obscured keys
-    private static final int OBSCURED_KEY_RES_ID = com.gmx.emoji.goo.R.string.spoken_description_dot;
+    private static final int OBSCURED_KEY_RES_ID = R.string.spoken_description_dot;
 
     private static final KeyCodeDescriptionMapper sInstance = new KeyCodeDescriptionMapper();
 
@@ -53,20 +54,20 @@ final class KeyCodeDescriptionMapper {
 
     private KeyCodeDescriptionMapper() {
         // Special non-character codes defined in Keyboard
-        mKeyCodeMap.put(Constants.CODE_SPACE, com.gmx.emoji.goo.R.string.spoken_description_space);
-        mKeyCodeMap.put(Constants.CODE_DELETE, com.gmx.emoji.goo.R.string.spoken_description_delete);
-        mKeyCodeMap.put(Constants.CODE_ENTER, com.gmx.emoji.goo.R.string.spoken_description_return);
-        mKeyCodeMap.put(Constants.CODE_SETTINGS, com.gmx.emoji.goo.R.string.spoken_description_settings);
-        mKeyCodeMap.put(Constants.CODE_SHIFT, com.gmx.emoji.goo.R.string.spoken_description_shift);
-        mKeyCodeMap.put(Constants.CODE_SHORTCUT, com.gmx.emoji.goo.R.string.spoken_description_mic);
-        mKeyCodeMap.put(Constants.CODE_SWITCH_ALPHA_SYMBOL, com.gmx.emoji.goo.R.string.spoken_description_to_symbol);
-        mKeyCodeMap.put(Constants.CODE_TAB, com.gmx.emoji.goo.R.string.spoken_description_tab);
+        mKeyCodeMap.put(Constants.CODE_SPACE, R.string.spoken_description_space);
+        mKeyCodeMap.put(Constants.CODE_DELETE, R.string.spoken_description_delete);
+        mKeyCodeMap.put(Constants.CODE_ENTER, R.string.spoken_description_return);
+        mKeyCodeMap.put(Constants.CODE_SETTINGS, R.string.spoken_description_settings);
+        mKeyCodeMap.put(Constants.CODE_SHIFT, R.string.spoken_description_shift);
+        mKeyCodeMap.put(Constants.CODE_SHORTCUT, R.string.spoken_description_mic);
+        mKeyCodeMap.put(Constants.CODE_SWITCH_ALPHA_SYMBOL, R.string.spoken_description_to_symbol);
+        mKeyCodeMap.put(Constants.CODE_TAB, R.string.spoken_description_tab);
         mKeyCodeMap.put(Constants.CODE_LANGUAGE_SWITCH,
-                com.gmx.emoji.goo.R.string.spoken_description_language_switch);
-        mKeyCodeMap.put(Constants.CODE_ACTION_NEXT, com.gmx.emoji.goo.R.string.spoken_description_action_next);
+                R.string.spoken_description_language_switch);
+        mKeyCodeMap.put(Constants.CODE_ACTION_NEXT, R.string.spoken_description_action_next);
         mKeyCodeMap.put(Constants.CODE_ACTION_PREVIOUS,
-                com.gmx.emoji.goo.R.string.spoken_description_action_previous);
-        mKeyCodeMap.put(Constants.CODE_EMOJI, com.gmx.emoji.goo.R.string.spoken_description_emoji);
+                R.string.spoken_description_action_previous);
+        mKeyCodeMap.put(Constants.CODE_EMOJI, R.string.spoken_description_emoji);
         // Because the upper-case and lower-case mappings of the following letters is depending on
         // the locale, the upper case descriptions should be defined here. The lower case
         // descriptions are handled in {@link #getSpokenLetterDescriptionId(Context,int)}.
@@ -74,8 +75,8 @@ final class KeyCodeDescriptionMapper {
         // U+0069: "i" LATIN SMALL LETTER I
         // U+0130: "İ" LATIN CAPITAL LETTER I WITH DOT ABOVE
         // U+0131: "ı" LATIN SMALL LETTER DOTLESS I
-        mKeyCodeMap.put(0x0049, com.gmx.emoji.goo.R.string.spoken_letter_0049);
-        mKeyCodeMap.put(0x0130, com.gmx.emoji.goo.R.string.spoken_letter_0130);
+        mKeyCodeMap.put(0x0049, R.string.spoken_letter_0049);
+        mKeyCodeMap.put(0x0130, R.string.spoken_letter_0130);
     }
 
     /**
@@ -130,7 +131,7 @@ final class KeyCodeDescriptionMapper {
             if (!TextUtils.isEmpty(key.getLabel())) {
                 return key.getLabel();
             }
-            return context.getString(com.gmx.emoji.goo.R.string.spoken_description_unknown);
+            return context.getString(R.string.spoken_description_unknown);
         }
         return null;
     }
@@ -156,17 +157,17 @@ final class KeyCodeDescriptionMapper {
         case KeyboardId.ELEMENT_ALPHABET_MANUAL_SHIFTED:
         case KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCK_SHIFTED:
         case KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCKED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_to_symbol;
+            resId = R.string.spoken_description_to_symbol;
             break;
         case KeyboardId.ELEMENT_SYMBOLS:
         case KeyboardId.ELEMENT_SYMBOLS_SHIFTED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_to_alpha;
+            resId = R.string.spoken_description_to_alpha;
             break;
         case KeyboardId.ELEMENT_PHONE:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_to_symbol;
+            resId = R.string.spoken_description_to_symbol;
             break;
         case KeyboardId.ELEMENT_PHONE_SYMBOLS:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_to_numeric;
+            resId = R.string.spoken_description_to_numeric;
             break;
         default:
             Log.e(TAG, "Missing description for keyboard element ID:" + elementId);
@@ -191,20 +192,20 @@ final class KeyCodeDescriptionMapper {
         switch (elementId) {
         case KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCK_SHIFTED:
         case KeyboardId.ELEMENT_ALPHABET_SHIFT_LOCKED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_caps_lock;
+            resId = R.string.spoken_description_caps_lock;
             break;
         case KeyboardId.ELEMENT_ALPHABET_AUTOMATIC_SHIFTED:
         case KeyboardId.ELEMENT_ALPHABET_MANUAL_SHIFTED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_shift_shifted;
+            resId = R.string.spoken_description_shift_shifted;
             break;
         case KeyboardId.ELEMENT_SYMBOLS:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_symbols_shift;
+            resId = R.string.spoken_description_symbols_shift;
             break;
         case KeyboardId.ELEMENT_SYMBOLS_SHIFTED:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_symbols_shift_shifted;
+            resId = R.string.spoken_description_symbols_shift_shifted;
             break;
         default:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_shift;
+            resId = R.string.spoken_description_shift;
         }
         return context.getString(resId);
     }
@@ -231,25 +232,25 @@ final class KeyCodeDescriptionMapper {
         // Otherwise, use the action ID.
         switch (actionId) {
         case EditorInfo.IME_ACTION_SEARCH:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_search;
+            resId = R.string.spoken_description_search;
             break;
         case EditorInfo.IME_ACTION_GO:
-            resId = com.gmx.emoji.goo.R.string.label_go_key;
+            resId = R.string.label_go_key;
             break;
         case EditorInfo.IME_ACTION_SEND:
-            resId = com.gmx.emoji.goo.R.string.label_send_key;
+            resId = R.string.label_send_key;
             break;
         case EditorInfo.IME_ACTION_NEXT:
-            resId = com.gmx.emoji.goo.R.string.label_next_key;
+            resId = R.string.label_next_key;
             break;
         case EditorInfo.IME_ACTION_DONE:
-            resId = com.gmx.emoji.goo.R.string.label_done_key;
+            resId = R.string.label_done_key;
             break;
         case EditorInfo.IME_ACTION_PREVIOUS:
-            resId = com.gmx.emoji.goo.R.string.label_previous_key;
+            resId = R.string.label_previous_key;
             break;
         default:
-            resId = com.gmx.emoji.goo.R.string.spoken_description_return;
+            resId = R.string.spoken_description_return;
         }
         return context.getString(resId);
     }
@@ -298,7 +299,7 @@ final class KeyCodeDescriptionMapper {
             return null;
         }
         final String spokenText = context.getString(resId);
-        return isUpperCase ? context.getString(com.gmx.emoji.goo.R.string.spoken_description_upper_case, spokenText)
+        return isUpperCase ? context.getString(R.string.spoken_description_upper_case, spokenText)
                 : spokenText;
     }
 
@@ -313,7 +314,7 @@ final class KeyCodeDescriptionMapper {
             return spokenText;
         }
         // If a translated description is empty, fall back to unknown symbol description.
-        return context.getString(com.gmx.emoji.goo.R.string.spoken_symbol_unknown);
+        return context.getString(R.string.spoken_symbol_unknown);
     }
 
     // TODO: Remove this method once TTS supports emoji verbalization.
@@ -327,7 +328,7 @@ final class KeyCodeDescriptionMapper {
             return spokenText;
         }
         // If a translated description is empty, fall back to unknown emoji description.
-        return context.getString(com.gmx.emoji.goo.R.string.spoken_emoji_unknown);
+        return context.getString(R.string.spoken_emoji_unknown);
     }
 
     private int getSpokenDescriptionId(final Context context, final int code,
@@ -336,7 +337,7 @@ final class KeyCodeDescriptionMapper {
         final Resources resources = context.getResources();
         // Note that the resource package name may differ from the context package name.
         final String resourcePackageName = resources.getResourcePackageName(
-                com.gmx.emoji.goo.R.string.spoken_description_unknown);
+                R.string.spoken_description_unknown);
         final int resId = resources.getIdentifier(resourceName, "string", resourcePackageName);
         if (resId != 0) {
             mKeyCodeMap.append(code, resId);
@@ -357,7 +358,7 @@ final class KeyCodeDescriptionMapper {
         final Resources resources = context.getResources();
         // Note that the resource package name may differ from the context package name.
         final String resourcePackageName = resources.getResourcePackageName(
-                com.gmx.emoji.goo.R.string.spoken_description_unknown);
+                R.string.spoken_description_unknown);
         final int resId = resources.getIdentifier(resourceName, "string", resourcePackageName);
         return (resId == 0) ? null : resources.getString(resId);
     }

@@ -20,6 +20,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.Xml;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.goo.utils.ResourceUtils;
@@ -62,10 +63,10 @@ public final class KeyboardRow {
          */
         public RowAttributes(final TypedArray keyAttr, final float defaultKeyWidth,
                 final int keyboardWidth) {
-            mDefaultKeyWidth = keyAttr.getFraction(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyWidth,
+            mDefaultKeyWidth = keyAttr.getFraction(R.styleable.Keyboard_Key_keyWidth,
                     keyboardWidth, keyboardWidth, defaultKeyWidth);
-            mDefaultKeyLabelFlags = keyAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelFlags, 0);
-            mDefaultBackgroundType = keyAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_Key_backgroundType,
+            mDefaultKeyLabelFlags = keyAttr.getInt(R.styleable.Keyboard_Key_keyLabelFlags, 0);
+            mDefaultBackgroundType = keyAttr.getInt(R.styleable.Keyboard_Key_backgroundType,
                     Key.BACKGROUND_TYPE_NORMAL);
         }
 
@@ -79,11 +80,11 @@ public final class KeyboardRow {
          */
         public RowAttributes(final TypedArray keyAttr, final RowAttributes defaultRowAttr,
                 final int keyboardWidth) {
-            mDefaultKeyWidth = keyAttr.getFraction(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyWidth,
+            mDefaultKeyWidth = keyAttr.getFraction(R.styleable.Keyboard_Key_keyWidth,
                     keyboardWidth, keyboardWidth, defaultRowAttr.mDefaultKeyWidth);
-            mDefaultKeyLabelFlags = keyAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelFlags, 0)
+            mDefaultKeyLabelFlags = keyAttr.getInt(R.styleable.Keyboard_Key_keyLabelFlags, 0)
                     | defaultRowAttr.mDefaultKeyLabelFlags;
-            mDefaultBackgroundType = keyAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_Key_backgroundType,
+            mDefaultBackgroundType = keyAttr.getInt(R.styleable.Keyboard_Key_backgroundType,
                     defaultRowAttr.mDefaultBackgroundType);
         }
     }
@@ -96,12 +97,12 @@ public final class KeyboardRow {
             final XmlPullParser parser, final int y) {
         mParams = params;
         final TypedArray keyboardAttr = res.obtainAttributes(Xml.asAttributeSet(parser),
-                com.gmx.emoji.goo.R.styleable.Keyboard);
+                R.styleable.Keyboard);
         mRowHeight = (int) ResourceUtils.getDimensionOrFraction(keyboardAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_rowHeight, params.mBaseHeight, params.mDefaultRowHeight);
+                R.styleable.Keyboard_rowHeight, params.mBaseHeight, params.mDefaultRowHeight);
         keyboardAttr.recycle();
         final TypedArray keyAttr = res.obtainAttributes(Xml.asAttributeSet(parser),
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key);
+                R.styleable.Keyboard_Key);
         mRowAttributesStack.push(new RowAttributes(
                 keyAttr, params.mDefaultKeyWidth, params.mBaseWidth));
         keyAttr.recycle();
@@ -149,10 +150,10 @@ public final class KeyboardRow {
     }
 
     public float getKeyX(final TypedArray keyAttr) {
-        if (keyAttr == null || !keyAttr.hasValue(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyXPos)) {
+        if (keyAttr == null || !keyAttr.hasValue(R.styleable.Keyboard_Key_keyXPos)) {
             return mCurrentX;
         }
-        final float keyXPos = keyAttr.getFraction(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyXPos,
+        final float keyXPos = keyAttr.getFraction(R.styleable.Keyboard_Key_keyXPos,
                 mParams.mBaseWidth, mParams.mBaseWidth, 0);
         if (keyXPos >= 0) {
             return keyXPos + mParams.mLeftPadding;
@@ -171,7 +172,7 @@ public final class KeyboardRow {
             return getDefaultKeyWidth();
         }
         final int widthType = ResourceUtils.getEnumValue(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyWidth, KEYWIDTH_NOT_ENUM);
+                R.styleable.Keyboard_Key_keyWidth, KEYWIDTH_NOT_ENUM);
         switch (widthType) {
         case KEYWIDTH_FILL_RIGHT:
             // If keyWidth is fillRight, the actual key width will be determined to fill
@@ -179,7 +180,7 @@ public final class KeyboardRow {
             final int keyboardRightEdge = mParams.mOccupiedWidth - mParams.mRightPadding;
             return keyboardRightEdge - keyXPos;
         default: // KEYWIDTH_NOT_ENUM
-            return keyAttr.getFraction(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyWidth,
+            return keyAttr.getFraction(R.styleable.Keyboard_Key_keyWidth,
                     mParams.mBaseWidth, mParams.mBaseWidth, getDefaultKeyWidth());
         }
     }

@@ -38,6 +38,8 @@ import android.widget.SectionIndexer;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.gmx.emoji.goo.R;
+
 import java.util.Locale;
 
 // Caveat: This class is basically taken from
@@ -106,14 +108,14 @@ public class UserDictionarySettings extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().getActionBar().setTitle(com.gmx.emoji.goo.R.string.edit_personal_dictionary);
+        getActivity().getActionBar().setTitle(R.string.edit_personal_dictionary);
     }
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(
-                com.gmx.emoji.goo.R.layout.user_dictionary_preference_list_fragment, container, false);
+                R.layout.user_dictionary_preference_list_fragment, container, false);
     }
 
     @Override
@@ -145,7 +147,7 @@ public class UserDictionarySettings extends ListFragment {
         // regular query and close the cursor, or switch to a LoaderManager and a CursorLoader.
         mCursor = createCursor(locale);
         TextView emptyView = (TextView) getView().findViewById(android.R.id.empty);
-        emptyView.setText(com.gmx.emoji.goo.R.string.user_dict_settings_empty_text);
+        emptyView.setText(R.string.user_dict_settings_empty_text);
 
         final ListView listView = getListView();
         listView.setAdapter(createAdapter());
@@ -196,7 +198,7 @@ public class UserDictionarySettings extends ListFragment {
     }
 
     private ListAdapter createAdapter() {
-        return new MyAdapter(getActivity(), com.gmx.emoji.goo.R.layout.user_dictionary_item, mCursor,
+        return new MyAdapter(getActivity(), R.layout.user_dictionary_item, mCursor,
                 ADAPTER_FROM, ADAPTER_TO);
     }
 
@@ -221,8 +223,8 @@ public class UserDictionarySettings extends ListFragment {
             }
         }
         MenuItem actionItem =
-                menu.add(0, OPTIONS_MENU_ADD, 0, com.gmx.emoji.goo.R.string.user_dict_settings_add_menu_title)
-                .setIcon(com.gmx.emoji.goo.R.drawable.ic_menu_add);
+                menu.add(0, OPTIONS_MENU_ADD, 0, R.string.user_dict_settings_add_menu_title)
+                .setIcon(R.drawable.ic_menu_add);
         actionItem.setShowAsAction(
                 MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
@@ -252,7 +254,7 @@ public class UserDictionarySettings extends ListFragment {
         android.preference.PreferenceActivity pa =
                 (android.preference.PreferenceActivity)getActivity();
         pa.startPreferencePanel(UserDictionaryAddWordFragment.class.getName(),
-                args, com.gmx.emoji.goo.R.string.user_dict_settings_add_dialog_title, null, null, 0);
+                args, R.string.user_dict_settings_add_dialog_title, null, null, 0);
     }
 
     private String getWord(final int position) {
@@ -324,7 +326,7 @@ public class UserDictionarySettings extends ListFragment {
             super(context, layout, c, from, to, 0 /* flags */);
 
             if (null != c) {
-                final String alphabet = context.getString(com.gmx.emoji.goo.R.string.user_dict_fast_scroll_alphabet);
+                final String alphabet = context.getString(R.string.user_dict_fast_scroll_alphabet);
                 final int wordColIndex = c.getColumnIndexOrThrow(UserDictionary.Words.WORD);
                 mIndexer = new AlphabetIndexer(c, wordColIndex, alphabet);
             }

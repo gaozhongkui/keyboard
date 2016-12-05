@@ -20,6 +20,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.keyboard.KeyboardActionListener;
@@ -41,7 +42,7 @@ public final class MoreSuggestionsView extends MoreKeysKeyboardView {
     private boolean mIsInModalMode;
 
     public MoreSuggestionsView(final Context context, final AttributeSet attrs) {
-        this(context, attrs, com.gmx.emoji.goo.R.attr.moreKeysKeyboardViewStyle);
+        this(context, attrs, R.attr.moreKeysKeyboardViewStyle);
     }
 
     public MoreSuggestionsView(final Context context, final AttributeSet attrs,
@@ -60,8 +61,8 @@ public final class MoreSuggestionsView extends MoreKeysKeyboardView {
         // {@link MoreKeysKeyboardAccessibilityDelegate} object at the above
         // {@link MoreKeysKeyboardView#setKeyboard(Keyboard)} call.
         if (mAccessibilityDelegate != null) {
-            mAccessibilityDelegate.setOpenAnnounce(com.gmx.emoji.goo.R.string.spoken_open_more_suggestions);
-            mAccessibilityDelegate.setCloseAnnounce(com.gmx.emoji.goo.R.string.spoken_close_more_suggestions);
+            mAccessibilityDelegate.setOpenAnnounce(R.string.spoken_open_more_suggestions);
+            mAccessibilityDelegate.setCloseAnnounce(R.string.spoken_close_more_suggestions);
         }
     }
 

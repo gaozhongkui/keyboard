@@ -18,6 +18,7 @@ package com.gmx.emoji.goo.settings;
 
 import android.os.Bundle;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.Constants;
 import com.gmx.emoji.goo.define.ProductionFlags;
 
@@ -28,7 +29,7 @@ public final class AppearanceSettingsFragment extends SubScreenFragment {
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_appearance);
+        addPreferencesFromResource(R.xml.prefs_screen_appearance);
         if (!ProductionFlags.IS_SPLIT_KEYBOARD_SUPPORTED ||
                 Constants.isPhone(Settings.readScreenMetrics(getResources()))) {
             removePreference(Settings.PREF_ENABLE_SPLIT_KEYBOARD);

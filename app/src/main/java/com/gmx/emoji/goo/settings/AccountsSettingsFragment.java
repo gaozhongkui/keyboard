@@ -34,6 +34,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.accounts.AccountStateChangedListener;
 import com.gmx.emoji.goo.accounts.LoginAccountUtils;
 import com.gmx.emoji.goo.define.ProductionFlags;
@@ -109,7 +110,7 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_accounts);
+        addPreferencesFromResource(R.xml.prefs_screen_accounts);
 
         mAccountSwitcher = findPreference(PREF_ACCCOUNT_SWITCHER);
         mEnableSyncPreference = (TwoStatePreference) findPreference(PREF_ENABLE_SYNC_NOW);
@@ -122,7 +123,7 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
             final Resources res = getResources();
             if (enableMetricsLogging != null) {
                 final String enableMetricsLoggingTitle = res.getString(
-                        com.gmx.emoji.goo.R.string.enable_metrics_logging, getApplicationName());
+                        R.string.enable_metrics_logging, getApplicationName());
                 enableMetricsLogging.setTitle(enableMetricsLoggingTitle);
             }
         } else {
@@ -235,9 +236,9 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
             mEnableSyncPreference = (TwoStatePreference) findPreference(PREF_ENABLE_SYNC_NOW);
             final boolean syncEnabled = prefs.getBoolean(LocalSettingsConstants.PREF_ENABLE_CLOUD_SYNC, false);
             if (isSyncEnabled()) {
-                mEnableSyncPreference.setSummary(getString(com.gmx.emoji.goo.R.string.cloud_sync_summary));
+                mEnableSyncPreference.setSummary(getString(R.string.cloud_sync_summary));
             } else {
-                mEnableSyncPreference.setSummary(getString(com.gmx.emoji.goo.R.string.cloud_sync_summary_disabled));
+                mEnableSyncPreference.setSummary(getString(R.string.cloud_sync_summary_disabled));
             }
             AccountStateChangedListener.onSyncPreferenceChanged(getSignedInAccountName(),
                     syncEnabled);
@@ -290,7 +291,7 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
 
         if (!hasAccountsPermission) {
             mEnableSyncPreference.setChecked(false);
-            mEnableSyncPreference.setSummary(getString(com.gmx.emoji.goo.R.string.cloud_sync_summary_disabled));
+            mEnableSyncPreference.setSummary(getString(R.string.cloud_sync_summary_disabled));
             mAccountSwitcher.setSummary("");
             return;
         } else if (managedProfileBeingDetected) {
@@ -300,23 +301,23 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
             mAccountSwitcher.setSummary("");
         } else if (hasManagedProfile) {
             mEnableSyncPreference.setSummary(
-                    getString(com.gmx.emoji.goo.R.string.cloud_sync_summary_disabled_work_profile));
+                    getString(R.string.cloud_sync_summary_disabled_work_profile));
         } else if (!hasAccountsForLogin) {
-            mEnableSyncPreference.setSummary(getString(com.gmx.emoji.goo.R.string.add_account_to_enable_sync));
+            mEnableSyncPreference.setSummary(getString(R.string.add_account_to_enable_sync));
         } else if (isSyncEnabled()) {
-            mEnableSyncPreference.setSummary(getString(com.gmx.emoji.goo.R.string.cloud_sync_summary));
+            mEnableSyncPreference.setSummary(getString(R.string.cloud_sync_summary));
         } else {
-            mEnableSyncPreference.setSummary(getString(com.gmx.emoji.goo.R.string.cloud_sync_summary_disabled));
+            mEnableSyncPreference.setSummary(getString(R.string.cloud_sync_summary_disabled));
         }
 
         // Set some interdependent settings.
         // No account automatically turns off sync.
         if (!managedProfileBeingDetected && !hasManagedProfile) {
             if (currentAccount != null) {
-                mAccountSwitcher.setSummary(getString(com.gmx.emoji.goo.R.string.account_selected, currentAccount));
+                mAccountSwitcher.setSummary(getString(R.string.account_selected, currentAccount));
             } else {
                 mEnableSyncPreference.setChecked(false);
-                mAccountSwitcher.setSummary(getString(com.gmx.emoji.goo.R.string.no_accounts_selected));
+                mAccountSwitcher.setSummary(getString(R.string.no_accounts_selected));
             }
         }
     }
@@ -363,12 +364,12 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
             }
         }
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle(com.gmx.emoji.goo.R.string.account_select_title)
+                .setTitle(R.string.account_select_title)
                 .setSingleChoiceItems(accounts, index, null)
-                .setPositiveButton(com.gmx.emoji.goo.R.string.account_select_ok, positiveButtonClickListener)
-                .setNegativeButton(com.gmx.emoji.goo.R.string.account_select_cancel, null);
+                .setPositiveButton(R.string.account_select_ok, positiveButtonClickListener)
+                .setNegativeButton(R.string.account_select_cancel, null);
         if (isSignedIn) {
-            builder.setNeutralButton(com.gmx.emoji.goo.R.string.account_select_sign_out, positiveButtonClickListener);
+            builder.setNeutralButton(R.string.account_select_sign_out, positiveButtonClickListener);
         }
         return builder.create();
     }
@@ -433,9 +434,9 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
         @Override
         public boolean onPreferenceClick(final Preference preference) {
             final AlertDialog confirmationDialog = new AlertDialog.Builder(getActivity())
-                    .setTitle(com.gmx.emoji.goo.R.string.clear_sync_data_title)
-                    .setMessage(com.gmx.emoji.goo.R.string.clear_sync_data_confirmation)
-                    .setPositiveButton(com.gmx.emoji.goo.R.string.clear_sync_data_ok,
+                    .setTitle(R.string.clear_sync_data_title)
+                    .setMessage(R.string.clear_sync_data_confirmation)
+                    .setPositiveButton(R.string.clear_sync_data_ok,
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(final DialogInterface dialog, final int which) {
@@ -445,7 +446,7 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
                                     }
                                 }
                              })
-                    .setNegativeButton(com.gmx.emoji.goo.R.string.cloud_sync_cancel, null /* OnClickListener */)
+                    .setNegativeButton(R.string.cloud_sync_cancel, null /* OnClickListener */)
                     .create();
             confirmationDialog.show();
             return true;
@@ -466,9 +467,9 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
 
                 // Show opt-in.
                 final AlertDialog optInDialog = new AlertDialog.Builder(getActivity())
-                        .setTitle(com.gmx.emoji.goo.R.string.cloud_sync_title)
-                        .setMessage(com.gmx.emoji.goo.R.string.cloud_sync_opt_in_text)
-                        .setPositiveButton(com.gmx.emoji.goo.R.string.account_select_ok,
+                        .setTitle(R.string.cloud_sync_title)
+                        .setMessage(R.string.cloud_sync_opt_in_text)
+                        .setPositiveButton(R.string.account_select_ok,
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(final DialogInterface dialog,
@@ -484,7 +485,7 @@ public final class AccountsSettingsFragment extends SubScreenFragment {
                                         }
                                     }
                         })
-                        .setNegativeButton(com.gmx.emoji.goo.R.string.cloud_sync_cancel, null)
+                        .setNegativeButton(R.string.cloud_sync_cancel, null)
                         .create();
                 optInDialog.setOnShowListener(this);
                 optInDialog.show();

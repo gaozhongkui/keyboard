@@ -28,6 +28,7 @@ import android.util.TypedValue;
 import android.util.Xml;
 
 import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.keyboard.KeyboardId;
@@ -156,8 +157,8 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
 
         mParams = params;
 
-        params.GRID_WIDTH = res.getInteger(com.gmx.emoji.goo.R.integer.config_keyboard_grid_width);
-        params.GRID_HEIGHT = res.getInteger(com.gmx.emoji.goo.R.integer.config_keyboard_grid_height);
+        params.GRID_WIDTH = res.getInteger(R.integer.config_keyboard_grid_width);
+        params.GRID_HEIGHT = res.getInteger(R.integer.config_keyboard_grid_height);
     }
 
     public void setAllowRedundantMoreKes(final boolean enabled) {
@@ -236,8 +237,8 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
     private void parseKeyboardAttributes(final XmlPullParser parser) {
         final AttributeSet attr = Xml.asAttributeSet(parser);
         final TypedArray keyboardAttr = mContext.obtainStyledAttributes(
-                attr, com.gmx.emoji.goo.R.styleable.Keyboard, com.gmx.emoji.goo.R.attr.keyboardStyle, com.gmx.emoji.goo.R.style.Keyboard);
-        final TypedArray keyAttr = mResources.obtainAttributes(attr, com.gmx.emoji.goo.R.styleable.Keyboard_Key);
+                attr, R.styleable.Keyboard, R.attr.keyboardStyle, R.style.Keyboard);
+        final TypedArray keyAttr = mResources.obtainAttributes(attr, R.styleable.Keyboard_Key);
         try {
             final KeyboardParams params = mParams;
             final int height = params.mId.mHeight;
@@ -245,45 +246,45 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
             params.mOccupiedHeight = height;
             params.mOccupiedWidth = width;
             params.mTopPadding = (int)keyboardAttr.getFraction(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_keyboardTopPadding, height, height, 0);
+                    R.styleable.Keyboard_keyboardTopPadding, height, height, 0);
             params.mBottomPadding = (int)keyboardAttr.getFraction(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_keyboardBottomPadding, height, height, 0);
+                    R.styleable.Keyboard_keyboardBottomPadding, height, height, 0);
             params.mLeftPadding = (int)keyboardAttr.getFraction(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_keyboardLeftPadding, width, width, 0);
+                    R.styleable.Keyboard_keyboardLeftPadding, width, width, 0);
             params.mRightPadding = (int)keyboardAttr.getFraction(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_keyboardRightPadding, width, width, 0);
+                    R.styleable.Keyboard_keyboardRightPadding, width, width, 0);
 
             final int baseWidth =
                     params.mOccupiedWidth - params.mLeftPadding - params.mRightPadding;
             params.mBaseWidth = baseWidth;
-            params.mDefaultKeyWidth = (int)keyAttr.getFraction(com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyWidth,
+            params.mDefaultKeyWidth = (int)keyAttr.getFraction(R.styleable.Keyboard_Key_keyWidth,
                     baseWidth, baseWidth, baseWidth / DEFAULT_KEYBOARD_COLUMNS);
             params.mHorizontalGap = (int)keyboardAttr.getFraction(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_horizontalGap, baseWidth, baseWidth, 0);
+                    R.styleable.Keyboard_horizontalGap, baseWidth, baseWidth, 0);
             // TODO: Fix keyboard geometry calculation clearer. Historically vertical gap between
             // rows are determined based on the entire keyboard height including top and bottom
             // paddings.
             params.mVerticalGap = (int)keyboardAttr.getFraction(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_verticalGap, height, height, 0);
+                    R.styleable.Keyboard_verticalGap, height, height, 0);
             final int baseHeight = params.mOccupiedHeight - params.mTopPadding
                     - params.mBottomPadding + params.mVerticalGap;
             params.mBaseHeight = baseHeight;
             params.mDefaultRowHeight = (int)ResourceUtils.getDimensionOrFraction(keyboardAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_rowHeight, baseHeight, baseHeight / DEFAULT_KEYBOARD_ROWS);
+                    R.styleable.Keyboard_rowHeight, baseHeight, baseHeight / DEFAULT_KEYBOARD_ROWS);
 
             params.mKeyVisualAttributes = KeyVisualAttributes.newInstance(keyAttr);
 
             params.mMoreKeysTemplate = keyboardAttr.getResourceId(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_moreKeysTemplate, 0);
+                    R.styleable.Keyboard_moreKeysTemplate, 0);
             params.mMaxMoreKeysKeyboardColumn = keyAttr.getInt(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Key_maxMoreKeysColumn, 5);
+                    R.styleable.Keyboard_Key_maxMoreKeysColumn, 5);
 
-            params.mThemeId = keyboardAttr.getInt(com.gmx.emoji.goo.R.styleable.Keyboard_themeId, 0);
+            params.mThemeId = keyboardAttr.getInt(R.styleable.Keyboard_themeId, 0);
             params.mIconsSet.loadIcons(keyboardAttr);
             params.mTextsSet.setLocale(params.mId.getLocale(), mContext);
 
             final int resourceId = keyboardAttr.getResourceId(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_touchPositionCorrectionData, 0);
+                    R.styleable.Keyboard_touchPositionCorrectionData, 0);
             if (resourceId != 0) {
                 final String[] data = mResources.getStringArray(resourceId);
                 params.mTouchPositionCorrection.load(data);
@@ -337,12 +338,12 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
     private KeyboardRow parseRowAttributes(final XmlPullParser parser)
             throws XmlPullParserException {
         final AttributeSet attr = Xml.asAttributeSet(parser);
-        final TypedArray keyboardAttr = mResources.obtainAttributes(attr, com.gmx.emoji.goo.R.styleable.Keyboard);
+        final TypedArray keyboardAttr = mResources.obtainAttributes(attr, R.styleable.Keyboard);
         try {
-            if (keyboardAttr.hasValue(com.gmx.emoji.goo.R.styleable.Keyboard_horizontalGap)) {
+            if (keyboardAttr.hasValue(R.styleable.Keyboard_horizontalGap)) {
                 throw new XmlParseUtils.IllegalAttribute(parser, TAG_ROW, "horizontalGap");
             }
-            if (keyboardAttr.hasValue(com.gmx.emoji.goo.R.styleable.Keyboard_verticalGap)) {
+            if (keyboardAttr.hasValue(R.styleable.Keyboard_verticalGap)) {
                 throw new XmlParseUtils.IllegalAttribute(parser, TAG_ROW, "verticalGap");
             }
             return new KeyboardRow(mResources, mParams, parser, mCurrentY);
@@ -398,11 +399,11 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
         }
         final KeyboardRow gridRows = new KeyboardRow(mResources, mParams, parser, mCurrentY);
         final TypedArray gridRowAttr = mResources.obtainAttributes(
-                Xml.asAttributeSet(parser), com.gmx.emoji.goo.R.styleable.Keyboard_GridRows);
+                Xml.asAttributeSet(parser), R.styleable.Keyboard_GridRows);
         final int codesArrayId = gridRowAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.Keyboard_GridRows_codesArray, 0);
+                R.styleable.Keyboard_GridRows_codesArray, 0);
         final int textsArrayId = gridRowAttr.getResourceId(
-                com.gmx.emoji.goo.R.styleable.Keyboard_GridRows_textsArray, 0);
+                R.styleable.Keyboard_GridRows_textsArray, 0);
         gridRowAttr.recycle();
         if (codesArrayId == 0 && textsArrayId == 0) {
             throw new XmlParseUtils.ParseException(
@@ -474,9 +475,9 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
             return;
         }
         final TypedArray keyAttr = mResources.obtainAttributes(
-                Xml.asAttributeSet(parser), com.gmx.emoji.goo.R.styleable.Keyboard_Key);
+                Xml.asAttributeSet(parser), R.styleable.Keyboard_Key);
         final KeyStyle keyStyle = mParams.mKeyStyles.getKeyStyle(keyAttr, parser);
-        final String keySpec = keyStyle.getString(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keySpec);
+        final String keySpec = keyStyle.getString(keyAttr, R.styleable.Keyboard_Key_keySpec);
         if (TextUtils.isEmpty(keySpec)) {
             throw new ParseException("Empty keySpec", parser);
         }
@@ -498,7 +499,7 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
             return;
         }
         final TypedArray keyAttr = mResources.obtainAttributes(
-                Xml.asAttributeSet(parser), com.gmx.emoji.goo.R.styleable.Keyboard_Key);
+                Xml.asAttributeSet(parser), R.styleable.Keyboard_Key);
         final KeyStyle keyStyle = mParams.mKeyStyles.getKeyStyle(keyAttr, parser);
         final Key spacer = new Key.Spacer(keyAttr, keyStyle, mParams, row);
         keyAttr.recycle();
@@ -526,15 +527,15 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
         }
         final AttributeSet attr = Xml.asAttributeSet(parser);
         final TypedArray keyboardAttr = mResources.obtainAttributes(
-                attr, com.gmx.emoji.goo.R.styleable.Keyboard_Include);
-        final TypedArray keyAttr = mResources.obtainAttributes(attr, com.gmx.emoji.goo.R.styleable.Keyboard_Key);
+                attr, R.styleable.Keyboard_Include);
+        final TypedArray keyAttr = mResources.obtainAttributes(attr, R.styleable.Keyboard_Key);
         int keyboardLayout = 0;
         try {
             XmlParseUtils.checkAttributeExists(
-                    keyboardAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Include_keyboardLayout, "keyboardLayout",
+                    keyboardAttr, R.styleable.Keyboard_Include_keyboardLayout, "keyboardLayout",
                     TAG_INCLUDE, parser);
             keyboardLayout = keyboardAttr.getResourceId(
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Include_keyboardLayout, 0);
+                    R.styleable.Keyboard_Include_keyboardLayout, 0);
             if (row != null) {
                 // Override current x coordinate.
                 row.setXPos(row.getKeyX(keyAttr));
@@ -639,44 +640,44 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
             return true;
         }
         final AttributeSet attr = Xml.asAttributeSet(parser);
-        final TypedArray caseAttr = mResources.obtainAttributes(attr, com.gmx.emoji.goo.R.styleable.Keyboard_Case);
+        final TypedArray caseAttr = mResources.obtainAttributes(attr, R.styleable.Keyboard_Case);
         try {
             final boolean keyboardLayoutSetMatched = matchString(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_keyboardLayoutSet,
+                    R.styleable.Keyboard_Case_keyboardLayoutSet,
                     id.mSubtype.getKeyboardLayoutSetName());
             final boolean keyboardLayoutSetElementMatched = matchTypedValue(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_keyboardLayoutSetElement, id.mElementId,
+                    R.styleable.Keyboard_Case_keyboardLayoutSetElement, id.mElementId,
                     KeyboardId.elementIdToName(id.mElementId));
             final boolean keyboardThemeMacthed = matchTypedValue(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_keyboardTheme, mParams.mThemeId,
+                    R.styleable.Keyboard_Case_keyboardTheme, mParams.mThemeId,
                     KeyboardTheme.getKeyboardThemeName(mParams.mThemeId));
             final boolean modeMatched = matchTypedValue(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_mode, id.mMode, KeyboardId.modeName(id.mMode));
+                    R.styleable.Keyboard_Case_mode, id.mMode, KeyboardId.modeName(id.mMode));
             final boolean navigateNextMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_navigateNext, id.navigateNext());
+                    R.styleable.Keyboard_Case_navigateNext, id.navigateNext());
             final boolean navigatePreviousMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_navigatePrevious, id.navigatePrevious());
+                    R.styleable.Keyboard_Case_navigatePrevious, id.navigatePrevious());
             final boolean passwordInputMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_passwordInput, id.passwordInput());
+                    R.styleable.Keyboard_Case_passwordInput, id.passwordInput());
             final boolean clobberSettingsKeyMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_clobberSettingsKey, id.mClobberSettingsKey);
+                    R.styleable.Keyboard_Case_clobberSettingsKey, id.mClobberSettingsKey);
             final boolean hasShortcutKeyMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_hasShortcutKey, id.mHasShortcutKey);
+                    R.styleable.Keyboard_Case_hasShortcutKey, id.mHasShortcutKey);
             final boolean languageSwitchKeyEnabledMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_languageSwitchKeyEnabled,
+                    R.styleable.Keyboard_Case_languageSwitchKeyEnabled,
                     id.mLanguageSwitchKeyEnabled);
             final boolean isMultiLineMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_isMultiLine, id.isMultiLine());
+                    R.styleable.Keyboard_Case_isMultiLine, id.isMultiLine());
             final boolean imeActionMatched = matchInteger(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_imeAction, id.imeAction());
+                    R.styleable.Keyboard_Case_imeAction, id.imeAction());
             final boolean isIconDefinedMatched = isIconDefined(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_isIconDefined, mParams.mIconsSet);
+                    R.styleable.Keyboard_Case_isIconDefined, mParams.mIconsSet);
             final Locale locale = id.getLocale();
             final boolean localeCodeMatched = matchLocaleCodes(caseAttr, locale);
             final boolean languageCodeMatched = matchLanguageCodes(caseAttr, locale);
             final boolean countryCodeMatched = matchCountryCodes(caseAttr, locale);
             final boolean splitLayoutMatched = matchBoolean(caseAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Case_isSplitLayout, id.mIsSplitLayout);
+                    R.styleable.Keyboard_Case_isSplitLayout, id.mIsSplitLayout);
             final boolean selected = keyboardLayoutSetMatched && keyboardLayoutSetElementMatched
                     && keyboardThemeMacthed && modeMatched && navigateNextMatched
                     && navigatePreviousMatched && passwordInputMatched && clobberSettingsKeyMatched
@@ -688,38 +689,38 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
             if (DEBUG) {
                 startTag("<%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s>%s", TAG_CASE,
                         textAttr(caseAttr.getString(
-                                com.gmx.emoji.goo.R.styleable.Keyboard_Case_keyboardLayoutSet), "keyboardLayoutSet"),
+                                R.styleable.Keyboard_Case_keyboardLayoutSet), "keyboardLayoutSet"),
                         textAttr(caseAttr.getString(
-                                com.gmx.emoji.goo.R.styleable.Keyboard_Case_keyboardLayoutSetElement),
+                                R.styleable.Keyboard_Case_keyboardLayoutSetElement),
                                 "keyboardLayoutSetElement"),
                         textAttr(caseAttr.getString(
-                                com.gmx.emoji.goo.R.styleable.Keyboard_Case_keyboardTheme), "keyboardTheme"),
-                        textAttr(caseAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Case_mode), "mode"),
-                        textAttr(caseAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Case_imeAction),
+                                R.styleable.Keyboard_Case_keyboardTheme), "keyboardTheme"),
+                        textAttr(caseAttr.getString(R.styleable.Keyboard_Case_mode), "mode"),
+                        textAttr(caseAttr.getString(R.styleable.Keyboard_Case_imeAction),
                                 "imeAction"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_navigateNext,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_navigateNext,
                                 "navigateNext"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_navigatePrevious,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_navigatePrevious,
                                 "navigatePrevious"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_clobberSettingsKey,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_clobberSettingsKey,
                                 "clobberSettingsKey"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_passwordInput,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_passwordInput,
                                 "passwordInput"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_hasShortcutKey,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_hasShortcutKey,
                                 "hasShortcutKey"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_languageSwitchKeyEnabled,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_languageSwitchKeyEnabled,
                                 "languageSwitchKeyEnabled"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_isMultiLine,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_isMultiLine,
                                 "isMultiLine"),
-                        booleanAttr(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_isSplitLayout,
+                        booleanAttr(caseAttr, R.styleable.Keyboard_Case_isSplitLayout,
                                 "splitLayout"),
-                        textAttr(caseAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Case_isIconDefined),
+                        textAttr(caseAttr.getString(R.styleable.Keyboard_Case_isIconDefined),
                                 "isIconDefined"),
-                        textAttr(caseAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Case_localeCode),
+                        textAttr(caseAttr.getString(R.styleable.Keyboard_Case_localeCode),
                                 "localeCode"),
-                        textAttr(caseAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Case_languageCode),
+                        textAttr(caseAttr.getString(R.styleable.Keyboard_Case_languageCode),
                                 "languageCode"),
-                        textAttr(caseAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_Case_countryCode),
+                        textAttr(caseAttr.getString(R.styleable.Keyboard_Case_countryCode),
                                 "countryCode"),
                         selected ? "" : " skipped");
             }
@@ -731,15 +732,15 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
     }
 
     private static boolean matchLocaleCodes(TypedArray caseAttr, final Locale locale) {
-        return matchString(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_localeCode, locale.toString());
+        return matchString(caseAttr, R.styleable.Keyboard_Case_localeCode, locale.toString());
     }
 
     private static boolean matchLanguageCodes(TypedArray caseAttr, Locale locale) {
-        return matchString(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_languageCode, locale.getLanguage());
+        return matchString(caseAttr, R.styleable.Keyboard_Case_languageCode, locale.getLanguage());
     }
 
     private static boolean matchCountryCodes(TypedArray caseAttr, Locale locale) {
-        return matchString(caseAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Case_countryCode, locale.getCountry());
+        return matchString(caseAttr, R.styleable.Keyboard_Case_countryCode, locale.getCountry());
     }
 
     private static boolean matchInteger(final TypedArray a, final int index, final int value) {
@@ -803,16 +804,16 @@ public class KeyboardBuilder<KP extends KeyboardParams> {
             throws XmlPullParserException, IOException {
         final AttributeSet attr = Xml.asAttributeSet(parser);
         final TypedArray keyStyleAttr = mResources.obtainAttributes(
-                attr, com.gmx.emoji.goo.R.styleable.Keyboard_KeyStyle);
-        final TypedArray keyAttrs = mResources.obtainAttributes(attr, com.gmx.emoji.goo.R.styleable.Keyboard_Key);
+                attr, R.styleable.Keyboard_KeyStyle);
+        final TypedArray keyAttrs = mResources.obtainAttributes(attr, R.styleable.Keyboard_Key);
         try {
-            if (!keyStyleAttr.hasValue(com.gmx.emoji.goo.R.styleable.Keyboard_KeyStyle_styleName)) {
+            if (!keyStyleAttr.hasValue(R.styleable.Keyboard_KeyStyle_styleName)) {
                 throw new XmlParseUtils.ParseException("<" + TAG_KEY_STYLE
                         + "/> needs styleName attribute", parser);
             }
             if (DEBUG) {
                 startEndTag("<%s styleName=%s />%s", TAG_KEY_STYLE,
-                        keyStyleAttr.getString(com.gmx.emoji.goo.R.styleable.Keyboard_KeyStyle_styleName),
+                        keyStyleAttr.getString(R.styleable.Keyboard_KeyStyle_styleName),
                         skip ? " skipped" : "");
             }
             if (!skip) {

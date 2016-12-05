@@ -25,6 +25,7 @@ import android.util.Log;
 import android.util.TypedValue;
 
 import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.settings.SettingsValues;
 
 import java.util.ArrayList;
@@ -198,22 +199,22 @@ public final class ResourceUtils {
     public static int getDefaultKeyboardHeight(final Resources res) {
         final DisplayMetrics dm = res.getDisplayMetrics();
         final String keyboardHeightInDp = getDeviceOverrideValue(
-                res, com.gmx.emoji.goo.R.array.keyboard_heights, null /* defaultValue */);
+                res, R.array.keyboard_heights, null /* defaultValue */);
         final float keyboardHeight;
         if (TextUtils.isEmpty(keyboardHeightInDp)) {
-            keyboardHeight = res.getDimension(com.gmx.emoji.goo.R.dimen.config_default_keyboard_height);
+            keyboardHeight = res.getDimension(R.dimen.config_default_keyboard_height);
         } else {
             keyboardHeight = Float.parseFloat(keyboardHeightInDp) * dm.density;
         }
         final float maxKeyboardHeight = res.getFraction(
-                com.gmx.emoji.goo.R.fraction.config_max_keyboard_height, dm.heightPixels, dm.heightPixels);
+                R.fraction.config_max_keyboard_height, dm.heightPixels, dm.heightPixels);
         float minKeyboardHeight = res.getFraction(
-                com.gmx.emoji.goo.R.fraction.config_min_keyboard_height, dm.heightPixels, dm.heightPixels);
+                R.fraction.config_min_keyboard_height, dm.heightPixels, dm.heightPixels);
         if (minKeyboardHeight < 0.0f) {
             // Specified fraction was negative, so it should be calculated against display
             // width.
             minKeyboardHeight = -res.getFraction(
-                    com.gmx.emoji.goo.R.fraction.config_min_keyboard_height, dm.widthPixels, dm.widthPixels);
+                    R.fraction.config_min_keyboard_height, dm.widthPixels, dm.widthPixels);
         }
         // Keyboard height will not exceed maxKeyboardHeight and will not be less than
         // minKeyboardHeight.

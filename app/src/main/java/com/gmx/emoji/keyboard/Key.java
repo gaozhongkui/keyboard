@@ -28,6 +28,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.KeyDrawParams;
 import com.gmx.emoji.keyboard.internal.KeySpecParser;
 import com.gmx.emoji.keyboard.internal.KeyStyle;
@@ -275,24 +276,24 @@ public class Key implements Comparable<Key> {
         row.setXPos(keyXPos + keyWidth);
 
         mBackgroundType = style.getInt(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_backgroundType, row.getDefaultBackgroundType());
+                R.styleable.Keyboard_Key_backgroundType, row.getDefaultBackgroundType());
 
         final int baseWidth = params.mBaseWidth;
         final int visualInsetsLeft = Math.round(keyAttr.getFraction(
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_visualInsetsLeft, baseWidth, baseWidth, 0));
+                R.styleable.Keyboard_Key_visualInsetsLeft, baseWidth, baseWidth, 0));
         final int visualInsetsRight = Math.round(keyAttr.getFraction(
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_visualInsetsRight, baseWidth, baseWidth, 0));
+                R.styleable.Keyboard_Key_visualInsetsRight, baseWidth, baseWidth, 0));
 
-        mLabelFlags = style.getFlags(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyLabelFlags)
+        mLabelFlags = style.getFlags(keyAttr, R.styleable.Keyboard_Key_keyLabelFlags)
                 | row.getDefaultKeyLabelFlags();
         final boolean needsToUpcase = needsToUpcase(mLabelFlags, params.mId.mElementId);
         final Locale localeForUpcasing = params.mId.getLocale();
-        int actionFlags = style.getFlags(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyActionFlags);
-        String[] moreKeys = style.getStringArray(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_moreKeys);
+        int actionFlags = style.getFlags(keyAttr, R.styleable.Keyboard_Key_keyActionFlags);
+        String[] moreKeys = style.getStringArray(keyAttr, R.styleable.Keyboard_Key_moreKeys);
 
         // Get maximum column order number and set a relevant mode value.
         int moreKeysColumnAndFlags = MORE_KEYS_MODE_MAX_COLUMN_WITH_AUTO_ORDER
-                | style.getInt(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_maxMoreKeysColumn,
+                | style.getInt(keyAttr, R.styleable.Keyboard_Key_maxMoreKeysColumn,
                         params.mMaxMoreKeysKeyboardColumn);
         int value;
         if ((value = MoreKeySpec.getIntValue(moreKeys, MORE_KEYS_AUTO_COLUMN_ORDER, -1)) > 0) {
@@ -321,7 +322,7 @@ public class Key implements Comparable<Key> {
             additionalMoreKeys = null;
         } else {
             additionalMoreKeys = style.getStringArray(keyAttr,
-                    com.gmx.emoji.goo.R.styleable.Keyboard_Key_additionalMoreKeys);
+                    R.styleable.Keyboard_Key_additionalMoreKeys);
         }
         moreKeys = MoreKeySpec.insertAdditionalMoreKeys(moreKeys, additionalMoreKeys);
         if (moreKeys != null) {
@@ -337,7 +338,7 @@ public class Key implements Comparable<Key> {
 
         mIconId = KeySpecParser.getIconId(keySpec);
         final int disabledIconId = KeySpecParser.getIconId(style.getString(keyAttr,
-                com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyIconDisabled));
+                R.styleable.Keyboard_Key_keyIconDisabled));
 
         final int code = KeySpecParser.getCode(keySpec);
         if ((mLabelFlags & LABEL_FLAGS_FROM_CUSTOM_ACTION_LABEL) != 0) {
@@ -357,7 +358,7 @@ public class Key implements Comparable<Key> {
             mHintLabel = null;
         } else {
             final String hintLabel = style.getString(
-                    keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_keyHintLabel);
+                    keyAttr, R.styleable.Keyboard_Key_keyHintLabel);
             mHintLabel = needsToUpcase
                     ? StringUtils.toTitleCaseOfKeyLabel(hintLabel, localeForUpcasing)
                     : hintLabel;
@@ -395,7 +396,7 @@ public class Key implements Comparable<Key> {
                     : code;
         }
         final int altCodeInAttr = KeySpecParser.parseCode(
-                style.getString(keyAttr, com.gmx.emoji.goo.R.styleable.Keyboard_Key_altCode), CODE_UNSPECIFIED);
+                style.getString(keyAttr, R.styleable.Keyboard_Key_altCode), CODE_UNSPECIFIED);
         final int altCode = needsToUpcase
                 ? StringUtils.toTitleCaseOfKeyCode(altCodeInAttr, localeForUpcasing)
                 : altCodeInAttr;

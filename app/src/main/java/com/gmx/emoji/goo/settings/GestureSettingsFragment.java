@@ -18,6 +18,8 @@ package com.gmx.emoji.goo.settings;
 
 import android.os.Bundle;
 
+import com.gmx.emoji.goo.R;
+
 /**
  * "Gesture typing preferences" settings sub screen.
  *
@@ -31,6 +33,6 @@ public final class GestureSettingsFragment extends SubScreenFragment {
     @Override
     public void onCreate(final Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(com.gmx.emoji.goo.R.xml.prefs_screen_gesture);
+        addPreferencesFromResource(R.xml.prefs_screen_gesture);
     }
 }

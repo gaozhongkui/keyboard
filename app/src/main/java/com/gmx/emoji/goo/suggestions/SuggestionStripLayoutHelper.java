@@ -46,6 +46,7 @@ import android.widget.TextView;
 import com.gmx.emoji.accessibility.AccessibilityUtils;
 import com.gmx.emoji.annotations.UsedForTesting;
 import com.gmx.emoji.goo.PunctuationSuggestions;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.SuggestedWords;
 import com.gmx.emoji.goo.settings.Settings;
 import com.gmx.emoji.goo.settings.SettingsValues;
@@ -118,33 +119,33 @@ final class SuggestionStripLayoutHelper {
 
         final Resources res = wordView.getResources();
         mSuggestionsStripHeight = res.getDimensionPixelSize(
-                com.gmx.emoji.goo.R.dimen.config_suggestions_strip_height);
+                R.dimen.config_suggestions_strip_height);
 
         final TypedArray a = context.obtainStyledAttributes(attrs,
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView, defStyle, com.gmx.emoji.goo.R.style.SuggestionStripView);
+                R.styleable.SuggestionStripView, defStyle, R.style.SuggestionStripView);
         mSuggestionStripOptions = a.getInt(
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView_suggestionStripOptions, 0);
+                R.styleable.SuggestionStripView_suggestionStripOptions, 0);
         mAlphaObsoleted = ResourceUtils.getFraction(a,
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView_alphaObsoleted, 1.0f);
-        mColorValidTypedWord = a.getColor(com.gmx.emoji.goo.R.styleable.SuggestionStripView_colorValidTypedWord, 0);
-        mColorTypedWord = a.getColor(com.gmx.emoji.goo.R.styleable.SuggestionStripView_colorTypedWord, 0);
-        mColorAutoCorrect = a.getColor(com.gmx.emoji.goo.R.styleable.SuggestionStripView_colorAutoCorrect, 0);
-        mColorSuggested = a.getColor(com.gmx.emoji.goo.R.styleable.SuggestionStripView_colorSuggested, 0);
+                R.styleable.SuggestionStripView_alphaObsoleted, 1.0f);
+        mColorValidTypedWord = a.getColor(R.styleable.SuggestionStripView_colorValidTypedWord, 0);
+        mColorTypedWord = a.getColor(R.styleable.SuggestionStripView_colorTypedWord, 0);
+        mColorAutoCorrect = a.getColor(R.styleable.SuggestionStripView_colorAutoCorrect, 0);
+        mColorSuggested = a.getColor(R.styleable.SuggestionStripView_colorSuggested, 0);
         mSuggestionsCountInStrip = a.getInt(
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView_suggestionsCountInStrip,
+                R.styleable.SuggestionStripView_suggestionsCountInStrip,
                 DEFAULT_SUGGESTIONS_COUNT_IN_STRIP);
         mCenterSuggestionWeight = ResourceUtils.getFraction(a,
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView_centerSuggestionPercentile,
+                R.styleable.SuggestionStripView_centerSuggestionPercentile,
                 DEFAULT_CENTER_SUGGESTION_PERCENTILE);
         mMaxMoreSuggestionsRow = a.getInt(
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView_maxMoreSuggestionsRow,
+                R.styleable.SuggestionStripView_maxMoreSuggestionsRow,
                 DEFAULT_MAX_MORE_SUGGESTIONS_ROW);
         mMinMoreSuggestionsWidth = ResourceUtils.getFraction(a,
-                com.gmx.emoji.goo.R.styleable.SuggestionStripView_minMoreSuggestionsWidth, 1.0f);
+                R.styleable.SuggestionStripView_minMoreSuggestionsWidth, 1.0f);
         a.recycle();
 
         mMoreSuggestionsHint = getMoreSuggestionsHint(res,
-                res.getDimension(com.gmx.emoji.goo.R.dimen.config_more_suggestions_hint_text_size),
+                res.getDimension(R.dimen.config_more_suggestions_hint_text_size),
                 mColorAutoCorrect);
         mCenterPositionInStrip = mSuggestionsCountInStrip / 2;
         // Assuming there are at least three suggestions. Also, note that the suggestions are
@@ -152,9 +153,9 @@ final class SuggestionStripLayoutHelper {
         // and right of the center for RTL scripts.
         mTypedWordPositionWhenAutocorrect = mCenterPositionInStrip - 1;
         mMoreSuggestionsBottomGap = res.getDimensionPixelOffset(
-                com.gmx.emoji.goo.R.dimen.config_more_suggestions_bottom_gap);
+                R.dimen.config_more_suggestions_bottom_gap);
         mMoreSuggestionsRowHeight = res.getDimensionPixelSize(
-                com.gmx.emoji.goo.R.dimen.config_more_suggestions_row_height);
+                R.dimen.config_more_suggestions_row_height);
     }
 
     public int getMaxMoreSuggestionsRow() {
@@ -433,7 +434,7 @@ final class SuggestionStripLayoutHelper {
         // Use a simple {@link String} to avoid the issue.
         wordView.setContentDescription(
                 TextUtils.isEmpty(word)
-                    ? context.getResources().getString(com.gmx.emoji.goo.R.string.spoken_empty_suggestion)
+                    ? context.getResources().getString(R.string.spoken_empty_suggestion)
                     : word.toString());
         final CharSequence text = getEllipsizedTextWithSettingScaleX(
                 word, width, wordView.getPaint());
@@ -545,7 +546,7 @@ final class SuggestionStripLayoutHelper {
     public void layoutImportantNotice(final View importantNoticeStrip,
             final String importantNoticeTitle) {
         final TextView titleView = (TextView)importantNoticeStrip.findViewById(
-                com.gmx.emoji.goo.R.id.important_notice_title);
+                R.id.important_notice_title);
         final int width = titleView.getWidth() - titleView.getPaddingLeft()
                 - titleView.getPaddingRight();
         titleView.setTextColor(mColorAutoCorrect);

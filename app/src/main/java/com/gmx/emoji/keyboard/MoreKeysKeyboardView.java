@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 import com.android.inputmethod.keyboard.Keyboard;
 import com.gmx.emoji.accessibility.AccessibilityUtils;
 import com.gmx.emoji.accessibility.MoreKeysKeyboardAccessibilityDelegate;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.KeyDrawParams;
 import com.gmx.emoji.goo.common.Constants;
 import com.gmx.emoji.goo.common.CoordinateUtils;
@@ -53,22 +54,22 @@ public class MoreKeysKeyboardView extends KeyboardView implements MoreKeysPanel 
     protected MoreKeysKeyboardAccessibilityDelegate mAccessibilityDelegate;
 
     public MoreKeysKeyboardView(final Context context, final AttributeSet attrs) {
-        this(context, attrs, com.gmx.emoji.goo.R.attr.moreKeysKeyboardViewStyle);
+        this(context, attrs, R.attr.moreKeysKeyboardViewStyle);
     }
 
     public MoreKeysKeyboardView(final Context context, final AttributeSet attrs,
             final int defStyle) {
         super(context, attrs, defStyle);
         final TypedArray moreKeysKeyboardViewAttr = context.obtainStyledAttributes(attrs,
-                com.gmx.emoji.goo.R.styleable.MoreKeysKeyboardView, defStyle, com.gmx.emoji.goo.R.style.MoreKeysKeyboardView);
-        mDivider = moreKeysKeyboardViewAttr.getDrawable(com.gmx.emoji.goo.R.styleable.MoreKeysKeyboardView_divider);
+                R.styleable.MoreKeysKeyboardView, defStyle, R.style.MoreKeysKeyboardView);
+        mDivider = moreKeysKeyboardViewAttr.getDrawable(R.styleable.MoreKeysKeyboardView_divider);
         if (mDivider != null) {
             // TODO: Drawable itself should have an alpha value.
             mDivider.setAlpha(128);
         }
         moreKeysKeyboardViewAttr.recycle();
         mKeyDetector = new MoreKeysDetector(getResources().getDimension(
-                com.gmx.emoji.goo.R.dimen.config_more_keys_keyboard_slide_allowance));
+                R.dimen.config_more_keys_keyboard_slide_allowance));
     }
 
     @Override
@@ -109,8 +110,8 @@ public class MoreKeysKeyboardView extends KeyboardView implements MoreKeysPanel 
             if (mAccessibilityDelegate == null) {
                 mAccessibilityDelegate = new MoreKeysKeyboardAccessibilityDelegate(
                         this, mKeyDetector);
-                mAccessibilityDelegate.setOpenAnnounce(com.gmx.emoji.goo.R.string.spoken_open_more_keys_keyboard);
-                mAccessibilityDelegate.setCloseAnnounce(com.gmx.emoji.goo.R.string.spoken_close_more_keys_keyboard);
+                mAccessibilityDelegate.setOpenAnnounce(R.string.spoken_open_more_keys_keyboard);
+                mAccessibilityDelegate.setCloseAnnounce(R.string.spoken_close_more_keys_keyboard);
             }
             mAccessibilityDelegate.setKeyboard(keyboard);
         } else {

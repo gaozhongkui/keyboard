@@ -26,6 +26,8 @@ import android.view.ViewParent;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.gmx.emoji.goo.R;
+
 import java.util.Locale;
 
 /**
@@ -77,7 +79,7 @@ public final class WordListPreference extends Preference {
         mLocale = locale;
         mDescription = description;
 
-        setLayoutResource(com.gmx.emoji.goo.R.layout.dictionary_line);
+        setLayoutResource(R.layout.dictionary_line);
 
         setTitle(description);
         setStatus(status);
@@ -116,13 +118,13 @@ public final class WordListPreference extends Preference {
         // would only be confusing.
         case MetadataDbHelper.STATUS_DELETING:
         case MetadataDbHelper.STATUS_AVAILABLE:
-            return context.getString(com.gmx.emoji.goo.R.string.dictionary_available);
+            return context.getString(R.string.dictionary_available);
         case MetadataDbHelper.STATUS_DOWNLOADING:
-            return context.getString(com.gmx.emoji.goo.R.string.dictionary_downloading);
+            return context.getString(R.string.dictionary_downloading);
         case MetadataDbHelper.STATUS_INSTALLED:
-            return context.getString(com.gmx.emoji.goo.R.string.dictionary_installed);
+            return context.getString(R.string.dictionary_installed);
         case MetadataDbHelper.STATUS_DISABLED:
-            return context.getString(com.gmx.emoji.goo.R.string.dictionary_disabled);
+            return context.getString(R.string.dictionary_disabled);
         default:
             return NO_STATUS_MESSAGE;
         }
@@ -214,7 +216,7 @@ public final class WordListPreference extends Preference {
         ((ViewGroup)view).setLayoutTransition(null);
 
         final DictionaryDownloadProgressBar progressBar =
-                (DictionaryDownloadProgressBar)view.findViewById(com.gmx.emoji.goo.R.id.dictionary_line_progress_bar);
+                (DictionaryDownloadProgressBar)view.findViewById(R.id.dictionary_line_progress_bar);
         final TextView status = (TextView)view.findViewById(android.R.id.summary);
         progressBar.setIds(mClientId, mWordlistId);
         progressBar.setMax(mFilesize);
@@ -224,7 +226,7 @@ public final class WordListPreference extends Preference {
         progressBar.setVisibility(showProgressBar ? View.VISIBLE : View.INVISIBLE);
 
         final ButtonSwitcher buttonSwitcher = (ButtonSwitcher)view.findViewById(
-                com.gmx.emoji.goo.R.id.wordlist_button_switcher);
+                R.id.wordlist_button_switcher);
         // We need to clear the state of the button switcher, because we reuse views; if we didn't
         // reset it would animate from whatever its old state was.
         buttonSwitcher.reset(mInterfaceState);
@@ -281,7 +283,7 @@ public final class WordListPreference extends Preference {
         // The "lastDisplayedIndex" is actually displayed, hence the <=
         for (int i = 0; i <= lastDisplayedIndex; ++i) {
             final ButtonSwitcher buttonSwitcher = (ButtonSwitcher)listView.getChildAt(i)
-                    .findViewById(com.gmx.emoji.goo.R.id.wordlist_button_switcher);
+                    .findViewById(R.id.wordlist_button_switcher);
             if (i == indexToOpen) {
                 buttonSwitcher.setStatusAndUpdateVisuals(getButtonSwitcherStatus(mStatus));
             } else {

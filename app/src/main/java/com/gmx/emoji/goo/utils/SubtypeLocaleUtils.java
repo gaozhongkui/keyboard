@@ -26,6 +26,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.inputmethod.InputMethodSubtype;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.common.LocaleUtils;
 import com.gmx.emoji.goo.common.StringUtils;
 
@@ -43,13 +44,13 @@ public final class SubtypeLocaleUtils {
     static final String TAG = SubtypeLocaleUtils.class.getSimpleName();
 
     // This reference class {@link R} must be located in the same package as LatinIME.java.
-    private static final String RESOURCE_PACKAGE_NAME = com.gmx.emoji.goo.R.class.getPackage().getName();
+    private static final String RESOURCE_PACKAGE_NAME = R.class.getPackage().getName();
 
     // Special language code to represent "no language".
     public static final String NO_LANGUAGE = "zz";
     public static final String QWERTY = "qwerty";
     public static final String EMOJI = "emoji";
-    public static final int UNKNOWN_KEYBOARD_LAYOUT = com.gmx.emoji.goo.R.string.subtype_generic;
+    public static final int UNKNOWN_KEYBOARD_LAYOUT = R.string.subtype_generic;
 
     private static volatile boolean sInitialized = false;
     private static final Object sInitializeLock = new Object();
@@ -99,9 +100,9 @@ public final class SubtypeLocaleUtils {
         final Resources res = context.getResources();
         sResources = res;
 
-        final String[] predefinedLayoutSet = res.getStringArray(com.gmx.emoji.goo.R.array.predefined_layouts);
+        final String[] predefinedLayoutSet = res.getStringArray(R.array.predefined_layouts);
         final String[] layoutDisplayNames = res.getStringArray(
-                com.gmx.emoji.goo.R.array.predefined_layout_display_names);
+                R.array.predefined_layout_display_names);
         for (int i = 0; i < predefinedLayoutSet.length; i++) {
             final String layoutName = predefinedLayoutSet[i];
             sKeyboardLayoutToDisplayNameMap.put(layoutName, layoutDisplayNames[i]);
@@ -117,7 +118,7 @@ public final class SubtypeLocaleUtils {
         }
 
         final String[] exceptionalLocaleInRootLocale = res.getStringArray(
-                com.gmx.emoji.goo.R.array.subtype_locale_displayed_in_root_locale);
+                R.array.subtype_locale_displayed_in_root_locale);
         for (int i = 0; i < exceptionalLocaleInRootLocale.length; i++) {
             final String localeString = exceptionalLocaleInRootLocale[i];
             final String resourceName = SUBTYPE_NAME_RESOURCE_IN_ROOT_LOCALE_PREFIX + localeString;
@@ -126,7 +127,7 @@ public final class SubtypeLocaleUtils {
         }
 
         final String[] exceptionalLocales = res.getStringArray(
-                com.gmx.emoji.goo.R.array.subtype_locale_exception_keys);
+                R.array.subtype_locale_exception_keys);
         for (int i = 0; i < exceptionalLocales.length; i++) {
             final String localeString = exceptionalLocales[i];
             final String resourceName = SUBTYPE_NAME_RESOURCE_PREFIX + localeString;
@@ -140,7 +141,7 @@ public final class SubtypeLocaleUtils {
         }
 
         final String[] keyboardLayoutSetMap = res.getStringArray(
-                com.gmx.emoji.goo.R.array.locale_and_extra_value_to_keyboard_layout_set_map);
+                R.array.locale_and_extra_value_to_keyboard_layout_set_map);
         for (int i = 0; i + 1 < keyboardLayoutSetMap.length; i += 2) {
             final String key = keyboardLayoutSetMap[i];
             final String keyboardLayoutSet = keyboardLayoutSetMap[i + 1];
@@ -208,7 +209,7 @@ public final class SubtypeLocaleUtils {
             @Nonnull final Locale displayLocale) {
         if (NO_LANGUAGE.equals(localeString)) {
             // No language subtype should be displayed in system locale.
-            return sResources.getString(com.gmx.emoji.goo.R.string.subtype_no_language);
+            return sResources.getString(R.string.subtype_no_language);
         }
         final Integer exceptionalNameResId;
         if (displayLocale.equals(Locale.ROOT)

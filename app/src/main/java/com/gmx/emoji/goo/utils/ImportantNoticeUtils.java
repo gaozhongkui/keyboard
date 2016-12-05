@@ -25,6 +25,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.gmx.emoji.annotations.UsedForTesting;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.permissions.PermissionsUtil;
 import com.gmx.emoji.goo.settings.SettingsValues;
 
@@ -111,7 +112,7 @@ public final class ImportantNoticeUtils {
     }
 
     public static String getSuggestContactsNoticeTitle(final Context context) {
-        return context.getResources().getString(com.gmx.emoji.goo.R.string.important_notice_suggest_contact_names);
+        return context.getResources().getString(R.string.important_notice_suggest_contact_names);
     }
 
     @UsedForTesting

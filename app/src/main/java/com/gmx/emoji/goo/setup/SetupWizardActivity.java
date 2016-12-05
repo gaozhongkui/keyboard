@@ -126,8 +126,8 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mImm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
         mHandler = new SettingsPoolingHandler(this, mImm);
 
-        setContentView(com.gmx.emoji.goo.R.layout.setup_wizard);
-        mSetupWizard = findViewById(com.gmx.emoji.goo.R.id.setup_wizard);
+        setContentView(R.layout.setup_wizard);
+        mSetupWizard = findViewById(R.id.setup_wizard);
 
         if (savedInstanceState == null) {
             mStepNumber = determineSetupStepNumberFromLauncher();
@@ -136,25 +136,25 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         }
 
         final String applicationName = getResources().getString(getApplicationInfo().labelRes);
-        mWelcomeScreen = findViewById(com.gmx.emoji.goo.R.id.setup_welcome_screen);
-        final TextView welcomeTitle = (TextView)findViewById(com.gmx.emoji.goo.R.id.setup_welcome_title);
-        welcomeTitle.setText(getString(com.gmx.emoji.goo.R.string.setup_welcome_title, applicationName));
+        mWelcomeScreen = findViewById(R.id.setup_welcome_screen);
+        final TextView welcomeTitle = (TextView)findViewById(R.id.setup_welcome_title);
+        welcomeTitle.setText(getString(R.string.setup_welcome_title, applicationName));
 
-        mSetupScreen = findViewById(com.gmx.emoji.goo.R.id.setup_steps_screen);
-        final TextView stepsTitle = (TextView)findViewById(com.gmx.emoji.goo.R.id.setup_title);
-        stepsTitle.setText(getString(com.gmx.emoji.goo.R.string.setup_steps_title, applicationName));
+        mSetupScreen = findViewById(R.id.setup_steps_screen);
+        final TextView stepsTitle = (TextView)findViewById(R.id.setup_title);
+        stepsTitle.setText(getString(R.string.setup_steps_title, applicationName));
 
         final SetupStepIndicatorView indicatorView =
-                (SetupStepIndicatorView)findViewById(com.gmx.emoji.goo.R.id.setup_step_indicator);
+                (SetupStepIndicatorView)findViewById(R.id.setup_step_indicator);
         mSetupStepGroup = new SetupStepGroup(indicatorView);
 
-        mStep1Bullet = (TextView)findViewById(com.gmx.emoji.goo.R.id.setup_step1_bullet);
+        mStep1Bullet = (TextView)findViewById(R.id.setup_step1_bullet);
         mStep1Bullet.setOnClickListener(this);
         final SetupStep step1 = new SetupStep(STEP_1, applicationName,
-                mStep1Bullet, findViewById(com.gmx.emoji.goo.R.id.setup_step1),
-                com.gmx.emoji.goo.R.string.setup_step1_title, com.gmx.emoji.goo.R.string.setup_step1_instruction,
-                com.gmx.emoji.goo.R.string.setup_step1_finished_instruction, com.gmx.emoji.goo.R.drawable.ic_setup_step1,
-                com.gmx.emoji.goo.R.string.setup_step1_action);
+                mStep1Bullet, findViewById(R.id.setup_step1),
+                R.string.setup_step1_title, R.string.setup_step1_instruction,
+                R.string.setup_step1_finished_instruction, R.drawable.ic_setup_step1,
+                R.string.setup_step1_action);
         final SettingsPoolingHandler handler = mHandler;
         step1.setAction(new Runnable() {
             @Override
@@ -166,10 +166,10 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mSetupStepGroup.addStep(step1);
 
         final SetupStep step2 = new SetupStep(STEP_2, applicationName,
-                (TextView)findViewById(com.gmx.emoji.goo.R.id.setup_step2_bullet), findViewById(com.gmx.emoji.goo.R.id.setup_step2),
-                com.gmx.emoji.goo.R.string.setup_step2_title, com.gmx.emoji.goo.R.string.setup_step2_instruction,
-                0 /* finishedInstruction */, com.gmx.emoji.goo.R.drawable.ic_setup_step2,
-                com.gmx.emoji.goo.R.string.setup_step2_action);
+                (TextView)findViewById(R.id.setup_step2_bullet), findViewById(R.id.setup_step2),
+                R.string.setup_step2_title, R.string.setup_step2_instruction,
+                0 /* finishedInstruction */, R.drawable.ic_setup_step2,
+                R.string.setup_step2_action);
         step2.setAction(new Runnable() {
             @Override
             public void run() {
@@ -179,10 +179,10 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mSetupStepGroup.addStep(step2);
 
         final SetupStep step3 = new SetupStep(STEP_3, applicationName,
-                (TextView)findViewById(com.gmx.emoji.goo.R.id.setup_step3_bullet), findViewById(com.gmx.emoji.goo.R.id.setup_step3),
-                com.gmx.emoji.goo.R.string.setup_step3_title, com.gmx.emoji.goo.R.string.setup_step3_instruction,
-                0 /* finishedInstruction */, com.gmx.emoji.goo.R.drawable.ic_setup_step3,
-                com.gmx.emoji.goo.R.string.setup_step3_action);
+                (TextView)findViewById(R.id.setup_step3_bullet), findViewById(R.id.setup_step3),
+                R.string.setup_step3_title, R.string.setup_step3_instruction,
+                0 /* finishedInstruction */, R.drawable.ic_setup_step3,
+                R.string.setup_step3_action);
         step3.setAction(new Runnable() {
             @Override
             public void run() {
@@ -194,9 +194,9 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
         mWelcomeVideoUri = new Uri.Builder()
                 .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
                 .authority(getPackageName())
-                .path(Integer.toString(com.gmx.emoji.goo.R.raw.setup_welcome_video))
+                .path(Integer.toString(R.raw.setup_welcome_video))
                 .build();
-        final VideoView welcomeVideoView = (VideoView)findViewById(com.gmx.emoji.goo.R.id.setup_welcome_video);
+        final VideoView welcomeVideoView = (VideoView)findViewById(R.id.setup_welcome_video);
         welcomeVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(final MediaPlayer mp) {
@@ -215,15 +215,15 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
             }
         });
         mWelcomeVideoView = welcomeVideoView;
-        mWelcomeImageView = (ImageView)findViewById(com.gmx.emoji.goo.R.id.setup_welcome_image);
+        mWelcomeImageView = (ImageView)findViewById(R.id.setup_welcome_image);
 
-        mActionStart = findViewById(com.gmx.emoji.goo.R.id.setup_start_label);
+        mActionStart = findViewById(R.id.setup_start_label);
         mActionStart.setOnClickListener(this);
-        mActionNext = findViewById(com.gmx.emoji.goo.R.id.setup_next);
+        mActionNext = findViewById(R.id.setup_next);
         mActionNext.setOnClickListener(this);
-        mActionFinish = (TextView)findViewById(com.gmx.emoji.goo.R.id.setup_finish);
+        mActionFinish = (TextView)findViewById(R.id.setup_finish);
         TextViewCompatUtils.setCompoundDrawablesRelativeWithIntrinsicBounds(mActionFinish,
-                getResources().getDrawable(com.gmx.emoji.goo.R.drawable.ic_setup_finish), null, null, null);
+                getResources().getDrawable(R.drawable.ic_setup_finish), null, null, null);
         mActionFinish.setOnClickListener(this);
     }
 
@@ -447,17 +447,17 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
             mStepView = stepView;
             mBulletView = bulletView;
             final Resources res = stepView.getResources();
-            mActivatedColor = res.getColor(com.gmx.emoji.goo.R.color.setup_text_action);
-            mDeactivatedColor = res.getColor(com.gmx.emoji.goo.R.color.setup_text_dark);
+            mActivatedColor = res.getColor(R.color.setup_text_action);
+            mDeactivatedColor = res.getColor(R.color.setup_text_dark);
 
-            final TextView titleView = (TextView)mStepView.findViewById(com.gmx.emoji.goo.R.id.setup_step_title);
+            final TextView titleView = (TextView)mStepView.findViewById(R.id.setup_step_title);
             titleView.setText(res.getString(title, applicationName));
             mInstruction = (instruction == 0) ? null
                     : res.getString(instruction, applicationName);
             mFinishedInstruction = (finishedInstruction == 0) ? null
                     : res.getString(finishedInstruction, applicationName);
 
-            mActionLabel = (TextView)mStepView.findViewById(com.gmx.emoji.goo.R.id.setup_step_action_label);
+            mActionLabel = (TextView)mStepView.findViewById(R.id.setup_step_action_label);
             mActionLabel.setText(res.getString(actionLabel));
             if (actionIcon == 0) {
                 final int paddingEnd = ViewCompatUtils.getPaddingEnd(mActionLabel);
@@ -472,7 +472,7 @@ public final class SetupWizardActivity extends Activity implements View.OnClickL
             mStepView.setVisibility(enabled ? View.VISIBLE : View.GONE);
             mBulletView.setTextColor(enabled ? mActivatedColor : mDeactivatedColor);
             final TextView instructionView = (TextView)mStepView.findViewById(
-                    com.gmx.emoji.goo.R.id.setup_step_instruction);
+                    R.id.setup_step_instruction);
             instructionView.setText(isStepActionAlreadyDone ? mFinishedInstruction : mInstruction);
             mActionLabel.setVisibility(isStepActionAlreadyDone ? View.GONE : View.VISIBLE);
         }

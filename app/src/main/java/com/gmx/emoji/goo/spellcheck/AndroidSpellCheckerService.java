@@ -26,6 +26,7 @@ import android.view.inputmethod.InputMethodSubtype;
 import android.view.textservice.SuggestionsInfo;
 
 import com.android.inputmethod.keyboard.Keyboard;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.KeyboardId;
 import com.gmx.emoji.keyboard.KeyboardLayoutSet;
 import com.gmx.emoji.goo.DictionaryFacilitator;
@@ -93,7 +94,7 @@ public final class AndroidSpellCheckerService extends SpellCheckerService
     public void onCreate() {
         super.onCreate();
         mRecommendedThreshold = Float.parseFloat(
-                getString(com.gmx.emoji.goo.R.string.spellchecker_recommended_threshold_value));
+                getString(R.string.spellchecker_recommended_threshold_value));
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, PREF_USE_CONTACTS_KEY);

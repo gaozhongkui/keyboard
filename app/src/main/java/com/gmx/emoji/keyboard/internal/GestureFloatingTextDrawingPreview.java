@@ -24,6 +24,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.PointerTracker;
 import com.gmx.emoji.goo.SuggestedWords;
 import com.gmx.emoji.goo.common.CoordinateUtils;
@@ -60,19 +61,19 @@ public class GestureFloatingTextDrawingPreview extends AbstractDrawingPreview {
 
         public GesturePreviewTextParams(final TypedArray mainKeyboardViewAttr) {
             mGesturePreviewTextSize = mainKeyboardViewAttr.getDimensionPixelSize(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewTextSize, 0);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewTextSize, 0);
             mGesturePreviewTextColor = mainKeyboardViewAttr.getColor(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewTextColor, 0);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewTextColor, 0);
             mGesturePreviewTextOffset = mainKeyboardViewAttr.getDimensionPixelOffset(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewTextOffset, 0);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewTextOffset, 0);
             mGesturePreviewColor = mainKeyboardViewAttr.getColor(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewColor, 0);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewColor, 0);
             mGesturePreviewHorizontalPadding = mainKeyboardViewAttr.getDimension(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewHorizontalPadding, 0.0f);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewHorizontalPadding, 0.0f);
             mGesturePreviewVerticalPadding = mainKeyboardViewAttr.getDimension(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewVerticalPadding, 0.0f);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewVerticalPadding, 0.0f);
             mGesturePreviewRoundRadius = mainKeyboardViewAttr.getDimension(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_gestureFloatingPreviewRoundRadius, 0.0f);
+                    R.styleable.MainKeyboardView_gestureFloatingPreviewRoundRadius, 0.0f);
             mDisplayWidth = mainKeyboardViewAttr.getResources().getDisplayMetrics().widthPixels;
 
             final Paint textPaint = getTextPaint();

@@ -26,6 +26,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.TextView;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.Key;
 
 import java.util.HashSet;
@@ -113,15 +114,15 @@ public class KeyPreviewView extends TextView {
     private static final int[][][] KEY_PREVIEW_BACKGROUND_STATE_TABLE = {
         { // POSITION_MIDDLE
             {},
-            { com.gmx.emoji.goo.R.attr.state_has_morekeys }
+            { R.attr.state_has_morekeys }
         },
         { // POSITION_LEFT
-            { com.gmx.emoji.goo.R.attr.state_left_edge },
-            { com.gmx.emoji.goo.R.attr.state_left_edge, com.gmx.emoji.goo.R.attr.state_has_morekeys }
+            { R.attr.state_left_edge },
+            { R.attr.state_left_edge, R.attr.state_has_morekeys }
         },
         { // POSITION_RIGHT
-            { com.gmx.emoji.goo.R.attr.state_right_edge },
-            { com.gmx.emoji.goo.R.attr.state_right_edge, com.gmx.emoji.goo.R.attr.state_has_morekeys }
+            { R.attr.state_right_edge },
+            { R.attr.state_right_edge, R.attr.state_has_morekeys }
         }
     };
     private static final int STATE_NORMAL = 0;

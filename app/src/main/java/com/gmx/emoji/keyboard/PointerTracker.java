@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import com.android.inputmethod.keyboard.Keyboard;
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.keyboard.internal.BatchInputArbiter;
 import com.gmx.emoji.keyboard.internal.BatchInputArbiter.BatchInputArbiterListener;
 import com.gmx.emoji.keyboard.internal.BogusMoveEventDetector;
@@ -65,19 +66,19 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
 
         public PointerTrackerParams(final TypedArray mainKeyboardViewAttr) {
             mKeySelectionByDraggingFinger = mainKeyboardViewAttr.getBoolean(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_keySelectionByDraggingFinger, false);
+                    R.styleable.MainKeyboardView_keySelectionByDraggingFinger, false);
             mTouchNoiseThresholdTime = mainKeyboardViewAttr.getInt(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_touchNoiseThresholdTime, 0);
+                    R.styleable.MainKeyboardView_touchNoiseThresholdTime, 0);
             mTouchNoiseThresholdDistance = mainKeyboardViewAttr.getDimensionPixelSize(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_touchNoiseThresholdDistance, 0);
+                    R.styleable.MainKeyboardView_touchNoiseThresholdDistance, 0);
             mSuppressKeyPreviewAfterBatchInputDuration = mainKeyboardViewAttr.getInt(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_suppressKeyPreviewAfterBatchInputDuration, 0);
+                    R.styleable.MainKeyboardView_suppressKeyPreviewAfterBatchInputDuration, 0);
             mKeyRepeatStartTimeout = mainKeyboardViewAttr.getInt(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyRepeatStartTimeout, 0);
+                    R.styleable.MainKeyboardView_keyRepeatStartTimeout, 0);
             mKeyRepeatInterval = mainKeyboardViewAttr.getInt(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_keyRepeatInterval, 0);
+                    R.styleable.MainKeyboardView_keyRepeatInterval, 0);
             mLongPressShiftLockTimeout = mainKeyboardViewAttr.getInt(
-                    com.gmx.emoji.goo.R.styleable.MainKeyboardView_longPressShiftLockTimeout, 0);
+                    R.styleable.MainKeyboardView_longPressShiftLockTimeout, 0);
         }
     }
 
@@ -165,7 +166,7 @@ public final class PointerTracker implements PointerTrackerQueue.Element,
         final Resources res = mainKeyboardViewAttr.getResources();
         sNeedsPhantomSuddenMoveEventHack = Boolean.parseBoolean(
                 ResourceUtils.getDeviceOverrideValue(res,
-                        com.gmx.emoji.goo.R.array.phantom_sudden_move_event_device_list, Boolean.FALSE.toString()));
+                        R.array.phantom_sudden_move_event_device_list, Boolean.FALSE.toString()));
         BogusMoveEventDetector.init(res);
 
         sTimerProxy = timerProxy;

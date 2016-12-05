@@ -16,6 +16,7 @@
 
 package com.gmx.emoji.goo.userdictionary;
 
+import com.gmx.emoji.goo.R;
 import com.gmx.emoji.goo.userdictionary.UserDictionaryAddWordContents.LocaleRenderer;
 
 import android.app.Fragment;
@@ -58,7 +59,7 @@ public class UserDictionaryAddWordFragment extends Fragment
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        getActivity().getActionBar().setTitle(com.gmx.emoji.goo.R.string.edit_personal_dictionary);
+        getActivity().getActionBar().setTitle(R.string.edit_personal_dictionary);
         // Keep the instance so that we remember mContents when configuration changes (eg rotation)
         setRetainInstance(true);
     }
@@ -66,7 +67,7 @@ public class UserDictionaryAddWordFragment extends Fragment
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedState) {
-        mRootView = inflater.inflate(com.gmx.emoji.goo.R.layout.user_dictionary_add_word_fullscreen, null);
+        mRootView = inflater.inflate(R.layout.user_dictionary_add_word_fullscreen, null);
         mIsDeleting = false;
         // If we have a non-null mContents object, it's the old value before a configuration
         // change (eg rotation) so we need to use its values. Otherwise, read from the arguments.
@@ -89,11 +90,11 @@ public class UserDictionaryAddWordFragment extends Fragment
     @Override
     public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
         final MenuItem actionItemAdd = menu.add(0, OPTIONS_MENU_ADD, 0,
-                com.gmx.emoji.goo.R.string.user_dict_settings_add_menu_title).setIcon(com.gmx.emoji.goo.R.drawable.ic_menu_add);
+                R.string.user_dict_settings_add_menu_title).setIcon(R.drawable.ic_menu_add);
         actionItemAdd.setShowAsAction(
                 MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         final MenuItem actionItemDelete = menu.add(0, OPTIONS_MENU_DELETE, 0,
-                com.gmx.emoji.goo.R.string.user_dict_settings_delete).setIcon(android.R.drawable.ic_menu_delete);
+                R.string.user_dict_settings_delete).setIcon(android.R.drawable.ic_menu_delete);
         actionItemDelete.setShowAsAction(
                 MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
@@ -131,7 +132,7 @@ public class UserDictionaryAddWordFragment extends Fragment
         final ArrayList<LocaleRenderer> localesList = mContents.getLocalesList(getActivity());
 
         final Spinner localeSpinner =
-                (Spinner)mRootView.findViewById(com.gmx.emoji.goo.R.id.user_dictionary_add_locale);
+                (Spinner)mRootView.findViewById(R.id.user_dictionary_add_locale);
         final ArrayAdapter<LocaleRenderer> adapter = new ArrayAdapter<>(
                 getActivity(), android.R.layout.simple_spinner_item, localesList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

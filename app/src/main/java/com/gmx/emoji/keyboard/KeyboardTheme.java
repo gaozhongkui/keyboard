@@ -24,6 +24,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.gmx.emoji.compat.BuildCompatUtils;
+import com.gmx.emoji.goo.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,16 +47,16 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
 
     /* package private for testing */
     static final KeyboardTheme[] KEYBOARD_THEMES = {
-        new KeyboardTheme(THEME_ID_ICS, "ICS", com.gmx.emoji.goo.R.style.KeyboardTheme_ICS,
+        new KeyboardTheme(THEME_ID_ICS, "ICS", R.style.KeyboardTheme_ICS,
                 // This has never been selected because we support ICS or later.
                 VERSION_CODES.BASE),
-        new KeyboardTheme(THEME_ID_KLP, "KLP", com.gmx.emoji.goo.R.style.KeyboardTheme_KLP,
+        new KeyboardTheme(THEME_ID_KLP, "KLP", R.style.KeyboardTheme_KLP,
                 // Default theme for ICS, JB, and KLP.
                 VERSION_CODES.ICE_CREAM_SANDWICH),
-        new KeyboardTheme(THEME_ID_LXX_LIGHT, "LXXLight", com.gmx.emoji.goo.R.style.KeyboardTheme_LXX_Light,
+        new KeyboardTheme(THEME_ID_LXX_LIGHT, "LXXLight", R.style.KeyboardTheme_LXX_Light,
                 // Default theme for LXX.
                 Build.VERSION_CODES.LOLLIPOP),
-        new KeyboardTheme(THEME_ID_LXX_DARK, "LXXDark", com.gmx.emoji.goo.R.style.KeyboardTheme_LXX_Dark,
+        new KeyboardTheme(THEME_ID_LXX_DARK, "LXXDark", R.style.KeyboardTheme_LXX_Dark,
                 // This has never been selected as default theme.
                 VERSION_CODES.BASE),
     };
@@ -175,7 +176,7 @@ public final class KeyboardTheme implements Comparable<KeyboardTheme> {
     static KeyboardTheme[] getAvailableThemeArray(final Context context) {
         if (AVAILABLE_KEYBOARD_THEMES == null) {
             final int[] availableThemeIdStringArray = context.getResources().getIntArray(
-                    com.gmx.emoji.goo.R.array.keyboard_theme_ids);
+                    R.array.keyboard_theme_ids);
             final ArrayList<KeyboardTheme> availableThemeList = new ArrayList<>();
             for (final int id : availableThemeIdStringArray) {
                 final KeyboardTheme theme = searchKeyboardThemeById(id, KEYBOARD_THEMES);
